@@ -1,0 +1,14 @@
+workflowVersion: 1.0.0
+sources:
+    my-source:
+        inputs:
+            - location: https://raw.githubusercontent.com/payfone/prove-openapi/main/orchestration.yaml
+        registry:
+            location: registry.speakeasyapi.dev/prove/prove-dev/my-source
+targets:
+    my-first-target:
+        target: typescript
+        source: my-source
+        publish:
+            npm:
+                token: $npm_token
