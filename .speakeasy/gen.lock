@@ -1,23 +1,25 @@
 lockVersion: 2.0.0
 id: a84d4042-f2ee-4a15-a6ed-f9a5bffa02d0
 management:
-  docChecksum: 6eb47b75fa44bde6a91dee16ab8738ed
+  docChecksum: 7dbddf616951e852fbadf018152a4fdf
   docVersion: 1.0.0
-  speakeasyVersion: 1.295.0
-  generationVersion: 2.333.3
-  releaseVersion: 0.0.1
-  configChecksum: 75a4b0d512afaa33beefd085ff87bab8
+  speakeasyVersion: 1.295.1
+  generationVersion: 2.335.5
+  releaseVersion: 0.1.0
+  configChecksum: 837c1b84cf4da595aac80ec23998da1d
+  published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.5
-    core: 3.9.4
+    core: 3.9.6
     globalSecurity: 2.82.9
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.4
     responseFormat: 0.2.3
     sdkHooks: 0.1.0
+    serverIDs: 2.81.2
 generatedFiles:
   - src/sdk/v3.ts
   - src/sdk/sdk.ts
@@ -31,6 +33,7 @@ generatedFiles:
   - src/lib/config.ts
   - src/lib/encodings.ts
   - src/lib/http.ts
+  - src/lib/primitives.ts
   - src/lib/retries.ts
   - src/lib/schemas.ts
   - src/lib/sdks.ts

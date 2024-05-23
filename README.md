@@ -1,7 +1,95 @@
-# prove-sdk-server-typescript
-TypeScript Server SDK for Prove APIs - Customer Access
+# Prove Server SDK in TypeScript
+
+## SDK Installation
+
+Download the SDK from this repository.
 
 <!-- No SDK Installation -->
+
+## SDK Example Usage
+
+### Example
+
+```typescript
+import { ProveAPI } from "@prove/prove-api";
+import { NewOAuthClientFromEnv, OAuthClient, WithAuthorization } from "@prove/prove-api/sdk/oauth"
+
+async function run() {
+    // Create OAuth client from environment variables.
+    const oauthClient: OAuthClient = NewOAuthClientFromEnv()
+
+    const proveEnv = "uat-us" // Use UAT in US region.
+
+    // Create client for Prove Auth API.
+    const sdk = new ProveAPI({
+        server: proveEnv,
+        security: WithAuthorization(oauthClient, proveEnv)
+    });
+
+    // FIXME: Add endpoints here.
+
+    // // Build the AuthStart request.
+    // const authStartRequest = new authstart.AuthStartBuilder()
+    //     .withProveKey()
+    //     .build()
+
+    // // Start the auth flow.
+    // const authStartResponse = await sdk.auth.authStartRequest(authStartRequest)
+    // const authStartResult = authStartResponse.authStartResponse
+    // if (!authStartResult) {
+    //     console.error("Auth start error.")
+    //     return
+    // }
+
+    // // Get the authToken for the client SDK.
+    // const authToken = authStartResult.authToken
+    // const authId = authStartResult.authId
+
+    // //
+    // // Client SDK work happens here.
+    // //
+
+    // // Get the auth flow results.
+    // const authFinishResponse = await sdk.auth.authFinishRequest({authId: authId})
+    // const authFinishResult = authfinish.authFinishResult(authFinishResponse)
+
+    // if (!authFinishResult.success()) {
+    //     console.error("One or more authenticators failed: " + authFinishResult.errorString())
+    // } else {
+    //     console.info("Auth success!")
+    // }
+}
+
+run();
+```
+
+### OAuth for Authentication
+
+In order to access the Prove Auth API, you need to authenticate with your OAuth credentials. We provide a helper function that loads them already from environment variables:
+
+```typescript
+// Create OAuth client from environment variables.
+const oauthClient: OAuthClient = NewOAuthClientFromEnv()
+```
+
+The credentials are pulled from these environment variables:
+- `PROVE_USERNAME` - OAuth username.
+- `PROVE_PASSWORD` - OAuth password.
+- `PROVE_CLIENT_ID` - optional client ID - this is only required for Europe and India regions.
+- `PROVE_SUBCLIENT_ID` - optional subclient ID - this may be required for Europe and India regions.
+
+If you prefer to load the variables another way, you can pass them in to this function instead:
+
+```typescript
+// Create OAuth client with passed in variables.
+const proveOAuthClient = new OAuthClient(
+    proveUsername,
+    provePassword,
+    proveClientID,
+    proveSubClientID,
+)
+```
+
 <!-- No SDK Example Usage -->
 <!-- No SDK Available Operations -->
 <!-- Start Requirements [requirements] -->
@@ -15,10 +103,10 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 
 All SDK methods return a response object or throw an error. If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
 
-| Error Object     | Status Code      | Content Type     |
-| ---------------- | ---------------- | ---------------- |
-| errors.ErrorT    | 400,500          | application/json |
-| errors.SDKError  | 4xx-5xx          | */*              |
+| Error Object    | Status Code | Content Type     |
+| --------------- | ----------- | ---------------- |
+| errors.ErrorT   | 400,500     | application/json |
+| errors.SDKError | 4xx-5xx     | */*              |
 
 Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging. 
 
@@ -70,19 +158,19 @@ run();
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
+### Select Server by Name
 
-You can override the default server globally by passing a server index to the `serverIdx` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+You can override the default server globally by passing a server name to the `server` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.uat.proveapis.com/` | None |
+| Name     | Server                          | Variables |
+| -------- | ------------------------------- | --------- |
+| `uat-us` | `https://api.uat.proveapis.com` | None      |
 
 ```typescript
 import { Proveapi } from "@prove/prove-api";
 
 const proveapi = new Proveapi({
-    serverIdx: 0,
+    server: "uat-us",
     auth: "<YOUR_AUTH_HERE>",
 });
 
@@ -110,7 +198,7 @@ The default server can also be overridden globally by passing a URL to the `serv
 import { Proveapi } from "@prove/prove-api";
 
 const proveapi = new Proveapi({
-    serverURL: "https://api.uat.proveapis.com/",
+    serverURL: "https://api.uat.proveapis.com",
     auth: "<YOUR_AUTH_HERE>",
 });
 
@@ -186,9 +274,9 @@ const sdk = new Proveapi({ httpClient });
 
 This SDK supports the following security scheme globally:
 
-| Name         | Type         | Scheme       |
-| ------------ | ------------ | ------------ |
-| `auth`       | oauth2       | OAuth2 token |
+| Name   | Type   | Scheme       |
+| ------ | ------ | ------------ |
+| `auth` | oauth2 | OAuth2 token |
 
 To authenticate with the API the `auth` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
