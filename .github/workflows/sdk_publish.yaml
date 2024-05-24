@@ -21,6 +21,9 @@ jobs:
   #     speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v2
