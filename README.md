@@ -11,8 +11,8 @@ Download the SDK from this repository.
 ### Example
 
 ```typescript
-import { ProveAPI } from "@prove/prove-api";
-import { NewOAuthClientFromEnv, OAuthClient, WithAuthorization } from "@prove/prove-api/sdk/oauth"
+import { ProveAPI } from "@payfone/prove-api";
+import { NewOAuthClientFromEnv, OAuthClient, WithAuthorization } from "@payfone/prove-api/sdk/oauth"
 
 async function run() {
     // Create OAuth client from environment variables.
@@ -103,17 +103,17 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 
 All SDK methods return a response object or throw an error. If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
 
-| Error Object     | Status Code      | Content Type     |
-| ---------------- | ---------------- | ---------------- |
-| errors.ErrorT    | 400,500          | application/json |
-| errors.SDKError  | 4xx-5xx          | */*              |
+| Error Object    | Status Code | Content Type     |
+| --------------- | ----------- | ---------------- |
+| errors.ErrorT   | 400,500     | application/json |
+| errors.SDKError | 4xx-5xx     | */*              |
 
 Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging. 
 
 
 ```typescript
-import { Proveapi } from "@prove/prove-api";
-import * as errors from "@prove/prove-api/models/errors";
+import { Proveapi } from "@payfone/prove-api";
+import * as errors from "@payfone/prove-api/models/errors";
 
 const proveapi = new Proveapi({
     auth: "<YOUR_AUTH_HERE>",
@@ -162,12 +162,12 @@ run();
 
 You can override the default server globally by passing a server name to the `server` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| Name | Server | Variables |
-| ----- | ------ | --------- |
-| `uat-us` | `https://api.uat.proveapis.com` | None |
+| Name     | Server                          | Variables |
+| -------- | ------------------------------- | --------- |
+| `uat-us` | `https://api.uat.proveapis.com` | None      |
 
 ```typescript
-import { Proveapi } from "@prove/prove-api";
+import { Proveapi } from "@payfone/prove-api";
 
 const proveapi = new Proveapi({
     server: "uat-us",
@@ -195,7 +195,7 @@ run();
 The default server can also be overridden globally by passing a URL to the `serverURL` optional parameter when initializing the SDK client instance. For example:
 
 ```typescript
-import { Proveapi } from "@prove/prove-api";
+import { Proveapi } from "@payfone/prove-api";
 
 const proveapi = new Proveapi({
     serverURL: "https://api.uat.proveapis.com",
@@ -236,8 +236,8 @@ custom header and a timeout to requests and how to use the `"requestError"` hook
 to log errors:
 
 ```typescript
-import { Proveapi } from "@prove/prove-api";
-import { HTTPClient } from "@prove/prove-api/lib/http";
+import { Proveapi } from "@payfone/prove-api";
+import { HTTPClient } from "@payfone/prove-api/lib/http";
 
 const httpClient = new HTTPClient({
   // fetcher takes a function that has the same signature as native `fetch`.
@@ -274,13 +274,13 @@ const sdk = new Proveapi({ httpClient });
 
 This SDK supports the following security scheme globally:
 
-| Name         | Type         | Scheme       |
-| ------------ | ------------ | ------------ |
-| `auth`       | oauth2       | OAuth2 token |
+| Name   | Type   | Scheme       |
+| ------ | ------ | ------------ |
+| `auth` | oauth2 | OAuth2 token |
 
 To authenticate with the API the `auth` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
-import { Proveapi } from "@prove/prove-api";
+import { Proveapi } from "@payfone/prove-api";
 
 const proveapi = new Proveapi({
     auth: "<YOUR_AUTH_HERE>",

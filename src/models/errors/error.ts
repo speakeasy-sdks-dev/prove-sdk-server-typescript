@@ -60,26 +60,4 @@ export namespace ErrorT$ {
                 message: v.message,
             });
         });
-
-    export type Outbound = {
-        code?: number | undefined;
-        message: string;
-    };
-
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, ErrorT> = z
-        .instanceof(ErrorT)
-        .transform((v) => v.data$)
-        .pipe(
-            z
-                .object({
-                    code: z.number().int().optional(),
-                    message: z.string(),
-                })
-                .transform((v) => {
-                    return {
-                        ...(v.code === undefined ? null : { code: v.code }),
-                        message: v.message,
-                    };
-                })
-        );
 }

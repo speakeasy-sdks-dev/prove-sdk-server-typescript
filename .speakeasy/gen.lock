@@ -3,10 +3,10 @@ id: a84d4042-f2ee-4a15-a6ed-f9a5bffa02d0
 management:
   docChecksum: 7dbddf616951e852fbadf018152a4fdf
   docVersion: 1.0.0
-  speakeasyVersion: 1.295.3
-  generationVersion: 2.335.5
-  releaseVersion: 0.1.1
-  configChecksum: 67ba887902b1714a41a1ca8d10eabb43
+  speakeasyVersion: 1.296.0
+  generationVersion: 2.337.1
+  releaseVersion: 0.1.2
+  configChecksum: 17a59500136662d59b69209dbe4f27fe
   repoURL: https://github.com/payfone/prove-sdk-server-typescript.git
   installationURL: https://github.com/payfone/prove-sdk-server-typescript
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.5
-    core: 3.9.6
+    core: 3.9.8
     globalSecurity: 2.82.9
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
@@ -35,7 +35,7 @@ generatedFiles:
   - src/lib/config.ts
   - src/lib/encodings.ts
   - src/lib/http.ts
-  - src/lib/primitives.ts
+  - src/lib/is-plain-object.ts
   - src/lib/retries.ts
   - src/lib/schemas.ts
   - src/lib/sdks.ts
