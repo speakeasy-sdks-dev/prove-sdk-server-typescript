@@ -33,7 +33,5 @@ jobs:
         run: npm ci && npm run build
       - name: Publish package on NPM 📦
         run: npm publish
-        with:
-          registry-url: "https://npm.pkg.github.com"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
