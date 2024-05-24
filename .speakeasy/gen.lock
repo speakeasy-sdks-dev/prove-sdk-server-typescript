@@ -3,10 +3,12 @@ id: a84d4042-f2ee-4a15-a6ed-f9a5bffa02d0
 management:
   docChecksum: 7dbddf616951e852fbadf018152a4fdf
   docVersion: 1.0.0
-  speakeasyVersion: 1.295.1
+  speakeasyVersion: 1.295.3
   generationVersion: 2.335.5
-  releaseVersion: 0.1.0
-  configChecksum: 837c1b84cf4da595aac80ec23998da1d
+  releaseVersion: 0.1.1
+  configChecksum: 67ba887902b1714a41a1ca8d10eabb43
+  repoURL: https://github.com/payfone/prove-sdk-server-typescript.git
+  installationURL: https://github.com/payfone/prove-sdk-server-typescript
   published: true
 features:
   typescript:
