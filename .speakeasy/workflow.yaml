@@ -1,0 +1,17 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    my-source:
+        inputs:
+            - location: https://raw.githubusercontent.com/payfone/prove-openapi/main/orchestration.yaml
+              authHeader: Authorization
+              authSecret: $OPENAPI_DOC_AUTH_TOKEN
+        registry:
+            location: registry.speakeasyapi.dev/prove/prove-dev/my-source
+targets:
+    my-first-target:
+        target: typescript
+        source: my-source
+        publish:
+            npm:
+                token: $npm_token

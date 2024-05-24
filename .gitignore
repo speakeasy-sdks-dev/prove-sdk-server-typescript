@@ -1,0 +1,14 @@
+/models
+/models/errors
+/types
+/lib
+/sdk
+/hooks
+/index.*
+/cjs
+/node_modules
+/.tsbuildinfo
+.envrc
+.DS_Store
+openapi.yaml
+.speakeasy/temp
