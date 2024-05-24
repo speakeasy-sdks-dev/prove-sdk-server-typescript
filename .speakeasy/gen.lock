@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.296.0
   generationVersion: 2.337.1
-  releaseVersion: 0.1.2
-  configChecksum: 17a59500136662d59b69209dbe4f27fe
+  releaseVersion: 0.1.3
+  configChecksum: 57d4a69542f9d3d9e012289a43843843
   repoURL: https://github.com/payfone/prove-sdk-server-typescript.git
   installationURL: https://github.com/payfone/prove-sdk-server-typescript
   published: true
