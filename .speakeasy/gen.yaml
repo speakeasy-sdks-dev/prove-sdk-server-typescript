@@ -15,7 +15,7 @@ typescript:
   version: 0.1.0
   additionalDependencies:
     dependencies: {}
-    devDependencies: {}
+    devDependencies: { "node-fetch": "^2.6.7", "@types/node-fetch": "^2.6.11" }
     peerDependencies: {}
   additionalPackageJSON: {}
   author: Speakeasy
@@ -34,6 +34,6 @@ typescript:
   maxMethodParams: 4
   methodArguments: require-security-and-request
   outputModelSuffix: output
-  packageName: '@prove/prove-api'
+  packageName: "@prove/prove-api"
   responseFormat: envelope-http
   templateVersion: v2
