@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a84d4042-f2ee-4a15-a6ed-f9a5bffa02d0
 management:
-  docChecksum: 7dbddf616951e852fbadf018152a4fdf
+  docChecksum: 6366545e0c3b9c978b3bd8f82e00fd19
   docVersion: 1.0.0
-  speakeasyVersion: 1.296.1
-  generationVersion: 2.338.1
-  releaseVersion: 0.1.4
-  configChecksum: ac8354e71692424b4bae1e09add855ee
+  speakeasyVersion: 1.299.4
+  generationVersion: 2.338.7
+  releaseVersion: 0.1.5
+  configChecksum: 87d31221fb701ae87a2987555e777dd3
   repoURL: https://github.com/payfone/prove-sdk-server-typescript.git
   installationURL: https://github.com/payfone/prove-sdk-server-typescript
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.5
-    core: 3.9.9
+    core: 3.9.10
     globalSecurity: 2.82.9
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0

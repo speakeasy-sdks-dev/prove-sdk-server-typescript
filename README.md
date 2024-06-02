@@ -112,8 +112,8 @@ Validation errors can also occur when either method arguments or data returned f
 
 
 ```typescript
-import { Proveapi } from "@payfone/prove-api";
-import * as errors from "@payfone/prove-api/models/errors";
+import { Proveapi } from "@prove-identity/prove-api";
+import * as errors from "@prove-identity/prove-api/models/errors";
 
 const proveapi = new Proveapi({
     auth: "<YOUR_AUTH_HERE>",
@@ -164,13 +164,14 @@ You can override the default server globally by passing a server name to the `se
 
 | Name | Server | Variables |
 | ----- | ------ | --------- |
-| `uat-us` | `https://api.uat.proveapis.com` | None |
+| `uat-us` | `https://link.uat.proveapis.com` | None |
+| `prod-us` | `https://link.proveapis.com` | None |
 
 ```typescript
-import { Proveapi } from "@payfone/prove-api";
+import { Proveapi } from "@prove-identity/prove-api";
 
 const proveapi = new Proveapi({
-    server: "uat-us",
+    server: "prod-us",
     auth: "<YOUR_AUTH_HERE>",
 });
 
@@ -195,10 +196,10 @@ run();
 The default server can also be overridden globally by passing a URL to the `serverURL` optional parameter when initializing the SDK client instance. For example:
 
 ```typescript
-import { Proveapi } from "@payfone/prove-api";
+import { Proveapi } from "@prove-identity/prove-api";
 
 const proveapi = new Proveapi({
-    serverURL: "https://api.uat.proveapis.com",
+    serverURL: "https://link.uat.proveapis.com",
     auth: "<YOUR_AUTH_HERE>",
 });
 
@@ -236,8 +237,8 @@ custom header and a timeout to requests and how to use the `"requestError"` hook
 to log errors:
 
 ```typescript
-import { Proveapi } from "@payfone/prove-api";
-import { HTTPClient } from "@payfone/prove-api/lib/http";
+import { Proveapi } from "@prove-identity/prove-api";
+import { HTTPClient } from "@prove-identity/prove-api/lib/http";
 
 const httpClient = new HTTPClient({
   // fetcher takes a function that has the same signature as native `fetch`.
@@ -280,7 +281,7 @@ This SDK supports the following security scheme globally:
 
 To authenticate with the API the `auth` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
-import { Proveapi } from "@payfone/prove-api";
+import { Proveapi } from "@prove-identity/prove-api";
 
 const proveapi = new Proveapi({
     auth: "<YOUR_AUTH_HERE>",

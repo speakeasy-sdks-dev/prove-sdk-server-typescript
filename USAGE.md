@@ -1,6 +1,6 @@
 <!-- Start SDK Example Usage [usage] -->
 ```typescript
-import { Proveapi } from "@payfone/prove-api";
+import { Proveapi } from "@prove-identity/prove-api";
 
 const proveapi = new Proveapi({
     auth: "<YOUR_AUTH_HERE>",

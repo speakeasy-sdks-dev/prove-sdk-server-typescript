@@ -11,10 +11,15 @@ import { Params, pathToFunc } from "./url";
  */
 export const ServerUatUs = "uat-us";
 /**
+ * Prod for US Region
+ */
+export const ServerProdUs = "prod-us";
+/**
  * Contains the list of servers available to the SDK
  */
 export const ServerList = {
-    [ServerUatUs]: "https://api.uat.proveapis.com",
+    [ServerUatUs]: "https://link.uat.proveapis.com",
+    [ServerProdUs]: "https://link.proveapis.com",
 } as const;
 
 export type SDKOptions = {
@@ -52,7 +57,7 @@ export function serverURLFromOptions(options: SDKOptions): URL | null {
 export const SDK_METADATA = {
     language: "typescript",
     openapiDocVersion: "1.0.0",
-    sdkVersion: "0.1.4",
-    genVersion: "2.338.1",
-    userAgent: "speakeasy-sdk/typescript 0.1.4 2.338.1 1.0.0 @payfone/prove-api",
+    sdkVersion: "0.1.5",
+    genVersion: "2.338.7",
+    userAgent: "speakeasy-sdk/typescript 0.1.5 2.338.7 1.0.0 @prove-identity/prove-api",
 } as const;
