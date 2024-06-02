@@ -13,12 +13,6 @@ permissions:
       - RELEASES.md
       - "*/RELEASES.md"
 jobs:
-  # publish:
-  #   uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
-  #   secrets:
-  #     github_access_token: ${{ secrets.GITHUB_TOKEN }}
-  #     npm_token: ${{ secrets.NPM_TOKEN }}
-  #     speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
   publish:
     runs-on: ubuntu-latest
     permissions:
@@ -38,3 +32,8 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  release:
+    uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
+    secrets:
+      github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
