@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.299.4
   generationVersion: 2.338.7
-  releaseVersion: 0.1.6
-  configChecksum: df6be43d14334b063745f5bedbcb2b90
+  releaseVersion: 0.1.7
+  configChecksum: eba6310cb9229a2dea5234f2fdef207d
   repoURL: https://github.com/prove-identity/prove-sdk-server-typescript.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-typescript
   published: true
