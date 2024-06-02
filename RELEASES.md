@@ -29,3 +29,13 @@ Based on:
 - [typescript v0.1.4] .
 ### Releases
 - [NPM v0.1.4] https://www.npmjs.com/package/@payfone/prove-api/v/0.1.4 - .
+
+## 2024-06-02 19:23:32
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.299.4 (2.338.7) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.1.6] .
+### Releases
+- [NPM v0.1.6] https://www.npmjs.com/package/@prove-identity/prove-api/v/0.1.6 - .
