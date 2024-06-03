@@ -8,7 +8,7 @@ export type V3ChallengeRequest = {
     /**
      * Correlation ID is the unique ID of the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow.
      */
-    correlationId?: string | undefined;
+    correlationId: string;
     /**
      * DOB is the date of birth in this format: YYYYY-MM-DD. Acceptable characters are: numeric with symbol '-'.
      */
@@ -23,35 +23,35 @@ export type V3ChallengeRequest = {
 export namespace V3ChallengeRequest$ {
     export const inboundSchema: z.ZodType<V3ChallengeRequest, z.ZodTypeDef, unknown> = z
         .object({
-            correlationId: z.string().default("713189b8-5555-4b08-83ba-75d08780aebd"),
-            dob: z.string().default("2024-05-02 00:00:00 +0000 UTC"),
-            last4SSN: z.string().default("1234"),
+            correlationId: z.string(),
+            dob: z.string().optional(),
+            last4SSN: z.string().optional(),
         })
         .transform((v) => {
             return {
                 correlationId: v.correlationId,
-                dob: v.dob,
-                last4SSN: v.last4SSN,
+                ...(v.dob === undefined ? null : { dob: v.dob }),
+                ...(v.last4SSN === undefined ? null : { last4SSN: v.last4SSN }),
             };
         });
 
     export type Outbound = {
         correlationId: string;
-        dob: string;
-        last4SSN: string;
+        dob?: string | undefined;
+        last4SSN?: string | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3ChallengeRequest> = z
         .object({
-            correlationId: z.string().default("713189b8-5555-4b08-83ba-75d08780aebd"),
-            dob: z.string().default("2024-05-02 00:00:00 +0000 UTC"),
-            last4SSN: z.string().default("1234"),
+            correlationId: z.string(),
+            dob: z.string().optional(),
+            last4SSN: z.string().optional(),
         })
         .transform((v) => {
             return {
                 correlationId: v.correlationId,
-                dob: v.dob,
-                last4SSN: v.last4SSN,
+                ...(v.dob === undefined ? null : { dob: v.dob }),
+                ...(v.last4SSN === undefined ? null : { last4SSN: v.last4SSN }),
             };
         });
 }
