@@ -31,49 +31,49 @@ export type AddressEntry = {
 export namespace AddressEntry$ {
     export const inboundSchema: z.ZodType<AddressEntry, z.ZodTypeDef, unknown> = z
         .object({
-            address: z.string().default("39 South Trail"),
-            city: z.string().default("San Antonio"),
+            address: z.string().optional(),
+            city: z.string().optional(),
             extendedAddress: z.string().optional(),
-            postalCode: z.string().default("78285"),
-            region: z.string().default("TX"),
+            postalCode: z.string().optional(),
+            region: z.string().optional(),
         })
         .transform((v) => {
             return {
-                address: v.address,
-                city: v.city,
+                ...(v.address === undefined ? null : { address: v.address }),
+                ...(v.city === undefined ? null : { city: v.city }),
                 ...(v.extendedAddress === undefined
                     ? null
                     : { extendedAddress: v.extendedAddress }),
-                postalCode: v.postalCode,
-                region: v.region,
+                ...(v.postalCode === undefined ? null : { postalCode: v.postalCode }),
+                ...(v.region === undefined ? null : { region: v.region }),
             };
         });
 
     export type Outbound = {
-        address: string;
-        city: string;
+        address?: string | undefined;
+        city?: string | undefined;
         extendedAddress?: string | undefined;
-        postalCode: string;
-        region: string;
+        postalCode?: string | undefined;
+        region?: string | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AddressEntry> = z
         .object({
-            address: z.string().default("39 South Trail"),
-            city: z.string().default("San Antonio"),
+            address: z.string().optional(),
+            city: z.string().optional(),
             extendedAddress: z.string().optional(),
-            postalCode: z.string().default("78285"),
-            region: z.string().default("TX"),
+            postalCode: z.string().optional(),
+            region: z.string().optional(),
         })
         .transform((v) => {
             return {
-                address: v.address,
-                city: v.city,
+                ...(v.address === undefined ? null : { address: v.address }),
+                ...(v.city === undefined ? null : { city: v.city }),
                 ...(v.extendedAddress === undefined
                     ? null
                     : { extendedAddress: v.extendedAddress }),
-                postalCode: v.postalCode,
-                region: v.region,
+                ...(v.postalCode === undefined ? null : { postalCode: v.postalCode }),
+                ...(v.region === undefined ? null : { region: v.region }),
             };
         });
 }

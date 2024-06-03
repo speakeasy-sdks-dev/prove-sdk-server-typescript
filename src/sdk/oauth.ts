@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import * as url from 'url';
 import { Security } from "../models/components";
 import { optEnv, reqEnv } from "./env";
-import { ServerUatUs } from "../lib/config";
+import { ServerUatUs, ServerProdUs } from "../lib/config";
 
 interface OAuthTokenResponse {
     access_token: string;
@@ -10,7 +10,8 @@ interface OAuthTokenResponse {
 }
 
 export const OAuthServerList: { [key: string]: string } = {
-    [ServerUatUs]: 'https://oapi.uat.prove-auth.proveapis.com',
+    [ServerUatUs]: 'https://link.uat.proveapis.com',
+    [ServerProdUs]: 'https://link.proveapis.com',
 } as const;
 
 export class OAuthClient {
@@ -60,8 +61,7 @@ export class OAuthClient {
             };
         }
 
-
-        const tokenServiceURL = `${URL}/token`;
+        const tokenServiceURL = `${URL}/v3/token`;
 
         const data = new url.URLSearchParams();
         data.append('username', this.username);

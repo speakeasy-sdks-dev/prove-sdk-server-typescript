@@ -24,7 +24,7 @@ export type V3StartRequest = {
     /**
      * Flow type is based on the method used  - either desktop for native for iOS/Android native apps or mobile web. Acceptable options are: native or web.
      */
-    flowType?: string | undefined;
+    flowType: string;
     /**
      * IP address is the IP address of the device of the customer. Acceptable characters are: numeric with symbols ':.'.
      */
@@ -43,60 +43,60 @@ export type V3StartRequest = {
 export namespace V3StartRequest$ {
     export const inboundSchema: z.ZodType<V3StartRequest, z.ZodTypeDef, unknown> = z
         .object({
-            deviceId: z.string().default("713189b8-5555-4b08-83ba-75d08780aebd"),
-            dob: z.string().default("2024-05-02 00:00:00 +0000 UTC"),
-            emailAddress: z.string().default("jdoe@example.com"),
-            finalTargetUrl: z.string().default("https://www.example.com/landing-page"),
-            flowType: z.string().default("mobile"),
-            ipAddress: z.string().default("10.0.0.1"),
-            last4SSN: z.string().default("1234"),
-            phoneNumber: z.string().default("12065550100"),
+            deviceId: z.string().optional(),
+            dob: z.string().optional(),
+            emailAddress: z.string().optional(),
+            finalTargetUrl: z.string().optional(),
+            flowType: z.string(),
+            ipAddress: z.string().optional(),
+            last4SSN: z.string().optional(),
+            phoneNumber: z.string().optional(),
         })
         .transform((v) => {
             return {
-                deviceId: v.deviceId,
-                dob: v.dob,
-                emailAddress: v.emailAddress,
-                finalTargetUrl: v.finalTargetUrl,
+                ...(v.deviceId === undefined ? null : { deviceId: v.deviceId }),
+                ...(v.dob === undefined ? null : { dob: v.dob }),
+                ...(v.emailAddress === undefined ? null : { emailAddress: v.emailAddress }),
+                ...(v.finalTargetUrl === undefined ? null : { finalTargetUrl: v.finalTargetUrl }),
                 flowType: v.flowType,
-                ipAddress: v.ipAddress,
-                last4SSN: v.last4SSN,
-                phoneNumber: v.phoneNumber,
+                ...(v.ipAddress === undefined ? null : { ipAddress: v.ipAddress }),
+                ...(v.last4SSN === undefined ? null : { last4SSN: v.last4SSN }),
+                ...(v.phoneNumber === undefined ? null : { phoneNumber: v.phoneNumber }),
             };
         });
 
     export type Outbound = {
-        deviceId: string;
-        dob: string;
-        emailAddress: string;
-        finalTargetUrl: string;
+        deviceId?: string | undefined;
+        dob?: string | undefined;
+        emailAddress?: string | undefined;
+        finalTargetUrl?: string | undefined;
         flowType: string;
-        ipAddress: string;
-        last4SSN: string;
-        phoneNumber: string;
+        ipAddress?: string | undefined;
+        last4SSN?: string | undefined;
+        phoneNumber?: string | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3StartRequest> = z
         .object({
-            deviceId: z.string().default("713189b8-5555-4b08-83ba-75d08780aebd"),
-            dob: z.string().default("2024-05-02 00:00:00 +0000 UTC"),
-            emailAddress: z.string().default("jdoe@example.com"),
-            finalTargetUrl: z.string().default("https://www.example.com/landing-page"),
-            flowType: z.string().default("mobile"),
-            ipAddress: z.string().default("10.0.0.1"),
-            last4SSN: z.string().default("1234"),
-            phoneNumber: z.string().default("12065550100"),
+            deviceId: z.string().optional(),
+            dob: z.string().optional(),
+            emailAddress: z.string().optional(),
+            finalTargetUrl: z.string().optional(),
+            flowType: z.string(),
+            ipAddress: z.string().optional(),
+            last4SSN: z.string().optional(),
+            phoneNumber: z.string().optional(),
         })
         .transform((v) => {
             return {
-                deviceId: v.deviceId,
-                dob: v.dob,
-                emailAddress: v.emailAddress,
-                finalTargetUrl: v.finalTargetUrl,
+                ...(v.deviceId === undefined ? null : { deviceId: v.deviceId }),
+                ...(v.dob === undefined ? null : { dob: v.dob }),
+                ...(v.emailAddress === undefined ? null : { emailAddress: v.emailAddress }),
+                ...(v.finalTargetUrl === undefined ? null : { finalTargetUrl: v.finalTargetUrl }),
                 flowType: v.flowType,
-                ipAddress: v.ipAddress,
-                last4SSN: v.last4SSN,
-                phoneNumber: v.phoneNumber,
+                ...(v.ipAddress === undefined ? null : { ipAddress: v.ipAddress }),
+                ...(v.last4SSN === undefined ? null : { last4SSN: v.last4SSN }),
+                ...(v.phoneNumber === undefined ? null : { phoneNumber: v.phoneNumber }),
             };
         });
 }

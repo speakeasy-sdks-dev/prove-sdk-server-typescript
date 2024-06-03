@@ -8,14 +8,14 @@ export type V3ValidateRequest = {
     /**
      * Correlation ID is the unique ID of the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow.
      */
-    correlationId?: string | undefined;
+    correlationId: string;
 };
 
 /** @internal */
 export namespace V3ValidateRequest$ {
     export const inboundSchema: z.ZodType<V3ValidateRequest, z.ZodTypeDef, unknown> = z
         .object({
-            correlationId: z.string().default("713189b8-5555-4b08-83ba-75d08780aebd"),
+            correlationId: z.string(),
         })
         .transform((v) => {
             return {
@@ -29,7 +29,7 @@ export namespace V3ValidateRequest$ {
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3ValidateRequest> = z
         .object({
-            correlationId: z.string().default("713189b8-5555-4b08-83ba-75d08780aebd"),
+            correlationId: z.string(),
         })
         .transform((v) => {
             return {

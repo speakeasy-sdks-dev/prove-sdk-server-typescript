@@ -37,49 +37,49 @@ export namespace Individual$ {
     export const inboundSchema: z.ZodType<Individual, z.ZodTypeDef, unknown> = z
         .object({
             addresses: z.array(AddressEntry$.inboundSchema).optional(),
-            dob: z.string().default("2024-05-02 00:00:00 +0000 UTC"),
+            dob: z.string().optional(),
             emailAddresses: z.array(z.string()).optional(),
-            firstName: z.string().default("Tod"),
-            lastName: z.string().default("Weedall"),
-            ssn: z.string().default("265228370"),
+            firstName: z.string().optional(),
+            lastName: z.string().optional(),
+            ssn: z.string().optional(),
         })
         .transform((v) => {
             return {
                 ...(v.addresses === undefined ? null : { addresses: v.addresses }),
-                dob: v.dob,
+                ...(v.dob === undefined ? null : { dob: v.dob }),
                 ...(v.emailAddresses === undefined ? null : { emailAddresses: v.emailAddresses }),
-                firstName: v.firstName,
-                lastName: v.lastName,
-                ssn: v.ssn,
+                ...(v.firstName === undefined ? null : { firstName: v.firstName }),
+                ...(v.lastName === undefined ? null : { lastName: v.lastName }),
+                ...(v.ssn === undefined ? null : { ssn: v.ssn }),
             };
         });
 
     export type Outbound = {
         addresses?: Array<AddressEntry$.Outbound> | undefined;
-        dob: string;
+        dob?: string | undefined;
         emailAddresses?: Array<string> | undefined;
-        firstName: string;
-        lastName: string;
-        ssn: string;
+        firstName?: string | undefined;
+        lastName?: string | undefined;
+        ssn?: string | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Individual> = z
         .object({
             addresses: z.array(AddressEntry$.outboundSchema).optional(),
-            dob: z.string().default("2024-05-02 00:00:00 +0000 UTC"),
+            dob: z.string().optional(),
             emailAddresses: z.array(z.string()).optional(),
-            firstName: z.string().default("Tod"),
-            lastName: z.string().default("Weedall"),
-            ssn: z.string().default("265228370"),
+            firstName: z.string().optional(),
+            lastName: z.string().optional(),
+            ssn: z.string().optional(),
         })
         .transform((v) => {
             return {
                 ...(v.addresses === undefined ? null : { addresses: v.addresses }),
-                dob: v.dob,
+                ...(v.dob === undefined ? null : { dob: v.dob }),
                 ...(v.emailAddresses === undefined ? null : { emailAddresses: v.emailAddresses }),
-                firstName: v.firstName,
-                lastName: v.lastName,
-                ssn: v.ssn,
+                ...(v.firstName === undefined ? null : { firstName: v.firstName }),
+                ...(v.lastName === undefined ? null : { lastName: v.lastName }),
+                ...(v.ssn === undefined ? null : { ssn: v.ssn }),
             };
         });
 }
