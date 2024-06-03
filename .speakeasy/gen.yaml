@@ -12,12 +12,12 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: true
 typescript:
-  version: 0.2.4
+  version: 0.2.5
   additionalDependencies:
-    dependencies: {}
+    dependencies:
+      url: ^0.11.3
     devDependencies:
       '@types/node': ^20.14.0
-      url: ^0.11.3
     peerDependencies: {}
   additionalPackageJSON: {}
   author: Speakeasy
