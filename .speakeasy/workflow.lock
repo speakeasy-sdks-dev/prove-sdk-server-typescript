@@ -2,18 +2,17 @@ speakeasyVersion: 1.299.6
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:7c9472d1fd05d2240ee6bcbef689f65e656e491d8487d77203f62b9441483eb8
-        sourceBlobDigest: sha256:78f74c3f097e2dc7e3fabea9dc7482859a54b54b03bb4d040f42a9b4ca02ab71
+        sourceRevisionDigest: sha256:1a0589a631319c154259a7fbd3200037bf0d747bcf51fc909a476c4dd37cbf29
+        sourceBlobDigest: sha256:856771077c61793b782d3d36387c436a33d0f961d3a7c8ce35b542bdfef985a3
         tags:
             - latest
-            - main
 targets:
     my-first-target:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:7c9472d1fd05d2240ee6bcbef689f65e656e491d8487d77203f62b9441483eb8
-        sourceBlobDigest: sha256:78f74c3f097e2dc7e3fabea9dc7482859a54b54b03bb4d040f42a9b4ca02ab71
-        outLocation: /github/workspace/repo
+        sourceRevisionDigest: sha256:1a0589a631319c154259a7fbd3200037bf0d747bcf51fc909a476c4dd37cbf29
+        sourceBlobDigest: sha256:856771077c61793b782d3d36387c436a33d0f961d3a7c8ce35b542bdfef985a3
+        outLocation: /Users/jspurrier/godev/proveauth/prove-sdk-server-typescript
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
