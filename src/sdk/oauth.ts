@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import * as url from 'url';
 import { Security } from "../models/components";
 import { optEnv, reqEnv } from "./env";

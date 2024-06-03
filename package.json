@@ -1,6 +1,6 @@
 {
   "name": "@prove-identity/prove-api",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Speakeasy",  
   "main": "./index.js",
   "sideEffects": false,
@@ -18,13 +18,12 @@
   },
   "devDependencies": {
     "@types/jsonpath": "^0.2.4",
-    "@types/node-fetch": "^2.6.11",
+    "@types/node": "^20.14.0",
     "@typescript-eslint/eslint-plugin": "^7.7.1",
     "@typescript-eslint/parser": "^7.7.1",
     "eslint": "^8.57.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
-    "node-fetch": "^2.6.7",
     "typescript": "^5.4.5",
     "zod": "^3.23.4"
   },

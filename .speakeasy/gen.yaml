@@ -12,12 +12,11 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: true
 typescript:
-  version: 0.2.0
+  version: 0.2.1
   additionalDependencies:
     dependencies: {}
     devDependencies:
-      '@types/node-fetch': ^2.6.11
-      node-fetch: ^2.6.7
+      '@types/node': ^20.14.0
     peerDependencies: {}
   additionalPackageJSON: {}
   author: Speakeasy
