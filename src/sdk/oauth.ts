@@ -52,12 +52,10 @@ export class OAuthClient {
         return this.accessToken;
     }
 
-    async AccessToken(URL: string): Promise<Security> {
+    async AccessToken(URL: string): Promise<string> {
         const token = await this.validToken();
         if (token) {
-            return {
-                auth: token
-            };
+            return token;
         }
 
         const tokenServiceURL = `${URL}/v3/token`;
@@ -85,9 +83,7 @@ export class OAuthClient {
             .then((data: OAuthTokenResponse) => {
                 this.accessToken = data.access_token;
                 this.expiresAt = new Date(Date.now() + data.expires_in * 1000);
-                return {
-                    auth: this.accessToken
-                }
+                return this.accessToken;
             });
     }
 }
@@ -95,7 +91,7 @@ export class OAuthClient {
 export function WithAuthorization(oauthClient: OAuthClient, serverEnv: string) {
     const serverURL = OAuthServerList[serverEnv] || serverEnv;
 
-    return async (): Promise<Security> => {
+    return async (): Promise<string> => {
         return await oauthClient.AccessToken(serverURL);
     };
 }
