@@ -21,19 +21,11 @@ export type V3ValidateResponse = {
 
 /** @internal */
 export namespace V3ValidateResponse$ {
-    export const inboundSchema: z.ZodType<V3ValidateResponse, z.ZodTypeDef, unknown> = z
-        .object({
-            challengeMissing: z.boolean(),
-            next: z.record(z.string()),
-            success: z.boolean(),
-        })
-        .transform((v) => {
-            return {
-                challengeMissing: v.challengeMissing,
-                next: v.next,
-                success: v.success,
-            };
-        });
+    export const inboundSchema: z.ZodType<V3ValidateResponse, z.ZodTypeDef, unknown> = z.object({
+        challengeMissing: z.boolean(),
+        next: z.record(z.string()),
+        success: z.boolean(),
+    });
 
     export type Outbound = {
         challengeMissing: boolean;
@@ -41,17 +33,9 @@ export namespace V3ValidateResponse$ {
         success: boolean;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3ValidateResponse> = z
-        .object({
-            challengeMissing: z.boolean(),
-            next: z.record(z.string()),
-            success: z.boolean(),
-        })
-        .transform((v) => {
-            return {
-                challengeMissing: v.challengeMissing,
-                next: v.next,
-                success: v.success,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3ValidateResponse> = z.object({
+        challengeMissing: z.boolean(),
+        next: z.record(z.string()),
+        success: z.boolean(),
+    });
 }

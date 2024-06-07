@@ -29,25 +29,13 @@ export type AddressEntry = {
 
 /** @internal */
 export namespace AddressEntry$ {
-    export const inboundSchema: z.ZodType<AddressEntry, z.ZodTypeDef, unknown> = z
-        .object({
-            address: z.string().optional(),
-            city: z.string().optional(),
-            extendedAddress: z.string().optional(),
-            postalCode: z.string().optional(),
-            region: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                ...(v.address === undefined ? null : { address: v.address }),
-                ...(v.city === undefined ? null : { city: v.city }),
-                ...(v.extendedAddress === undefined
-                    ? null
-                    : { extendedAddress: v.extendedAddress }),
-                ...(v.postalCode === undefined ? null : { postalCode: v.postalCode }),
-                ...(v.region === undefined ? null : { region: v.region }),
-            };
-        });
+    export const inboundSchema: z.ZodType<AddressEntry, z.ZodTypeDef, unknown> = z.object({
+        address: z.string().optional(),
+        city: z.string().optional(),
+        extendedAddress: z.string().optional(),
+        postalCode: z.string().optional(),
+        region: z.string().optional(),
+    });
 
     export type Outbound = {
         address?: string | undefined;
@@ -57,23 +45,11 @@ export namespace AddressEntry$ {
         region?: string | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AddressEntry> = z
-        .object({
-            address: z.string().optional(),
-            city: z.string().optional(),
-            extendedAddress: z.string().optional(),
-            postalCode: z.string().optional(),
-            region: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                ...(v.address === undefined ? null : { address: v.address }),
-                ...(v.city === undefined ? null : { city: v.city }),
-                ...(v.extendedAddress === undefined
-                    ? null
-                    : { extendedAddress: v.extendedAddress }),
-                ...(v.postalCode === undefined ? null : { postalCode: v.postalCode }),
-                ...(v.region === undefined ? null : { region: v.region }),
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AddressEntry> = z.object({
+        address: z.string().optional(),
+        city: z.string().optional(),
+        extendedAddress: z.string().optional(),
+        postalCode: z.string().optional(),
+        region: z.string().optional(),
+    });
 }

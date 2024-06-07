@@ -12,5 +12,7 @@ export * from "./v3completerequest";
 export * from "./v3completeresponse";
 export * from "./v3startrequest";
 export * from "./v3startresponse";
+export * from "./v3tokenrequest";
+export * from "./v3tokenresponse";
 export * from "./v3validaterequest";
 export * from "./v3validateresponse";

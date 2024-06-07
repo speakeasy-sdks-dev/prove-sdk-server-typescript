@@ -21,19 +21,11 @@ export type V3StartResponse = {
 
 /** @internal */
 export namespace V3StartResponse$ {
-    export const inboundSchema: z.ZodType<V3StartResponse, z.ZodTypeDef, unknown> = z
-        .object({
-            authToken: z.string(),
-            correlationId: z.string(),
-            next: z.record(z.string()),
-        })
-        .transform((v) => {
-            return {
-                authToken: v.authToken,
-                correlationId: v.correlationId,
-                next: v.next,
-            };
-        });
+    export const inboundSchema: z.ZodType<V3StartResponse, z.ZodTypeDef, unknown> = z.object({
+        authToken: z.string(),
+        correlationId: z.string(),
+        next: z.record(z.string()),
+    });
 
     export type Outbound = {
         authToken: string;
@@ -41,17 +33,9 @@ export namespace V3StartResponse$ {
         next: { [k: string]: string };
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3StartResponse> = z
-        .object({
-            authToken: z.string(),
-            correlationId: z.string(),
-            next: z.record(z.string()),
-        })
-        .transform((v) => {
-            return {
-                authToken: v.authToken,
-                correlationId: v.correlationId,
-                next: v.next,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3StartResponse> = z.object({
+        authToken: z.string(),
+        correlationId: z.string(),
+        next: z.record(z.string()),
+    });
 }

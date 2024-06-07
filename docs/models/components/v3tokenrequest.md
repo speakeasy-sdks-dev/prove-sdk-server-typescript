@@ -1,0 +1,11 @@
+# V3TokenRequest
+
+
+## Fields
+
+| Field                                                                 | Type                                                                  | Required                                                              | Description                                                           | Example                                                               |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `clientId`                                                            | *string*                                                              | :heavy_minus_sign:                                                    | ClientID is the optional client ID.                                   | customer_id                                                           |
+| `grantType`                                                           | *string*                                                              | :heavy_check_mark:                                                    | GrantType only allows option: `password`.                             | password                                                              |
+| `password`                                                            | *string*                                                              | :heavy_check_mark:                                                    | Password is the secret ID provided to the customer during onboarding. | password                                                              |
+| `username`                                                            | *string*                                                              | :heavy_check_mark:                                                    | Username is the ID provided to the customer during onboarding.        | jdoe                                                                  |

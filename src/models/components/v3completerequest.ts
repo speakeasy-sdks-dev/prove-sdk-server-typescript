@@ -15,32 +15,18 @@ export type V3CompleteRequest = {
 
 /** @internal */
 export namespace V3CompleteRequest$ {
-    export const inboundSchema: z.ZodType<V3CompleteRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            correlationId: z.string(),
-            individual: Individual$.inboundSchema,
-        })
-        .transform((v) => {
-            return {
-                correlationId: v.correlationId,
-                individual: v.individual,
-            };
-        });
+    export const inboundSchema: z.ZodType<V3CompleteRequest, z.ZodTypeDef, unknown> = z.object({
+        correlationId: z.string(),
+        individual: Individual$.inboundSchema,
+    });
 
     export type Outbound = {
         correlationId: string;
         individual: Individual$.Outbound;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3CompleteRequest> = z
-        .object({
-            correlationId: z.string(),
-            individual: Individual$.outboundSchema,
-        })
-        .transform((v) => {
-            return {
-                correlationId: v.correlationId,
-                individual: v.individual,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3CompleteRequest> = z.object({
+        correlationId: z.string(),
+        individual: Individual$.outboundSchema,
+    });
 }

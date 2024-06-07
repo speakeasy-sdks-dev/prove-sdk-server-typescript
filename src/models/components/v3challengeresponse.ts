@@ -19,19 +19,11 @@ export type V3ChallengeResponse = {
 
 /** @internal */
 export namespace V3ChallengeResponse$ {
-    export const inboundSchema: z.ZodType<V3ChallengeResponse, z.ZodTypeDef, unknown> = z
-        .object({
-            individual: Individual$.inboundSchema,
-            next: z.record(z.string()),
-            success: z.boolean(),
-        })
-        .transform((v) => {
-            return {
-                individual: v.individual,
-                next: v.next,
-                success: v.success,
-            };
-        });
+    export const inboundSchema: z.ZodType<V3ChallengeResponse, z.ZodTypeDef, unknown> = z.object({
+        individual: Individual$.inboundSchema,
+        next: z.record(z.string()),
+        success: z.boolean(),
+    });
 
     export type Outbound = {
         individual: Individual$.Outbound;
@@ -39,17 +31,9 @@ export namespace V3ChallengeResponse$ {
         success: boolean;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3ChallengeResponse> = z
-        .object({
-            individual: Individual$.outboundSchema,
-            next: z.record(z.string()),
-            success: z.boolean(),
-        })
-        .transform((v) => {
-            return {
-                individual: v.individual,
-                next: v.next,
-                success: v.success,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3ChallengeResponse> = z.object({
+        individual: Individual$.outboundSchema,
+        next: z.record(z.string()),
+        success: z.boolean(),
+    });
 }

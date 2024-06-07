@@ -10,27 +10,15 @@ export type Security = {
 
 /** @internal */
 export namespace Security$ {
-    export const inboundSchema: z.ZodType<Security, z.ZodTypeDef, unknown> = z
-        .object({
-            auth: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                ...(v.auth === undefined ? null : { auth: v.auth }),
-            };
-        });
+    export const inboundSchema: z.ZodType<Security, z.ZodTypeDef, unknown> = z.object({
+        auth: z.string().optional(),
+    });
 
     export type Outbound = {
         auth?: string | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Security> = z
-        .object({
-            auth: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                ...(v.auth === undefined ? null : { auth: v.auth }),
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Security> = z.object({
+        auth: z.string().optional(),
+    });
 }

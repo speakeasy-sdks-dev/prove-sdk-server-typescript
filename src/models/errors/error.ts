@@ -55,10 +55,7 @@ export namespace ErrorT$ {
             message: z.string(),
         })
         .transform((v) => {
-            return new ErrorT({
-                ...(v.code === undefined ? null : { code: v.code }),
-                message: v.message,
-            });
+            return new ErrorT(v);
         });
 
     export type Outbound = {
@@ -70,16 +67,9 @@ export namespace ErrorT$ {
         .instanceof(ErrorT)
         .transform((v) => v.data$)
         .pipe(
-            z
-                .object({
-                    code: z.number().int().optional(),
-                    message: z.string(),
-                })
-                .transform((v) => {
-                    return {
-                        ...(v.code === undefined ? null : { code: v.code }),
-                        message: v.message,
-                    };
-                })
+            z.object({
+                code: z.number().int().optional(),
+                message: z.string(),
+            })
         );
 }

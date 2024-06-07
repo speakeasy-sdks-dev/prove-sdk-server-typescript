@@ -6,42 +6,42 @@ import { remap as remap$ } from "../../lib/primitives";
 import * as components from "../components";
 import * as z from "zod";
 
-export type V3CompleteRequestResponse = {
+export type V3TokenRequestResponse = {
     httpMeta: components.HTTPMetadata;
     /**
      * Successful request.
      */
-    v3CompleteResponse?: components.V3CompleteResponse | undefined;
+    v3TokenResponse?: components.V3TokenResponse | undefined;
 };
 
 /** @internal */
-export namespace V3CompleteRequestResponse$ {
-    export const inboundSchema: z.ZodType<V3CompleteRequestResponse, z.ZodTypeDef, unknown> = z
+export namespace V3TokenRequestResponse$ {
+    export const inboundSchema: z.ZodType<V3TokenRequestResponse, z.ZodTypeDef, unknown> = z
         .object({
             HttpMeta: components.HTTPMetadata$.inboundSchema,
-            V3CompleteResponse: components.V3CompleteResponse$.inboundSchema.optional(),
+            V3TokenResponse: components.V3TokenResponse$.inboundSchema.optional(),
         })
         .transform((v) => {
             return remap$(v, {
                 HttpMeta: "httpMeta",
-                V3CompleteResponse: "v3CompleteResponse",
+                V3TokenResponse: "v3TokenResponse",
             });
         });
 
     export type Outbound = {
         HttpMeta: components.HTTPMetadata$.Outbound;
-        V3CompleteResponse?: components.V3CompleteResponse$.Outbound | undefined;
+        V3TokenResponse?: components.V3TokenResponse$.Outbound | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3CompleteRequestResponse> = z
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3TokenRequestResponse> = z
         .object({
             httpMeta: components.HTTPMetadata$.outboundSchema,
-            v3CompleteResponse: components.V3CompleteResponse$.outboundSchema.optional(),
+            v3TokenResponse: components.V3TokenResponse$.outboundSchema.optional(),
         })
         .transform((v) => {
             return remap$(v, {
                 httpMeta: "HttpMeta",
-                v3CompleteResponse: "V3CompleteResponse",
+                v3TokenResponse: "V3TokenResponse",
             });
         });
 }

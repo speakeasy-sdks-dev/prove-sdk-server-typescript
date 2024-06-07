@@ -21,19 +21,11 @@ export type V3CompleteResponse = {
 
 /** @internal */
 export namespace V3CompleteResponse$ {
-    export const inboundSchema: z.ZodType<V3CompleteResponse, z.ZodTypeDef, unknown> = z
-        .object({
-            changeDetected: z.boolean(),
-            next: z.record(z.string()),
-            success: z.boolean(),
-        })
-        .transform((v) => {
-            return {
-                changeDetected: v.changeDetected,
-                next: v.next,
-                success: v.success,
-            };
-        });
+    export const inboundSchema: z.ZodType<V3CompleteResponse, z.ZodTypeDef, unknown> = z.object({
+        changeDetected: z.boolean(),
+        next: z.record(z.string()),
+        success: z.boolean(),
+    });
 
     export type Outbound = {
         changeDetected: boolean;
@@ -41,17 +33,9 @@ export namespace V3CompleteResponse$ {
         success: boolean;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3CompleteResponse> = z
-        .object({
-            changeDetected: z.boolean(),
-            next: z.record(z.string()),
-            success: z.boolean(),
-        })
-        .transform((v) => {
-            return {
-                changeDetected: v.changeDetected,
-                next: v.next,
-                success: v.success,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3CompleteResponse> = z.object({
+        changeDetected: z.boolean(),
+        next: z.record(z.string()),
+        success: z.boolean(),
+    });
 }
