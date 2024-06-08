@@ -4,7 +4,7 @@
 
 import * as z from "zod";
 
-export type AddressEntry = {
+export type V3CompleteAddressEntryRequest = {
     /**
      * Address is the street address of the individual.
      */
@@ -28,14 +28,15 @@ export type AddressEntry = {
 };
 
 /** @internal */
-export namespace AddressEntry$ {
-    export const inboundSchema: z.ZodType<AddressEntry, z.ZodTypeDef, unknown> = z.object({
-        address: z.string().optional(),
-        city: z.string().optional(),
-        extendedAddress: z.string().optional(),
-        postalCode: z.string().optional(),
-        region: z.string().optional(),
-    });
+export namespace V3CompleteAddressEntryRequest$ {
+    export const inboundSchema: z.ZodType<V3CompleteAddressEntryRequest, z.ZodTypeDef, unknown> =
+        z.object({
+            address: z.string().optional(),
+            city: z.string().optional(),
+            extendedAddress: z.string().optional(),
+            postalCode: z.string().optional(),
+            region: z.string().optional(),
+        });
 
     export type Outbound = {
         address?: string | undefined;
@@ -45,11 +46,12 @@ export namespace AddressEntry$ {
         region?: string | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, AddressEntry> = z.object({
-        address: z.string().optional(),
-        city: z.string().optional(),
-        extendedAddress: z.string().optional(),
-        postalCode: z.string().optional(),
-        region: z.string().optional(),
-    });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3CompleteAddressEntryRequest> =
+        z.object({
+            address: z.string().optional(),
+            city: z.string().optional(),
+            extendedAddress: z.string().optional(),
+            postalCode: z.string().optional(),
+            region: z.string().optional(),
+        });
 }
