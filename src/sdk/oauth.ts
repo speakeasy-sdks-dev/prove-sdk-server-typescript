@@ -8,8 +8,8 @@ interface OAuthTokenResponse {
 }
 
 export const OAuthServerList: { [key: string]: string } = {
-    [ServerUatUs]: 'https://link.uat.proveapis.com',
-    [ServerProdUs]: 'https://link.proveapis.com',
+    [ServerUatUs]: 'https://platform.uat.proveapis.com',
+    [ServerProdUs]: 'https://platform.proveapis.com',
 } as const;
 
 export class OAuthClient {
