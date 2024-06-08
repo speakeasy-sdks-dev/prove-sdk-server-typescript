@@ -13,27 +13,15 @@ export type V3ValidateRequest = {
 
 /** @internal */
 export namespace V3ValidateRequest$ {
-    export const inboundSchema: z.ZodType<V3ValidateRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            correlationId: z.string(),
-        })
-        .transform((v) => {
-            return {
-                correlationId: v.correlationId,
-            };
-        });
+    export const inboundSchema: z.ZodType<V3ValidateRequest, z.ZodTypeDef, unknown> = z.object({
+        correlationId: z.string(),
+    });
 
     export type Outbound = {
         correlationId: string;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3ValidateRequest> = z
-        .object({
-            correlationId: z.string(),
-        })
-        .transform((v) => {
-            return {
-                correlationId: v.correlationId,
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3ValidateRequest> = z.object({
+        correlationId: z.string(),
+    });
 }

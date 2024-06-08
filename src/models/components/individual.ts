@@ -23,7 +23,7 @@ export type Individual = {
      */
     firstName?: string | undefined;
     /**
-     * Las name of the individual.
+     * Last name of the individual.
      */
     lastName?: string | undefined;
     /**
@@ -34,25 +34,14 @@ export type Individual = {
 
 /** @internal */
 export namespace Individual$ {
-    export const inboundSchema: z.ZodType<Individual, z.ZodTypeDef, unknown> = z
-        .object({
-            addresses: z.array(AddressEntry$.inboundSchema).optional(),
-            dob: z.string().optional(),
-            emailAddresses: z.array(z.string()).optional(),
-            firstName: z.string().optional(),
-            lastName: z.string().optional(),
-            ssn: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                ...(v.addresses === undefined ? null : { addresses: v.addresses }),
-                ...(v.dob === undefined ? null : { dob: v.dob }),
-                ...(v.emailAddresses === undefined ? null : { emailAddresses: v.emailAddresses }),
-                ...(v.firstName === undefined ? null : { firstName: v.firstName }),
-                ...(v.lastName === undefined ? null : { lastName: v.lastName }),
-                ...(v.ssn === undefined ? null : { ssn: v.ssn }),
-            };
-        });
+    export const inboundSchema: z.ZodType<Individual, z.ZodTypeDef, unknown> = z.object({
+        addresses: z.array(AddressEntry$.inboundSchema).optional(),
+        dob: z.string().optional(),
+        emailAddresses: z.array(z.string()).optional(),
+        firstName: z.string().optional(),
+        lastName: z.string().optional(),
+        ssn: z.string().optional(),
+    });
 
     export type Outbound = {
         addresses?: Array<AddressEntry$.Outbound> | undefined;
@@ -63,23 +52,12 @@ export namespace Individual$ {
         ssn?: string | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Individual> = z
-        .object({
-            addresses: z.array(AddressEntry$.outboundSchema).optional(),
-            dob: z.string().optional(),
-            emailAddresses: z.array(z.string()).optional(),
-            firstName: z.string().optional(),
-            lastName: z.string().optional(),
-            ssn: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                ...(v.addresses === undefined ? null : { addresses: v.addresses }),
-                ...(v.dob === undefined ? null : { dob: v.dob }),
-                ...(v.emailAddresses === undefined ? null : { emailAddresses: v.emailAddresses }),
-                ...(v.firstName === undefined ? null : { firstName: v.firstName }),
-                ...(v.lastName === undefined ? null : { lastName: v.lastName }),
-                ...(v.ssn === undefined ? null : { ssn: v.ssn }),
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, Individual> = z.object({
+        addresses: z.array(AddressEntry$.outboundSchema).optional(),
+        dob: z.string().optional(),
+        emailAddresses: z.array(z.string()).optional(),
+        firstName: z.string().optional(),
+        lastName: z.string().optional(),
+        ssn: z.string().optional(),
+    });
 }

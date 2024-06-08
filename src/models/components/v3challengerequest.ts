@@ -21,19 +21,11 @@ export type V3ChallengeRequest = {
 
 /** @internal */
 export namespace V3ChallengeRequest$ {
-    export const inboundSchema: z.ZodType<V3ChallengeRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            correlationId: z.string(),
-            dob: z.string().optional(),
-            last4SSN: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                correlationId: v.correlationId,
-                ...(v.dob === undefined ? null : { dob: v.dob }),
-                ...(v.last4SSN === undefined ? null : { last4SSN: v.last4SSN }),
-            };
-        });
+    export const inboundSchema: z.ZodType<V3ChallengeRequest, z.ZodTypeDef, unknown> = z.object({
+        correlationId: z.string(),
+        dob: z.string().optional(),
+        last4SSN: z.string().optional(),
+    });
 
     export type Outbound = {
         correlationId: string;
@@ -41,17 +33,9 @@ export namespace V3ChallengeRequest$ {
         last4SSN?: string | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3ChallengeRequest> = z
-        .object({
-            correlationId: z.string(),
-            dob: z.string().optional(),
-            last4SSN: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                correlationId: v.correlationId,
-                ...(v.dob === undefined ? null : { dob: v.dob }),
-                ...(v.last4SSN === undefined ? null : { last4SSN: v.last4SSN }),
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3ChallengeRequest> = z.object({
+        correlationId: z.string(),
+        dob: z.string().optional(),
+        last4SSN: z.string().optional(),
+    });
 }

@@ -18,11 +18,15 @@ export type V3StartRequest = {
      */
     emailAddress?: string | undefined;
     /**
-     * Final target URL is the URL where the end user will be redirected at the end of Instant Link. Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
+     * Final target URL is the URL where the end user will be redirected at the end of Instant Link flow. Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
      */
     finalTargetUrl?: string | undefined;
     /**
-     * Flow type is based on the method used  - either desktop for native for iOS/Android native apps or mobile web. Acceptable options are: native or web.
+     * Flow ID defines which flow to use during the transaction.
+     */
+    flowId?: string | undefined;
+    /**
+     * Flow type is based on the method used - either 'desktop' if using desktop or 'mobile' for iOS/Android native apps and mobile web. Acceptable options are: 'desktop' or 'mobile'.
      */
     flowType: string;
     /**
@@ -41,62 +45,39 @@ export type V3StartRequest = {
 
 /** @internal */
 export namespace V3StartRequest$ {
-    export const inboundSchema: z.ZodType<V3StartRequest, z.ZodTypeDef, unknown> = z
-        .object({
-            deviceId: z.string().optional(),
-            dob: z.string().optional(),
-            emailAddress: z.string().optional(),
-            finalTargetUrl: z.string().optional(),
-            flowType: z.string(),
-            ipAddress: z.string().optional(),
-            last4SSN: z.string().optional(),
-            phoneNumber: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                ...(v.deviceId === undefined ? null : { deviceId: v.deviceId }),
-                ...(v.dob === undefined ? null : { dob: v.dob }),
-                ...(v.emailAddress === undefined ? null : { emailAddress: v.emailAddress }),
-                ...(v.finalTargetUrl === undefined ? null : { finalTargetUrl: v.finalTargetUrl }),
-                flowType: v.flowType,
-                ...(v.ipAddress === undefined ? null : { ipAddress: v.ipAddress }),
-                ...(v.last4SSN === undefined ? null : { last4SSN: v.last4SSN }),
-                ...(v.phoneNumber === undefined ? null : { phoneNumber: v.phoneNumber }),
-            };
-        });
+    export const inboundSchema: z.ZodType<V3StartRequest, z.ZodTypeDef, unknown> = z.object({
+        deviceId: z.string().optional(),
+        dob: z.string().optional(),
+        emailAddress: z.string().optional(),
+        finalTargetUrl: z.string().optional(),
+        flowId: z.string().optional(),
+        flowType: z.string(),
+        ipAddress: z.string().optional(),
+        last4SSN: z.string().optional(),
+        phoneNumber: z.string().optional(),
+    });
 
     export type Outbound = {
         deviceId?: string | undefined;
         dob?: string | undefined;
         emailAddress?: string | undefined;
         finalTargetUrl?: string | undefined;
+        flowId?: string | undefined;
         flowType: string;
         ipAddress?: string | undefined;
         last4SSN?: string | undefined;
         phoneNumber?: string | undefined;
     };
 
-    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3StartRequest> = z
-        .object({
-            deviceId: z.string().optional(),
-            dob: z.string().optional(),
-            emailAddress: z.string().optional(),
-            finalTargetUrl: z.string().optional(),
-            flowType: z.string(),
-            ipAddress: z.string().optional(),
-            last4SSN: z.string().optional(),
-            phoneNumber: z.string().optional(),
-        })
-        .transform((v) => {
-            return {
-                ...(v.deviceId === undefined ? null : { deviceId: v.deviceId }),
-                ...(v.dob === undefined ? null : { dob: v.dob }),
-                ...(v.emailAddress === undefined ? null : { emailAddress: v.emailAddress }),
-                ...(v.finalTargetUrl === undefined ? null : { finalTargetUrl: v.finalTargetUrl }),
-                flowType: v.flowType,
-                ...(v.ipAddress === undefined ? null : { ipAddress: v.ipAddress }),
-                ...(v.last4SSN === undefined ? null : { last4SSN: v.last4SSN }),
-                ...(v.phoneNumber === undefined ? null : { phoneNumber: v.phoneNumber }),
-            };
-        });
+    export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3StartRequest> = z.object({
+        deviceId: z.string().optional(),
+        dob: z.string().optional(),
+        emailAddress: z.string().optional(),
+        finalTargetUrl: z.string().optional(),
+        flowId: z.string().optional(),
+        flowType: z.string(),
+        ipAddress: z.string().optional(),
+        last4SSN: z.string().optional(),
+        phoneNumber: z.string().optional(),
+    });
 }

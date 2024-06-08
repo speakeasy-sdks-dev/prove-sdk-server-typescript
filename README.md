@@ -164,8 +164,8 @@ You can override the default server globally by passing a server name to the `se
 
 | Name | Server | Variables |
 | ----- | ------ | --------- |
-| `uat-us` | `https://link.uat.proveapis.com` | None |
-| `prod-us` | `https://link.proveapis.com` | None |
+| `uat-us` | `https://platform.uat.proveapis.com` | None |
+| `prod-us` | `https://platform.proveapis.com` | None |
 
 ```typescript
 import { Proveapi } from "@prove-identity/prove-api";
@@ -199,7 +199,7 @@ The default server can also be overridden globally by passing a URL to the `serv
 import { Proveapi } from "@prove-identity/prove-api";
 
 const proveapi = new Proveapi({
-    serverURL: "https://link.uat.proveapis.com",
+    serverURL: "https://platform.uat.proveapis.com",
     auth: "<YOUR_AUTH_HERE>",
 });
 

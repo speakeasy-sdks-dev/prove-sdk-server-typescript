@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a84d4042-f2ee-4a15-a6ed-f9a5bffa02d0
 management:
-  docChecksum: 6a7efa319a37b3a130f085b6165ab508
+  docChecksum: a253df529a7784a984a21021e5fa08ba
   docVersion: 1.0.0
-  speakeasyVersion: 1.299.6
-  generationVersion: 2.338.12
-  releaseVersion: 0.2.7
-  configChecksum: 02ea5933ff79d0f6cbe80c7c757762c1
+  speakeasyVersion: 1.300.1
+  generationVersion: 2.339.1
+  releaseVersion: 0.2.8
+  configChecksum: f20020ff2ca72077bdaf12faf7f79d97
   repoURL: https://github.com/prove-identity/prove-sdk-server-typescript.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-typescript
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.9.11
+    core: 3.9.12
     globalSecurity: 2.82.9
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
@@ -35,6 +35,7 @@ generatedFiles:
   - src/lib/encodings.ts
   - src/lib/http.ts
   - src/lib/is-plain-object.ts
+  - src/lib/primitives.ts
   - src/lib/retries.ts
   - src/lib/schemas.ts
   - src/lib/sdks.ts
@@ -52,6 +53,7 @@ generatedFiles:
   - src/models/operations/v3challengerequest.ts
   - src/models/operations/v3completerequest.ts
   - src/models/operations/v3startrequest.ts
+  - src/models/operations/v3tokenrequest.ts
   - src/models/operations/v3validaterequest.ts
   - src/models/components/v3challengeresponse.ts
   - src/models/components/individual.ts
@@ -62,6 +64,8 @@ generatedFiles:
   - src/models/components/v3completerequest.ts
   - src/models/components/v3startresponse.ts
   - src/models/components/v3startrequest.ts
+  - src/models/components/v3tokenresponse.ts
+  - src/models/components/v3tokenrequest.ts
   - src/models/components/v3validateresponse.ts
   - src/models/components/v3validaterequest.ts
   - src/models/components/security.ts
@@ -72,6 +76,7 @@ generatedFiles:
   - docs/models/operations/v3challengerequestresponse.md
   - docs/models/operations/v3completerequestresponse.md
   - docs/models/operations/v3startrequestresponse.md
+  - docs/models/operations/v3tokenrequestresponse.md
   - docs/models/operations/v3validaterequestresponse.md
   - docs/models/components/v3challengeresponse.md
   - docs/models/components/individual.md
@@ -82,6 +87,8 @@ generatedFiles:
   - docs/models/components/v3completerequest.md
   - docs/models/components/v3startresponse.md
   - docs/models/components/v3startrequest.md
+  - docs/models/components/v3tokenresponse.md
+  - docs/models/components/v3tokenrequest.md
   - docs/models/components/v3validateresponse.md
   - docs/models/components/v3validaterequest.md
   - docs/models/components/security.md

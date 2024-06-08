@@ -5,4 +5,5 @@
 export * from "./v3challengerequest";
 export * from "./v3completerequest";
 export * from "./v3startrequest";
+export * from "./v3tokenrequest";
 export * from "./v3validaterequest";
