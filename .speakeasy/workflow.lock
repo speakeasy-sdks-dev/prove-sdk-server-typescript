@@ -2,17 +2,18 @@ speakeasyVersion: 1.304.0
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:e6a269fec82828a94ad8679f97a6b0bee3af2c64f7c948a9088e879bf1565a5f
-        sourceBlobDigest: sha256:ef637a779ab5188cb1545f4239ae21fa490f584da1152c2e4514da8f4929d63e
+        sourceRevisionDigest: sha256:d801d05aa2c83b6a34d017e6f0fb00eddb8e5c81717ac0ec64b1098766e4aa92
+        sourceBlobDigest: sha256:1f8fd87f1c4e280e9d7d01b2c80aae8f90aa4f9759e839f3e5aef1f79485ab93
         tags:
             - latest
+            - main
 targets:
     my-first-target:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:e6a269fec82828a94ad8679f97a6b0bee3af2c64f7c948a9088e879bf1565a5f
-        sourceBlobDigest: sha256:ef637a779ab5188cb1545f4239ae21fa490f584da1152c2e4514da8f4929d63e
-        outLocation: /Users/jspurrier/godev/proveauth/prove-sdk-server-typescript
+        sourceRevisionDigest: sha256:d801d05aa2c83b6a34d017e6f0fb00eddb8e5c81717ac0ec64b1098766e4aa92
+        sourceBlobDigest: sha256:1f8fd87f1c4e280e9d7d01b2c80aae8f90aa4f9759e839f3e5aef1f79485ab93
+        outLocation: /github/workspace/repo
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
