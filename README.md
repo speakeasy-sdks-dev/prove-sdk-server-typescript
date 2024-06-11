@@ -12,52 +12,93 @@ Download the SDK from this repository.
 
 ```typescript
 import { ProveAPI } from "@prove-identity/prove-api";
-import { NewOAuthClientFromEnv, OAuthClient, WithAuthorization } from "@prove-identity/prove-api/sdk/oauth"
 
 async function run() {
-    // Create OAuth client from environment variables.
-    const oauthClient: OAuthClient = NewOAuthClientFromEnv()
+    // Get OAuth credentials from environment variables.
+    const oauthClientId = process.env.PROVE_CLIENT_ID;
+    const oauthClientSecret = process.env.PROVE_CLIENT_SECRET;
 
     const proveEnv = "uat-us" // Use UAT in US region.
 
-    // Create client for Prove Auth API.
+    // Create client for the Prove API.
     const sdk = new ProveAPI({
         server: proveEnv,
-        security: WithAuthorization(oauthClient, proveEnv)
+        security: {
+            clientID: oauthClientId,
+            clientSecret: oauthClientSecret,
+        },
     });
 
-    // FIXME: Add endpoints here.
+    let startReq = {
+        flowType: req.body.flowtype,
+        finalTargetUrl: 'https://example.com',
+        phoneNumber: req.body.mobilenumber,
+    }
 
-    // // Build the AuthStart request.
-    // const authStartRequest = new authstart.AuthStartBuilder()
-    //     .withProveKey()
-    //     .build()
+    // Send the start request.
+    const rspStart = await sdk.v3.v3StartRequest(startReq);
+    if (!rspStart) {
+        console.error("Start error.")
+        return
+    }
 
-    // // Start the auth flow.
-    // const authStartResponse = await sdk.auth.authStartRequest(authStartRequest)
-    // const authStartResult = authStartResponse.authStartResponse
-    // if (!authStartResult) {
-    //     console.error("Auth start error.")
-    //     return
-    // }
+    // Store the correlation ID.
+    // correlationId = rspStart.v3StartResponse.correlationId;
 
-    // // Get the authToken for the client SDK.
-    // const authToken = authStartResult.authToken
-    // const authId = authStartResult.authId
+    // Return the authToken back to the client SDK.
+    // let authToken = rspStart.v3StartResponse.authToken;
 
-    // //
-    // // Client SDK work happens here.
-    // //
 
-    // // Get the auth flow results.
-    // const authFinishResponse = await sdk.auth.authFinishRequest({authId: authId})
-    // const authFinishResult = authfinish.authFinishResult(authFinishResponse)
+    let reqBody = {
+        correlationId: correlationId,
+    }
 
-    // if (!authFinishResult.success()) {
-    //     console.error("One or more authenticators failed: " + authFinishResult.errorString())
-    // } else {
-    //     console.info("Auth success!")
-    // }
+    // Wait for the client to return.
+
+    // Send the validate request.
+    const rspValidate = await sdk.v3.v3ValidateRequest(reqBody);
+    if (!rspValidate) {
+        console.error("Start SDK error.")
+        return
+    }
+
+    // If challenge is the next endpoint, return the user information.
+    if (next && 'v3-challenge' in next) {
+        const rspChallenge = await sdk.v3.v3ChallengeRequest({
+            correlationId: correlationId,
+        })
+        if (!rspChallenge) {
+            console.error("Challenge error.")
+            return
+        }
+
+        // Return the user information to the client.
+        // let individual = rspChallenge.v3ChallengeResponse.individual;
+    }
+
+    // Verify the user information.
+    const rspComplete = await sdk.v3.v3CompleteRequest({
+        correlationId: correlationId,
+        individual: {
+            firstName: 'Tod',
+            lastName: 'Weedall',
+            addresses: [{
+                address: '39 South Trail',
+                city: 'San Antonio',
+                region: 'TX',
+                postalCode: '78285',
+            }],
+            dob: '1984-12-10',
+            emailAddresses: [
+                'tweedalld@ehow.com',
+            ],
+            ssn: '565228370',
+        },
+    });
+    if (!rspComplete) {
+        console.error("Complete error.")
+        return
+    }
 }
 
 run();
