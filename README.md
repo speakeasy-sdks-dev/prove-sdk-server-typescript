@@ -104,33 +104,6 @@ async function run() {
 run();
 ```
 
-### OAuth for Authentication
-
-In order to access the Prove Auth API, you need to authenticate with your OAuth credentials. We provide a helper function that loads them already from environment variables:
-
-```typescript
-// Create OAuth client from environment variables.
-const oauthClient: OAuthClient = NewOAuthClientFromEnv()
-```
-
-The credentials are pulled from these environment variables:
-- `PROVE_USERNAME` - OAuth username.
-- `PROVE_PASSWORD` - OAuth password.
-- `PROVE_CLIENT_ID` - optional client ID - this is only required for Europe and India regions.
-- `PROVE_SUBCLIENT_ID` - optional subclient ID - this may be required for Europe and India regions.
-
-If you prefer to load the variables another way, you can pass them in to this function instead:
-
-```typescript
-// Create OAuth client with passed in variables.
-const proveOAuthClient = new OAuthClient(
-    proveUsername,
-    provePassword,
-    proveClientID,
-    proveSubClientID,
-)
-```
-
 <!-- No SDK Example Usage -->
 <!-- No SDK Available Operations -->
 <!-- Start Requirements [requirements] -->
