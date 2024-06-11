@@ -1,9 +1,10 @@
 {
   "name": "@prove-identity/prove-api",
   "version": "0.2.10",
-  "author": "Speakeasy",  
+  "author": "Speakeasy",
   "main": "./index.js",
   "sideEffects": false,
+  "license": "CC BY-NC-ND 4.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/prove-identity/prove-sdk-server-typescript.git"
