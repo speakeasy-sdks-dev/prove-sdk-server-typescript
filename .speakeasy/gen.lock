@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a84d4042-f2ee-4a15-a6ed-f9a5bffa02d0
 management:
-  docChecksum: 4f9d99838d2a38dc8bb3a98620227e27
+  docChecksum: 2242c0effcb25ca247113443c1e5425a
   docVersion: 1.0.0
-  speakeasyVersion: 1.304.0
+  speakeasyVersion: 1.305.0
   generationVersion: 2.340.3
-  releaseVersion: 0.3.2
-  configChecksum: 047841ef0c9013b780e3e0e5a59ad6b7
+  releaseVersion: 0.3.3
+  configChecksum: cd1e4ec094c9a999c68f85c078f5f895
   repoURL: https://github.com/prove-identity/prove-sdk-server-typescript.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-typescript
   published: true
@@ -98,6 +98,8 @@ generatedFiles:
   - docs/models/components/v3validaterequest.md
   - docs/models/components/security.md
   - docs/models/errors/errort.md
+  - docs/sdks/proveapi/README.md
+  - docs/sdks/v3/README.md
   - USAGE.md
   - .gitattributes
   - src/hooks/hooks.ts

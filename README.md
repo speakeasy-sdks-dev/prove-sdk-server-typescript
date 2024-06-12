@@ -1,11 +1,32 @@
-# Prove Server SDK in TypeScript
+# @prove-identity/prove-api
 
+<div align="left">
+    <a href="https://speakeasyapi.dev/"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
+</div>
+
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-Download the SDK from this repository.
+### NPM
 
-<!-- No SDK Installation -->
+```bash
+npm add @prove-identity/prove-api
+```
 
+### Yarn
+
+```bash
+yarn add @prove-identity/prove-api
+```
+<!-- End SDK Installation [installation] -->
+
+<!-- Start Requirements [requirements] -->
+## Requirements
+
+For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
+<!-- End Requirements [requirements] -->
+
+<!-- No SDK Example Usage [usage] -->
 ## SDK Example Usage
 
 ### Example
@@ -104,23 +125,27 @@ async function run() {
 run();
 ```
 
-<!-- No SDK Example Usage -->
-<!-- No SDK Available Operations -->
-<!-- Start Requirements [requirements] -->
-## Requirements
+<!-- Start Available Resources and Operations [operations] -->
+## Available Resources and Operations
 
-For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
-<!-- End Requirements [requirements] -->
+### [v3](docs/sdks/v3/README.md)
+
+* [v3TokenRequest](docs/sdks/v3/README.md#v3tokenrequest) - Request OAuth token.
+* [v3ChallengeRequest](docs/sdks/v3/README.md#v3challengerequest) - Submit challenge.
+* [v3CompleteRequest](docs/sdks/v3/README.md#v3completerequest) - Verify user.
+* [v3StartRequest](docs/sdks/v3/README.md#v3startrequest) - Start flow.
+* [v3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest) - Validate phone number.
+<!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
 All SDK methods return a response object or throw an error. If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
 
-| Error Object     | Status Code      | Content Type     |
-| ---------------- | ---------------- | ---------------- |
-| errors.ErrorT    | 400,500          | application/json |
-| errors.SDKError  | 4xx-5xx          | */*              |
+| Error Object    | Status Code | Content Type     |
+| --------------- | ----------- | ---------------- |
+| errors.ErrorT   | 400,500     | application/json |
+| errors.SDKError | 4xx-5xx     | */*              |
 
 Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging. 
 
@@ -180,10 +205,10 @@ run();
 
 You can override the default server globally by passing a server name to the `server` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| Name | Server | Variables |
-| ----- | ------ | --------- |
-| `uat-us` | `https://platform.uat.proveapis.com` | None |
-| `prod-us` | `https://platform.proveapis.com` | None |
+| Name      | Server                               | Variables |
+| --------- | ------------------------------------ | --------- |
+| `uat-us`  | `https://platform.uat.proveapis.com` | None      |
+| `prod-us` | `https://platform.proveapis.com`     | None      |
 
 ```typescript
 import { Proveapi } from "@prove-identity/prove-api";
@@ -301,10 +326,10 @@ const sdk = new Proveapi({ httpClient });
 
 This SDK supports the following security schemes globally:
 
-| Name           | Type           | Scheme         |
-| -------------- | -------------- | -------------- |
-| `clientID`     | oauth2         | OAuth2 token   |
-| `clientSecret` | oauth2         | OAuth2 token   |
+| Name           | Type   | Scheme       |
+| -------------- | ------ | ------------ |
+| `clientID`     | oauth2 | OAuth2 token |
+| `clientSecret` | oauth2 | OAuth2 token |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```typescript
@@ -335,5 +360,4 @@ run();
 <!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
-
 

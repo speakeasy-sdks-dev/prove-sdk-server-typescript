@@ -14,7 +14,7 @@ async function run() {
         dob: "2024-05-02T00:00:00Z",
         emailAddress: "jdoe@example.com",
         finalTargetUrl: "https://www.example.com/landing-page",
-        flowId: '"prove-standard-prefill-i1"',
+        flowId: "prove-standard-prefill-i1",
         flowType: "mobile",
         ipAddress: "10.0.0.1",
         last4SSN: "1234",
