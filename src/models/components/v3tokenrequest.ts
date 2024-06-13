@@ -15,17 +15,9 @@ export type V3TokenRequest = {
      */
     clientSecret?: string | undefined;
     /**
-     * GrantType only allows option: `password`.
+     * GrantType only allows option: `client_credentials`.
      */
     grantType: string;
-    /**
-     * Password is the secret ID provided to the customer during onboarding.
-     */
-    password?: string | undefined;
-    /**
-     * Username is the ID provided to the customer during onboarding.
-     */
-    username?: string | undefined;
 };
 
 /** @internal */
@@ -35,8 +27,6 @@ export namespace V3TokenRequest$ {
             client_id: z.string().optional(),
             client_secret: z.string().optional(),
             grant_type: z.string(),
-            password: z.string().optional(),
-            username: z.string().optional(),
         })
         .transform((v) => {
             return remap$(v, {
@@ -50,8 +40,6 @@ export namespace V3TokenRequest$ {
         client_id?: string | undefined;
         client_secret?: string | undefined;
         grant_type: string;
-        password?: string | undefined;
-        username?: string | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3TokenRequest> = z
@@ -59,8 +47,6 @@ export namespace V3TokenRequest$ {
             clientId: z.string().optional(),
             clientSecret: z.string().optional(),
             grantType: z.string(),
-            password: z.string().optional(),
-            username: z.string().optional(),
         })
         .transform((v) => {
             return remap$(v, {
