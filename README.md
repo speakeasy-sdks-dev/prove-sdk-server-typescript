@@ -132,7 +132,7 @@ run();
 
 * [v3TokenRequest](docs/sdks/v3/README.md#v3tokenrequest) - Request OAuth token.
 * [v3ChallengeRequest](docs/sdks/v3/README.md#v3challengerequest) - Submit challenge.
-* [v3CompleteRequest](docs/sdks/v3/README.md#v3completerequest) - Verify user.
+* [v3CompleteRequest](docs/sdks/v3/README.md#v3completerequest) - Complete flow.
 * [v3StartRequest](docs/sdks/v3/README.md#v3startrequest) - Start flow.
 * [v3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest) - Validate phone number.
 <!-- End Available Resources and Operations [operations] -->
@@ -167,8 +167,6 @@ async function run() {
             clientId: "customer_id",
             clientSecret: "secret",
             grantType: "client_credentials",
-            password: "password",
-            username: "jdoe",
         });
     } catch (err) {
         switch (true) {
@@ -225,8 +223,6 @@ async function run() {
         clientId: "customer_id",
         clientSecret: "secret",
         grantType: "client_credentials",
-        password: "password",
-        username: "jdoe",
     });
 
     // Handle the result
@@ -257,8 +253,6 @@ async function run() {
         clientId: "customer_id",
         clientSecret: "secret",
         grantType: "client_credentials",
-        password: "password",
-        username: "jdoe",
     });
 
     // Handle the result
@@ -346,8 +340,6 @@ async function run() {
         clientId: "customer_id",
         clientSecret: "secret",
         grantType: "client_credentials",
-        password: "password",
-        username: "jdoe",
     });
 
     // Handle the result

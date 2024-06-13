@@ -5,7 +5,7 @@
 
 * [v3TokenRequest](#v3tokenrequest) - Request OAuth token.
 * [v3ChallengeRequest](#v3challengerequest) - Submit challenge.
-* [v3CompleteRequest](#v3completerequest) - Verify user.
+* [v3CompleteRequest](#v3completerequest) - Complete flow.
 * [v3StartRequest](#v3startrequest) - Start flow.
 * [v3ValidateRequest](#v3validaterequest) - Validate phone number.
 
@@ -29,8 +29,6 @@ async function run() {
     clientId: "customer_id",
     clientSecret: "secret",
     grantType: "client_credentials",
-    password: "password",
-    username: "jdoe",
   });
 
   // Handle the result

@@ -63,7 +63,7 @@ export class V3 extends ClientSDK {
         const body$ =
             payload$ === undefined ? null : encodeJSON$("body", payload$, { explode: true });
 
-        const path$ = this.templateURLComponent("/realms/US/protocol/openid-connect/token")();
+        const path$ = this.templateURLComponent("/token")();
 
         const query$ = "";
 
@@ -178,7 +178,7 @@ export class V3 extends ClientSDK {
     }
 
     /**
-     * Verify user.
+     * Complete flow.
      *
      * @remarks
      * Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow.
