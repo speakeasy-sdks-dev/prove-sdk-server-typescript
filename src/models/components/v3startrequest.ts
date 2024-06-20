@@ -10,7 +10,7 @@ export type V3StartRequest = {
      */
     deviceId?: string | undefined;
     /**
-     * DOB, an optional challenge, is the date of birth in this format: YYYYY-MM-DD. Acceptable characters are: numeric with symbol '-'.
+     * DOB, an optional challenge, is the date of birth in this format: YYYY-MM-DD. Acceptable characters are: numeric with symbol '-'.
      */
     dob?: string | undefined;
     /**
@@ -34,13 +34,13 @@ export type V3StartRequest = {
      */
     ipAddress?: string | undefined;
     /**
-     * Last4SSN, an optional challenge, is the last 4 numbers of the social security number. Acceptable characters are: numeric.
-     */
-    last4SSN?: string | undefined;
-    /**
      * Phone number is the number of the mobile phone. Acceptable characters are: alphanumeric with symbols '+'.
      */
     phoneNumber?: string | undefined;
+    /**
+     * SSN, an optional challenge, is either the full or last 4 digits of the the social security number. Acceptable characters are: numeric.
+     */
+    ssn?: string | undefined;
 };
 
 /** @internal */
@@ -53,8 +53,8 @@ export namespace V3StartRequest$ {
         flowId: z.string().optional(),
         flowType: z.string(),
         ipAddress: z.string().optional(),
-        last4SSN: z.string().optional(),
         phoneNumber: z.string().optional(),
+        ssn: z.string().optional(),
     });
 
     export type Outbound = {
@@ -65,8 +65,8 @@ export namespace V3StartRequest$ {
         flowId?: string | undefined;
         flowType: string;
         ipAddress?: string | undefined;
-        last4SSN?: string | undefined;
         phoneNumber?: string | undefined;
+        ssn?: string | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3StartRequest> = z.object({
@@ -77,7 +77,7 @@ export namespace V3StartRequest$ {
         flowId: z.string().optional(),
         flowType: z.string(),
         ipAddress: z.string().optional(),
-        last4SSN: z.string().optional(),
         phoneNumber: z.string().optional(),
+        ssn: z.string().optional(),
     });
 }

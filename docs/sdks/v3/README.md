@@ -18,11 +18,7 @@ Send this request to request the OAuth token.
 ```typescript
 import { Proveapi } from "@prove-identity/prove-api";
 
-const proveapi = new Proveapi({
-  security: {
-    clientID: "<YOUR_CLIENT_ID_HERE>",
-  },
-});
+const proveapi = new Proveapi();
 
 async function run() {
   const result = await proveapi.v3.v3TokenRequest({
@@ -69,6 +65,7 @@ import { Proveapi } from "@prove-identity/prove-api";
 const proveapi = new Proveapi({
   security: {
     clientID: "<YOUR_CLIENT_ID_HERE>",
+    clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
   },
 });
 
@@ -76,7 +73,7 @@ async function run() {
   const result = await proveapi.v3.v3ChallengeRequest({
     correlationId: "713189b8-5555-4b08-83ba-75d08780aebd",
     dob: "2024-05-02T00:00:00Z",
-    last4SSN: "1234",
+    ssn: "1234",
   });
 
   // Handle the result
@@ -117,6 +114,7 @@ import { Proveapi } from "@prove-identity/prove-api";
 const proveapi = new Proveapi({
   security: {
     clientID: "<YOUR_CLIENT_ID_HERE>",
+    clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
   },
 });
 
@@ -190,6 +188,7 @@ import { Proveapi } from "@prove-identity/prove-api";
 const proveapi = new Proveapi({
   security: {
     clientID: "<YOUR_CLIENT_ID_HERE>",
+    clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
   },
 });
 
@@ -202,8 +201,8 @@ async function run() {
     flowId: "prove-standard-prefill-i1",
     flowType: "mobile",
     ipAddress: "10.0.0.1",
-    last4SSN: "1234",
-    phoneNumber: "12065550100",
+    phoneNumber: "2001001686",
+    ssn: "1234",
   });
 
   // Handle the result
@@ -244,6 +243,7 @@ import { Proveapi } from "@prove-identity/prove-api";
 const proveapi = new Proveapi({
   security: {
     clientID: "<YOUR_CLIENT_ID_HERE>",
+    clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
   },
 });
 

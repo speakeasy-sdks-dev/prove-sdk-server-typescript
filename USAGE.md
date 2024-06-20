@@ -5,6 +5,7 @@ import { Proveapi } from "@prove-identity/prove-api";
 const proveapi = new Proveapi({
     security: {
         clientID: "<YOUR_CLIENT_ID_HERE>",
+        clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
     },
 });
 
@@ -17,8 +18,8 @@ async function run() {
         flowId: "prove-standard-prefill-i1",
         flowType: "mobile",
         ipAddress: "10.0.0.1",
-        last4SSN: "1234",
-        phoneNumber: "12065550100",
+        phoneNumber: "2001001686",
+        ssn: "1234",
     });
 
     // Handle the result
