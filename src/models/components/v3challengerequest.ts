@@ -10,13 +10,13 @@ export type V3ChallengeRequest = {
      */
     correlationId: string;
     /**
-     * DOB is the date of birth in this format: YYYYY-MM-DD. Acceptable characters are: numeric with symbol '-'.
+     * DOB is the date of birth in this format: YYYY-MM-DD. Acceptable characters are: numeric with symbol '-'.
      */
     dob?: string | undefined;
     /**
-     * Last4SSN is the last 4 numbers of the social security number. Acceptable characters are: numeric.
+     * SSN is either the full or last 4 numbers of the social security number. Acceptable characters are: numeric.
      */
-    last4SSN?: string | undefined;
+    ssn?: string | undefined;
 };
 
 /** @internal */
@@ -24,18 +24,18 @@ export namespace V3ChallengeRequest$ {
     export const inboundSchema: z.ZodType<V3ChallengeRequest, z.ZodTypeDef, unknown> = z.object({
         correlationId: z.string(),
         dob: z.string().optional(),
-        last4SSN: z.string().optional(),
+        ssn: z.string().optional(),
     });
 
     export type Outbound = {
         correlationId: string;
         dob?: string | undefined;
-        last4SSN?: string | undefined;
+        ssn?: string | undefined;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3ChallengeRequest> = z.object({
         correlationId: z.string(),
         dob: z.string().optional(),
-        last4SSN: z.string().optional(),
+        ssn: z.string().optional(),
     });
 }
