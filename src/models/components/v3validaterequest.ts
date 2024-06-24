@@ -6,7 +6,7 @@ import * as z from "zod";
 
 export type V3ValidateRequest = {
     /**
-     * Correlation ID is the unique ID of the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow.
+     * Correlation ID is the unique ID that Prove generates for the flow. It is returned from the Start endpoint and cannot be reused outside of a single flow.
      */
     correlationId: string;
 };
