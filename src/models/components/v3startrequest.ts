@@ -6,10 +6,6 @@ import * as z from "zod";
 
 export type V3StartRequest = {
     /**
-     * Device ID is the ID of the device. Acceptable characters are: alphanumeric with symbols '-._+=/'.
-     */
-    deviceId?: string | undefined;
-    /**
      * DOB, an optional challenge, is the date of birth in one of these formats: YYYY-MM-DD, YYYY-MM, or MM-DD. Acceptable characters are: numeric with symbol '-'.
      */
     dob?: string | undefined;
@@ -18,13 +14,9 @@ export type V3StartRequest = {
      */
     emailAddress?: string | undefined;
     /**
-     * Final target URL is the URL where the end user will be redirected at the end of Instant Link flow. Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
+     * Final target URL is only required for when flowType=desktop. The final target URL is where the end user will be redirected at the end of Instant Link flow. Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
      */
     finalTargetUrl?: string | undefined;
-    /**
-     * Flow ID defines which flow to use during the transaction.
-     */
-    flowId?: string | undefined;
     /**
      * Flow type is based on the method used - either 'desktop' if using desktop or 'mobile' for iOS/Android native apps and mobile web. Acceptable options are: 'desktop' or 'mobile'.
      */
@@ -34,7 +26,7 @@ export type V3StartRequest = {
      */
     ipAddress?: string | undefined;
     /**
-     * Phone number is the number of the mobile phone. Acceptable characters are: alphanumeric with symbols '+'.
+     * Phone number is the number of the mobile phone. The field is required in the Sandbox environment. It is also required in the Production environment when flowType=desktop and when flowType=Mobile during Phase 1 of implementation. Acceptable characters are: alphanumeric with symbols '+'.
      */
     phoneNumber?: string | undefined;
     /**
@@ -46,11 +38,9 @@ export type V3StartRequest = {
 /** @internal */
 export namespace V3StartRequest$ {
     export const inboundSchema: z.ZodType<V3StartRequest, z.ZodTypeDef, unknown> = z.object({
-        deviceId: z.string().optional(),
         dob: z.string().optional(),
         emailAddress: z.string().optional(),
         finalTargetUrl: z.string().optional(),
-        flowId: z.string().optional(),
         flowType: z.string(),
         ipAddress: z.string().optional(),
         phoneNumber: z.string().optional(),
@@ -58,11 +48,9 @@ export namespace V3StartRequest$ {
     });
 
     export type Outbound = {
-        deviceId?: string | undefined;
         dob?: string | undefined;
         emailAddress?: string | undefined;
         finalTargetUrl?: string | undefined;
-        flowId?: string | undefined;
         flowType: string;
         ipAddress?: string | undefined;
         phoneNumber?: string | undefined;
@@ -70,11 +58,9 @@ export namespace V3StartRequest$ {
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3StartRequest> = z.object({
-        deviceId: z.string().optional(),
         dob: z.string().optional(),
         emailAddress: z.string().optional(),
         finalTargetUrl: z.string().optional(),
-        flowId: z.string().optional(),
         flowType: z.string(),
         ipAddress: z.string().optional(),
         phoneNumber: z.string().optional(),

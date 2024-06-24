@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a84d4042-f2ee-4a15-a6ed-f9a5bffa02d0
 management:
-  docChecksum: 19777513376edaeea7b792577b099de5
+  docChecksum: bbcb7ca8bca610aa39148b82a59d73f6
   docVersion: 1.0.0
-  speakeasyVersion: 1.313.2
-  generationVersion: 2.347.8
-  releaseVersion: 0.4.1
-  configChecksum: ff29591b1dab2f20ce3a80994d520d71
+  speakeasyVersion: 1.315.2
+  generationVersion: 2.352.0
+  releaseVersion: 0.4.2
+  configChecksum: 318839eef4edcc369badea9717668c7e
   repoURL: https://github.com/prove-identity/prove-sdk-server-typescript.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-typescript
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.10.1
+    core: 3.10.2
     examples: 2.81.4
     globalSecurity: 2.82.9
     globalSecurityCallbacks: 0.1.0
@@ -64,6 +64,8 @@ generatedFiles:
   - src/models/components/v3challengeaddressentryrequest.ts
   - src/models/components/v3challengerequest.ts
   - src/models/components/v3completeresponse.ts
+  - src/models/components/idvdata.ts
+  - src/models/components/datasource.ts
   - src/models/components/v3completerequest.ts
   - src/models/components/v3completeindividualrequest.ts
   - src/models/components/v3completeaddressentryrequest.ts
@@ -89,6 +91,8 @@ generatedFiles:
   - docs/models/components/v3challengeaddressentryrequest.md
   - docs/models/components/v3challengerequest.md
   - docs/models/components/v3completeresponse.md
+  - docs/models/components/idvdata.md
+  - docs/models/components/datasource.md
   - docs/models/components/v3completerequest.md
   - docs/models/components/v3completeindividualrequest.md
   - docs/models/components/v3completeaddressentryrequest.md
