@@ -9,7 +9,7 @@ import {
 import * as z from "zod";
 
 export type V3ChallengeResponse = {
-    individual: V3ChallengeIndividualRequest;
+    individual?: V3ChallengeIndividualRequest | undefined;
     /**
      * Next contains the next set of allowed calls in the same flow.
      */
@@ -23,19 +23,19 @@ export type V3ChallengeResponse = {
 /** @internal */
 export namespace V3ChallengeResponse$ {
     export const inboundSchema: z.ZodType<V3ChallengeResponse, z.ZodTypeDef, unknown> = z.object({
-        individual: V3ChallengeIndividualRequest$.inboundSchema,
+        individual: V3ChallengeIndividualRequest$.inboundSchema.optional(),
         next: z.record(z.string()),
         success: z.boolean(),
     });
 
     export type Outbound = {
-        individual: V3ChallengeIndividualRequest$.Outbound;
+        individual?: V3ChallengeIndividualRequest$.Outbound | undefined;
         next: { [k: string]: string };
         success: boolean;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3ChallengeResponse> = z.object({
-        individual: V3ChallengeIndividualRequest$.outboundSchema,
+        individual: V3ChallengeIndividualRequest$.outboundSchema.optional(),
         next: z.record(z.string()),
         success: z.boolean(),
     });
