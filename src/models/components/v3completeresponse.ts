@@ -3,14 +3,15 @@
  */
 
 import { IDVData, IDVData$ } from "./idvdata.js";
+import { KnowYourCustomerResponse, KnowYourCustomerResponse$ } from "./knowyourcustomerresponse.js";
 import * as z from "zod";
 
 export type V3CompleteResponse = {
     idv?: IDVData | undefined;
     /**
-     * Kyc contains optional KYC data to be returned.
+     * KnowYourCustomerResponse - KYC response
      */
-    kyc?: string | undefined;
+    kyc?: KnowYourCustomerResponse | undefined;
     /**
      * Next contains the next set of allowed calls in the same flow.
      */
@@ -25,21 +26,21 @@ export type V3CompleteResponse = {
 export namespace V3CompleteResponse$ {
     export const inboundSchema: z.ZodType<V3CompleteResponse, z.ZodTypeDef, unknown> = z.object({
         idv: IDVData$.inboundSchema.optional(),
-        kyc: z.string().optional(),
+        kyc: KnowYourCustomerResponse$.inboundSchema.optional(),
         next: z.record(z.string()),
         success: z.boolean(),
     });
 
     export type Outbound = {
         idv?: IDVData$.Outbound | undefined;
-        kyc?: string | undefined;
+        kyc?: KnowYourCustomerResponse$.Outbound | undefined;
         next: { [k: string]: string };
         success: boolean;
     };
 
     export const outboundSchema: z.ZodType<Outbound, z.ZodTypeDef, V3CompleteResponse> = z.object({
         idv: IDVData$.outboundSchema.optional(),
-        kyc: z.string().optional(),
+        kyc: KnowYourCustomerResponse$.outboundSchema.optional(),
         next: z.record(z.string()),
         success: z.boolean(),
     });

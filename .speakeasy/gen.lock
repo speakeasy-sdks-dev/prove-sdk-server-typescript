@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: a84d4042-f2ee-4a15-a6ed-f9a5bffa02d0
 management:
-  docChecksum: bbcb7ca8bca610aa39148b82a59d73f6
+  docChecksum: 50188f028e8e9a8924078cdaf549a29a
   docVersion: 1.0.0
-  speakeasyVersion: 1.315.2
+  speakeasyVersion: 1.318.0
   generationVersion: 2.352.0
-  releaseVersion: 0.4.2
-  configChecksum: 318839eef4edcc369badea9717668c7e
+  releaseVersion: 0.4.3
+  configChecksum: 7ea994ae7c2169ba371911d66c372db6
   repoURL: https://github.com/prove-identity/prove-sdk-server-typescript.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-typescript
   published: true
@@ -64,8 +64,16 @@ generatedFiles:
   - src/models/components/v3challengeaddressentryrequest.ts
   - src/models/components/v3challengerequest.ts
   - src/models/components/v3completeresponse.ts
+  - src/models/components/knowyourcustomerresponse.ts
+  - src/models/components/amltypelistresponse.ts
+  - src/models/components/fieldtyperesponse.ts
+  - src/models/components/adversemediaresponse.ts
   - src/models/components/idvdata.ts
   - src/models/components/datasource.ts
+  - src/models/components/nameresponse.ts
+  - src/models/components/identifiersresponse.ts
+  - src/models/components/emailaddressresponse.ts
+  - src/models/components/addressresponse.ts
   - src/models/components/v3completerequest.ts
   - src/models/components/v3completeindividualrequest.ts
   - src/models/components/v3completeaddressentryrequest.ts
@@ -91,8 +99,16 @@ generatedFiles:
   - docs/models/components/v3challengeaddressentryrequest.md
   - docs/models/components/v3challengerequest.md
   - docs/models/components/v3completeresponse.md
+  - docs/models/components/knowyourcustomerresponse.md
+  - docs/models/components/amltypelistresponse.md
+  - docs/models/components/fieldtyperesponse.md
+  - docs/models/components/adversemediaresponse.md
   - docs/models/components/idvdata.md
   - docs/models/components/datasource.md
+  - docs/models/components/nameresponse.md
+  - docs/models/components/identifiersresponse.md
+  - docs/models/components/emailaddressresponse.md
+  - docs/models/components/addressresponse.md
   - docs/models/components/v3completerequest.md
   - docs/models/components/v3completeindividualrequest.md
   - docs/models/components/v3completeaddressentryrequest.md

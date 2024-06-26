@@ -1,0 +1,10 @@
+# NameResponse
+
+
+## Fields
+
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `firstName`                                                                                  | *number*                                                                                     | :heavy_minus_sign:                                                                           | The first name score as a result of name matching.                                           |
+| `lastName`                                                                                   | *number*                                                                                     | :heavy_minus_sign:                                                                           | The last name score as a result of name matching.                                            |
+| `nameScore`                                                                                  | *number*                                                                                     | :heavy_minus_sign:                                                                           | The overall name score as a result of name matching. A value >=70 indicates verified = TRUE. |
