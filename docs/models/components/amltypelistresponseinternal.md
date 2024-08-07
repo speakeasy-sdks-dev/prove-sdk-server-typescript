@@ -1,0 +1,10 @@
+# AmlTypeListResponseInternal
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `amlType`                                                                                            | *string*                                                                                             | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `fields`                                                                                             | [components.KYCFieldTypeResponseInternal](../../models/components/kycfieldtyperesponseinternal.md)[] | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `listHits`                                                                                           | *number*                                                                                             | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
