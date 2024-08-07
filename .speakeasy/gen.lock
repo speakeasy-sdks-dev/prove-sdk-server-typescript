@@ -1,28 +1,36 @@
 lockVersion: 2.0.0
 id: a84d4042-f2ee-4a15-a6ed-f9a5bffa02d0
 management:
-  docChecksum: 50188f028e8e9a8924078cdaf549a29a
+  docChecksum: d2889a17f0a6848772ba5deb903d9870
   docVersion: 1.0.0
-  speakeasyVersion: 1.318.0
-  generationVersion: 2.352.0
-  releaseVersion: 0.4.3
-  configChecksum: 7ea994ae7c2169ba371911d66c372db6
+  speakeasyVersion: 1.356.0
+  generationVersion: 2.388.1
+  releaseVersion: 0.5.0
+  configChecksum: 2a3ed50613579b31e8c77791c93e8ce1
   repoURL: https://github.com/prove-identity/prove-sdk-server-typescript.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-typescript
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.10.2
+    core: 3.12.2
+    defaultEnabledRetries: 0.1.0
+    envVarSecurityUsage: 0.1.1
     examples: 2.81.4
-    globalSecurity: 2.82.9
+    globalSecurity: 2.82.10
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.4
     oauth2ClientCredentials: 0.1.4
     responseFormat: 0.2.3
+    retries: 2.83.0
     sdkHooks: 0.1.0
     serverIDs: 2.81.2
 generatedFiles:
+  - src/funcs/v3V3TokenRequest.ts
+  - src/funcs/v3V3ChallengeRequest.ts
+  - src/funcs/v3V3CompleteRequest.ts
+  - src/funcs/v3V3StartRequest.ts
+  - src/funcs/v3V3ValidateRequest.ts
   - src/sdk/v3.ts
   - src/sdk/sdk.ts
   - .eslintrc.cjs
@@ -30,12 +38,15 @@ generatedFiles:
   - RUNTIMES.md
   - jsr.json
   - package.json
+  - src/core.ts
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
+  - src/lib/dlv.ts
   - src/lib/encodings.ts
   - src/lib/http.ts
   - src/lib/is-plain-object.ts
+  - src/lib/matchers.ts
   - src/lib/primitives.ts
   - src/lib/retries.ts
   - src/lib/schemas.ts
@@ -43,10 +54,12 @@ generatedFiles:
   - src/lib/security.ts
   - src/lib/url.ts
   - src/sdk/index.ts
+  - src/models/errors/httpclienterrors.ts
   - src/models/errors/sdkerror.ts
   - src/models/errors/sdkvalidationerror.ts
   - src/types/blobs.ts
   - src/types/enums.ts
+  - src/types/fp.ts
   - src/types/index.ts
   - src/types/operations.ts
   - src/types/rfcdate.ts
@@ -64,16 +77,16 @@ generatedFiles:
   - src/models/components/v3challengeaddressentryrequest.ts
   - src/models/components/v3challengerequest.ts
   - src/models/components/v3completeresponse.ts
-  - src/models/components/knowyourcustomerresponse.ts
-  - src/models/components/amltypelistresponse.ts
-  - src/models/components/fieldtyperesponse.ts
-  - src/models/components/adversemediaresponse.ts
-  - src/models/components/idvdata.ts
-  - src/models/components/datasource.ts
-  - src/models/components/nameresponse.ts
-  - src/models/components/identifiersresponse.ts
-  - src/models/components/emailaddressresponse.ts
-  - src/models/components/addressresponse.ts
+  - src/models/components/kycinternal.ts
+  - src/models/components/amltypelistresponseinternal.ts
+  - src/models/components/kycfieldtyperesponseinternal.ts
+  - src/models/components/adversemediaresponseinternal.ts
+  - src/models/components/idvdatainternal.ts
+  - src/models/components/datasourceinternal.ts
+  - src/models/components/datasourcenameresponseinternal.ts
+  - src/models/components/datasourceidentifiersresponseinternal.ts
+  - src/models/components/datasourceemailaddressresponseinternal.ts
+  - src/models/components/datasourceaddressresponseinternal.ts
   - src/models/components/v3completerequest.ts
   - src/models/components/v3completeindividualrequest.ts
   - src/models/components/v3completeaddressentryrequest.ts
@@ -99,16 +112,16 @@ generatedFiles:
   - docs/models/components/v3challengeaddressentryrequest.md
   - docs/models/components/v3challengerequest.md
   - docs/models/components/v3completeresponse.md
-  - docs/models/components/knowyourcustomerresponse.md
-  - docs/models/components/amltypelistresponse.md
-  - docs/models/components/fieldtyperesponse.md
-  - docs/models/components/adversemediaresponse.md
-  - docs/models/components/idvdata.md
-  - docs/models/components/datasource.md
-  - docs/models/components/nameresponse.md
-  - docs/models/components/identifiersresponse.md
-  - docs/models/components/emailaddressresponse.md
-  - docs/models/components/addressresponse.md
+  - docs/models/components/kycinternal.md
+  - docs/models/components/amltypelistresponseinternal.md
+  - docs/models/components/kycfieldtyperesponseinternal.md
+  - docs/models/components/adversemediaresponseinternal.md
+  - docs/models/components/idvdatainternal.md
+  - docs/models/components/datasourceinternal.md
+  - docs/models/components/datasourcenameresponseinternal.md
+  - docs/models/components/datasourceidentifiersresponseinternal.md
+  - docs/models/components/datasourceemailaddressresponseinternal.md
+  - docs/models/components/datasourceaddressresponseinternal.md
   - docs/models/components/v3completerequest.md
   - docs/models/components/v3completeindividualrequest.md
   - docs/models/components/v3completeaddressentryrequest.md
@@ -119,6 +132,7 @@ generatedFiles:
   - docs/models/components/security.md
   - docs/models/errors/errort.md
   - docs/sdks/proveapi/README.md
+  - docs/lib/utils/retryconfig.md
   - docs/sdks/v3/README.md
   - USAGE.md
   - .gitattributes
@@ -126,3 +140,4 @@ generatedFiles:
   - src/hooks/types.ts
   - src/hooks/index.ts
   - src/hooks/clientcredentials.ts
+  - CONTRIBUTING.md
