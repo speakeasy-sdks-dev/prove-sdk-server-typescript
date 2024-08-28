@@ -3,12 +3,6 @@
  */
 
 import {
-    AdverseMediaResponseInternal,
-    AdverseMediaResponseInternal$inboundSchema,
-    AdverseMediaResponseInternal$Outbound,
-    AdverseMediaResponseInternal$outboundSchema,
-} from "./adversemediaresponseinternal.js";
-import {
     AmlTypeListResponseInternal,
     AmlTypeListResponseInternal$inboundSchema,
     AmlTypeListResponseInternal$Outbound,
@@ -17,24 +11,18 @@ import {
 import * as z from "zod";
 
 export type KYCInternal = {
-    adverseMediaList?: Array<AdverseMediaResponseInternal> | undefined;
-    aliasList?: Array<string> | undefined;
     amlTypeLists?: Array<AmlTypeListResponseInternal> | undefined;
     totalHits?: number | undefined;
 };
 
 /** @internal */
 export const KYCInternal$inboundSchema: z.ZodType<KYCInternal, z.ZodTypeDef, unknown> = z.object({
-    adverseMediaList: z.array(AdverseMediaResponseInternal$inboundSchema).optional(),
-    aliasList: z.array(z.string()).optional(),
     amlTypeLists: z.array(AmlTypeListResponseInternal$inboundSchema).optional(),
     totalHits: z.number().int().optional(),
 });
 
 /** @internal */
 export type KYCInternal$Outbound = {
-    adverseMediaList?: Array<AdverseMediaResponseInternal$Outbound> | undefined;
-    aliasList?: Array<string> | undefined;
     amlTypeLists?: Array<AmlTypeListResponseInternal$Outbound> | undefined;
     totalHits?: number | undefined;
 };
@@ -45,8 +33,6 @@ export const KYCInternal$outboundSchema: z.ZodType<
     z.ZodTypeDef,
     KYCInternal
 > = z.object({
-    adverseMediaList: z.array(AdverseMediaResponseInternal$outboundSchema).optional(),
-    aliasList: z.array(z.string()).optional(),
     amlTypeLists: z.array(AmlTypeListResponseInternal$outboundSchema).optional(),
     totalHits: z.number().int().optional(),
 });

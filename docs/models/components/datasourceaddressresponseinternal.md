@@ -1,5 +1,20 @@
 # DataSourceAddressResponseInternal
 
+## Example Usage
+
+```typescript
+import { DataSourceAddressResponseInternal } from "@prove-identity/prove-api/models/components";
+
+let value: DataSourceAddressResponseInternal = {
+    addressScore: 0,
+    city: true,
+    distance: 6.027456183070403,
+    postalCode: true,
+    region: true,
+    street: true,
+    streetNumber: 1,
+};
+```
 
 ## Fields
 

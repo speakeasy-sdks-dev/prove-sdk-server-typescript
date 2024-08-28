@@ -1,6 +1,8 @@
 # V3
 (*v3*)
 
+## Overview
+
 ### Available Operations
 
 * [v3TokenRequest](#v3tokenrequest) - Request OAuth token.
@@ -34,6 +36,38 @@ async function run() {
 run();
 ```
 
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ProveapiCore } from "@prove-identity/prove-api/core.js";
+import { v3V3TokenRequest } from "@prove-identity/prove-api/funcs/v3V3TokenRequest.js";
+
+// Use `ProveapiCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const proveapi = new ProveapiCore();
+
+async function run() {
+  const res = await v3V3TokenRequest(proveapi, {
+    clientId: "customer_id",
+    clientSecret: "secret",
+    grantType: "client_credentials",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -43,16 +77,17 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[operations.V3TokenRequestResponse](../../models/operations/v3tokenrequestresponse.md)\>**
+
 ### Errors
 
 | Error Object     | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
 | errors.ErrorT    | 400,500          | application/json |
 | errors.SDKError  | 4xx-5xx          | */*              |
+
 
 ## v3ChallengeRequest
 
@@ -73,9 +108,46 @@ const proveapi = new Proveapi({
 async function run() {
   const result = await proveapi.v3.v3ChallengeRequest({
     correlationId: "713189b8-5555-4b08-83ba-75d08780aebd",
-    dob: "2024-05-02T00:00:00Z",
-    ssn: "1234",
+    dob: "1981-01",
+    ssn: "0596",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ProveapiCore } from "@prove-identity/prove-api/core.js";
+import { v3V3ChallengeRequest } from "@prove-identity/prove-api/funcs/v3V3ChallengeRequest.js";
+
+// Use `ProveapiCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const proveapi = new ProveapiCore({
+  security: {
+    clientID: "<YOUR_CLIENT_ID_HERE>",
+    clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+  },
+});
+
+async function run() {
+  const res = await v3V3ChallengeRequest(proveapi, {
+    correlationId: "713189b8-5555-4b08-83ba-75d08780aebd",
+    dob: "1981-01",
+    ssn: "0596",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -93,10 +165,10 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[operations.V3ChallengeRequestResponse](../../models/operations/v3challengerequestresponse.md)\>**
+
 ### Errors
 
 | Error Object     | Status Code      | Content Type     |
@@ -104,9 +176,10 @@ run();
 | errors.ErrorT    | 400,500          | application/json |
 | errors.SDKError  | 4xx-5xx          | */*              |
 
+
 ## v3CompleteRequest
 
-Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow. At least a first name, last name, or SSN is required to verify an individual.
+Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow. At least a first name, last name, or SSN is required to verify ownership.
 
 ### Example Usage
 
@@ -159,6 +232,68 @@ async function run() {
 run();
 ```
 
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ProveapiCore } from "@prove-identity/prove-api/core.js";
+import { v3V3CompleteRequest } from "@prove-identity/prove-api/funcs/v3V3CompleteRequest.js";
+
+// Use `ProveapiCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const proveapi = new ProveapiCore({
+  security: {
+    clientID: "<YOUR_CLIENT_ID_HERE>",
+    clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+  },
+});
+
+async function run() {
+  const res = await v3V3CompleteRequest(proveapi, {
+    correlationId: "713189b8-5555-4b08-83ba-75d08780aebd",
+    individual: {
+      addresses: [
+        {
+          address: "39 South Trail",
+          city: "San Antonio",
+          extendedAddress: "Apt 23",
+          postalCode: "78285",
+          region: "TX",
+        },
+        {
+          address: "4861 Jay Junction",
+          city: "Boston",
+          extendedAddress: "Apt 78",
+          postalCode: "02208",
+          region: "MS",
+        },
+      ],
+      dob: "2024-05-02T00:00:00Z",
+      emailAddresses: [
+        "jdoe@example.com",
+        "dsmith@example.com",
+      ],
+      firstName: "Tod",
+      last4SSN: "1234",
+      lastName: "Weedall",
+      ssn: "265228370",
+    },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -168,16 +303,17 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[operations.V3CompleteRequestResponse](../../models/operations/v3completerequestresponse.md)\>**
+
 ### Errors
 
 | Error Object     | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
 | errors.ErrorT    | 400,500          | application/json |
 | errors.SDKError  | 4xx-5xx          | */*              |
+
 
 ## v3StartRequest
 
@@ -197,14 +333,55 @@ const proveapi = new Proveapi({
 
 async function run() {
   const result = await proveapi.v3.v3StartRequest({
-    dob: "2024-05-02T00:00:00Z",
-    emailAddress: "jdoe@example.com",
+    dob: "1981-01",
+    emailAddress: "mpinsonm@dyndns.org",
     finalTargetUrl: "https://www.example.com/landing-page",
     flowType: "mobile",
     ipAddress: "10.0.0.1",
-    phoneNumber: "2001001686",
-    ssn: "1234",
+    phoneNumber: "2001001695",
+    ssn: "0596",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ProveapiCore } from "@prove-identity/prove-api/core.js";
+import { v3V3StartRequest } from "@prove-identity/prove-api/funcs/v3V3StartRequest.js";
+
+// Use `ProveapiCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const proveapi = new ProveapiCore({
+  security: {
+    clientID: "<YOUR_CLIENT_ID_HERE>",
+    clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+  },
+});
+
+async function run() {
+  const res = await v3V3StartRequest(proveapi, {
+    dob: "1981-01",
+    emailAddress: "mpinsonm@dyndns.org",
+    finalTargetUrl: "https://www.example.com/landing-page",
+    flowType: "mobile",
+    ipAddress: "10.0.0.1",
+    phoneNumber: "2001001695",
+    ssn: "0596",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -222,16 +399,17 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[operations.V3StartRequestResponse](../../models/operations/v3startrequestresponse.md)\>**
+
 ### Errors
 
 | Error Object     | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
 | errors.ErrorT    | 400,500          | application/json |
 | errors.SDKError  | 4xx-5xx          | */*              |
+
 
 ## v3ValidateRequest
 
@@ -261,6 +439,41 @@ async function run() {
 run();
 ```
 
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ProveapiCore } from "@prove-identity/prove-api/core.js";
+import { v3V3ValidateRequest } from "@prove-identity/prove-api/funcs/v3V3ValidateRequest.js";
+
+// Use `ProveapiCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const proveapi = new ProveapiCore({
+  security: {
+    clientID: "<YOUR_CLIENT_ID_HERE>",
+    clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+  },
+});
+
+async function run() {
+  const res = await v3V3ValidateRequest(proveapi, {
+    correlationId: "713189b8-5555-4b08-83ba-75d08780aebd",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -270,10 +483,10 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[operations.V3ValidateRequestResponse](../../models/operations/v3validaterequestresponse.md)\>**
+
 ### Errors
 
 | Error Object     | Status Code      | Content Type     |

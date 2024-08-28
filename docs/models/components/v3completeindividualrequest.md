@@ -1,5 +1,35 @@
 # V3CompleteIndividualRequest
 
+## Example Usage
+
+```typescript
+import { V3CompleteIndividualRequest } from "@prove-identity/prove-api/models/components";
+
+let value: V3CompleteIndividualRequest = {
+    addresses: [
+        {
+            address: "39 South Trail",
+            city: "San Antonio",
+            extendedAddress: "Apt 23",
+            postalCode: "78285",
+            region: "TX",
+        },
+        {
+            address: "4861 Jay Junction",
+            city: "Boston",
+            extendedAddress: "Apt 78",
+            postalCode: "02208",
+            region: "MS",
+        },
+    ],
+    dob: "2024-05-02T00:00:00Z",
+    emailAddresses: ["jdoe@example.com", "dsmith@example.com"],
+    firstName: "Tod",
+    last4SSN: "1234",
+    lastName: "Weedall",
+    ssn: "265228370",
+};
+```
 
 ## Fields
 

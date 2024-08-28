@@ -1,5 +1,14 @@
 # DataSourceEmailAddressResponseInternal
 
+## Example Usage
+
+```typescript
+import { DataSourceEmailAddressResponseInternal } from "@prove-identity/prove-api/models/components";
+
+let value: DataSourceEmailAddressResponseInternal = {
+    emailAddress: true,
+};
+```
 
 ## Fields
 

@@ -27,7 +27,7 @@ import { Result } from "../types/fp.js";
  * Complete flow.
  *
  * @remarks
- * Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow. At least a first name, last name, or SSN is required to verify an individual.
+ * Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow. At least a first name, last name, or SSN is required to verify ownership.
  */
 export async function v3V3CompleteRequest(
     client$: ProveapiCore,
