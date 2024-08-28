@@ -15,13 +15,13 @@ export type V3TokenResponse = {
      */
     expiresIn: number;
     /**
-     * RefreshExpiresIn returns the lifetime of the token in seconds.
+     * RefreshExpiresIn returns the lifetime of the token in seconds. Not currently supported.
      */
-    refreshExpiresIn: number;
+    refreshExpiresIn?: number | undefined;
     /**
-     * RefreshToken returns the refresh token as a string.
+     * RefreshToken returns the refresh token as a string. Not currently supported.
      */
-    refreshToken: string;
+    refreshToken?: string | undefined;
     /**
      * TokenType returns the type of token.
      */
@@ -33,8 +33,8 @@ export const V3TokenResponse$inboundSchema: z.ZodType<V3TokenResponse, z.ZodType
     .object({
         access_token: z.string(),
         expires_in: z.number().int(),
-        refresh_expires_in: z.number().int(),
-        refresh_token: z.string(),
+        refresh_expires_in: z.number().int().optional(),
+        refresh_token: z.string().optional(),
         token_type: z.string(),
     })
     .transform((v) => {
@@ -51,8 +51,8 @@ export const V3TokenResponse$inboundSchema: z.ZodType<V3TokenResponse, z.ZodType
 export type V3TokenResponse$Outbound = {
     access_token: string;
     expires_in: number;
-    refresh_expires_in: number;
-    refresh_token: string;
+    refresh_expires_in?: number | undefined;
+    refresh_token?: string | undefined;
     token_type: string;
 };
 
@@ -65,8 +65,8 @@ export const V3TokenResponse$outboundSchema: z.ZodType<
     .object({
         accessToken: z.string(),
         expiresIn: z.number().int(),
-        refreshExpiresIn: z.number().int(),
-        refreshToken: z.string(),
+        refreshExpiresIn: z.number().int().optional(),
+        refreshToken: z.string().optional(),
         tokenType: z.string(),
     })
     .transform((v) => {

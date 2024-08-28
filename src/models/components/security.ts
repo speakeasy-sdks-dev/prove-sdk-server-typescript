@@ -7,21 +7,21 @@ import * as z from "zod";
 export type Security = {
     clientID?: string | undefined;
     clientSecret?: string | undefined;
-    tokenURL?: "/token" | undefined;
+    tokenURL?: string | undefined;
 };
 
 /** @internal */
 export const Security$inboundSchema: z.ZodType<Security, z.ZodTypeDef, unknown> = z.object({
     clientID: z.string().optional(),
     clientSecret: z.string().optional(),
-    tokenURL: z.literal("/token").optional(),
+    tokenURL: z.string().default("/token"),
 });
 
 /** @internal */
 export type Security$Outbound = {
     clientID?: string | undefined;
     clientSecret?: string | undefined;
-    tokenURL: "/token";
+    tokenURL: string;
 };
 
 /** @internal */
@@ -29,7 +29,7 @@ export const Security$outboundSchema: z.ZodType<Security$Outbound, z.ZodTypeDef,
     z.object({
         clientID: z.string().optional(),
         clientSecret: z.string().optional(),
-        tokenURL: z.literal("/token").default("/token" as const),
+        tokenURL: z.string().default("/token"),
     });
 
 /**

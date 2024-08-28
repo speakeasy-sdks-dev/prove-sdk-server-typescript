@@ -1,5 +1,18 @@
 # V3CompleteAddressEntryRequest
 
+## Example Usage
+
+```typescript
+import { V3CompleteAddressEntryRequest } from "@prove-identity/prove-api/models/components";
+
+let value: V3CompleteAddressEntryRequest = {
+    address: "39 South Trail",
+    city: "San Antonio",
+    extendedAddress: "39 South Trail",
+    postalCode: "78285",
+    region: "TX",
+};
+```
 
 ## Fields
 

@@ -14,7 +14,6 @@ export type IDVDataInternal = {
     dataSource1?: DataSourceInternal | undefined;
     dataSource2?: DataSourceInternal | undefined;
     multiCIPConfidence?: string | undefined;
-    multiVerified?: boolean | undefined;
 };
 
 /** @internal */
@@ -23,7 +22,6 @@ export const IDVDataInternal$inboundSchema: z.ZodType<IDVDataInternal, z.ZodType
         dataSource1: DataSourceInternal$inboundSchema.optional(),
         dataSource2: DataSourceInternal$inboundSchema.optional(),
         multiCIPConfidence: z.string().optional(),
-        multiVerified: z.boolean().optional(),
     });
 
 /** @internal */
@@ -31,7 +29,6 @@ export type IDVDataInternal$Outbound = {
     dataSource1?: DataSourceInternal$Outbound | undefined;
     dataSource2?: DataSourceInternal$Outbound | undefined;
     multiCIPConfidence?: string | undefined;
-    multiVerified?: boolean | undefined;
 };
 
 /** @internal */
@@ -43,7 +40,6 @@ export const IDVDataInternal$outboundSchema: z.ZodType<
     dataSource1: DataSourceInternal$outboundSchema.optional(),
     dataSource2: DataSourceInternal$outboundSchema.optional(),
     multiCIPConfidence: z.string().optional(),
-    multiVerified: z.boolean().optional(),
 });
 
 /**

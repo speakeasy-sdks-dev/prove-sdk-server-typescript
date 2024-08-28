@@ -1,5 +1,12 @@
 # Security
 
+## Example Usage
+
+```typescript
+import { Security } from "@prove-identity/prove-api/models/components";
+
+let value: Security = {};
+```
 
 ## Fields
 

@@ -43,7 +43,7 @@ export class V3 extends ClientSDK {
      * Complete flow.
      *
      * @remarks
-     * Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow. At least a first name, last name, or SSN is required to verify an individual.
+     * Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow. At least a first name, last name, or SSN is required to verify ownership.
      */
     async v3CompleteRequest(
         request?: components.V3CompleteRequest | undefined,

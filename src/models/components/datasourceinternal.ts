@@ -35,7 +35,6 @@ export type DataSourceInternal = {
     identifiers?: DataSourceIdentifiersResponseInternal | undefined;
     name?: DataSourceNameResponseInternal | undefined;
     reasonCodes?: Array<string> | undefined;
-    verified?: boolean | undefined;
 };
 
 /** @internal */
@@ -50,7 +49,6 @@ export const DataSourceInternal$inboundSchema: z.ZodType<
     identifiers: DataSourceIdentifiersResponseInternal$inboundSchema.optional(),
     name: DataSourceNameResponseInternal$inboundSchema.optional(),
     reasonCodes: z.array(z.string()).optional(),
-    verified: z.boolean().optional(),
 });
 
 /** @internal */
@@ -61,7 +59,6 @@ export type DataSourceInternal$Outbound = {
     identifiers?: DataSourceIdentifiersResponseInternal$Outbound | undefined;
     name?: DataSourceNameResponseInternal$Outbound | undefined;
     reasonCodes?: Array<string> | undefined;
-    verified?: boolean | undefined;
 };
 
 /** @internal */
@@ -76,7 +73,6 @@ export const DataSourceInternal$outboundSchema: z.ZodType<
     identifiers: DataSourceIdentifiersResponseInternal$outboundSchema.optional(),
     name: DataSourceNameResponseInternal$outboundSchema.optional(),
     reasonCodes: z.array(z.string()).optional(),
-    verified: z.boolean().optional(),
 });
 
 /**

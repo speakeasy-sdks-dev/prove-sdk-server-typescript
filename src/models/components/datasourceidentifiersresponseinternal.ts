@@ -6,8 +6,6 @@ import * as z from "zod";
 
 export type DataSourceIdentifiersResponseInternal = {
     dob?: boolean | undefined;
-    driversLicenseNumber?: boolean | undefined;
-    driversLicenseState?: boolean | undefined;
     last4?: boolean | undefined;
     ssn?: boolean | undefined;
 };
@@ -19,8 +17,6 @@ export const DataSourceIdentifiersResponseInternal$inboundSchema: z.ZodType<
     unknown
 > = z.object({
     dob: z.boolean().optional(),
-    driversLicenseNumber: z.boolean().optional(),
-    driversLicenseState: z.boolean().optional(),
     last4: z.boolean().optional(),
     ssn: z.boolean().optional(),
 });
@@ -28,8 +24,6 @@ export const DataSourceIdentifiersResponseInternal$inboundSchema: z.ZodType<
 /** @internal */
 export type DataSourceIdentifiersResponseInternal$Outbound = {
     dob?: boolean | undefined;
-    driversLicenseNumber?: boolean | undefined;
-    driversLicenseState?: boolean | undefined;
     last4?: boolean | undefined;
     ssn?: boolean | undefined;
 };
@@ -41,8 +35,6 @@ export const DataSourceIdentifiersResponseInternal$outboundSchema: z.ZodType<
     DataSourceIdentifiersResponseInternal
 > = z.object({
     dob: z.boolean().optional(),
-    driversLicenseNumber: z.boolean().optional(),
-    driversLicenseState: z.boolean().optional(),
     last4: z.boolean().optional(),
     ssn: z.boolean().optional(),
 });

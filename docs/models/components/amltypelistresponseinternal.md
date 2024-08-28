@@ -1,5 +1,27 @@
 # AmlTypeListResponseInternal
 
+## Example Usage
+
+```typescript
+import { AmlTypeListResponseInternal } from "@prove-identity/prove-api/models/components";
+
+let value: AmlTypeListResponseInternal = {
+    amlType: "amlType",
+    fields: [
+        {
+            name: "name",
+            source: "source",
+            value: "value",
+        },
+        {
+            name: "name",
+            source: "source",
+            value: "value",
+        },
+    ],
+    listHits: 7,
+};
+```
 
 ## Fields
 

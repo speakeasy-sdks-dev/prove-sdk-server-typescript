@@ -219,3 +219,13 @@ Based on:
 - [typescript v0.5.0] .
 ### Releases
 - [NPM v0.5.0] https://www.npmjs.com/package/@prove-identity/prove-api/v/0.5.0 - .
+
+## 2024-08-28 17:02:12
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.381.4 (2.404.9) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.6.0] .
+### Releases
+- [NPM v0.6.0] https://www.npmjs.com/package/@prove-identity/prove-api/v/0.6.0 - .

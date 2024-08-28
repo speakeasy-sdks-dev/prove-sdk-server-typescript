@@ -429,5 +429,47 @@ run();
 ```
 <!-- End Retries [retries] -->
 
+<!-- Start Standalone functions [standalone-funcs] -->
+## Standalone functions
+
+All the methods listed above are available as standalone functions. These
+functions are ideal for use in applications running in the browser, serverless
+runtimes or other environments where application bundle size is a primary
+concern. When using a bundler to build your application, all unused
+functionality will be either excluded from the final bundle or tree-shaken away.
+
+To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
+
+<details>
+
+<summary>Available standalone functions</summary>
+
+- [v3V3ChallengeRequest](docs/sdks/v3/README.md#v3challengerequest)
+- [v3V3CompleteRequest](docs/sdks/v3/README.md#v3completerequest)
+- [v3V3StartRequest](docs/sdks/v3/README.md#v3startrequest)
+- [v3V3TokenRequest](docs/sdks/v3/README.md#v3tokenrequest)
+- [v3V3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest)
+
+
+</details>
+<!-- End Standalone functions [standalone-funcs] -->
+
+<!-- Start Debugging [debug] -->
+## Debugging
+
+You can setup your SDK to emit debug logs for SDK requests and responses.
+
+You can pass a logger that matches `console`'s interface as an SDK option.
+
+> [!WARNING]
+> Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
+
+```typescript
+import { Proveapi } from "@prove-identity/prove-api";
+
+const sdk = new Proveapi({ debugLogger: console });
+```
+<!-- End Debugging [debug] -->
+
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

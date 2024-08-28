@@ -11,13 +11,13 @@ const proveapi = new Proveapi({
 
 async function run() {
     const result = await proveapi.v3.v3StartRequest({
-        dob: "2024-05-02T00:00:00Z",
-        emailAddress: "jdoe@example.com",
+        dob: "1981-01",
+        emailAddress: "mpinsonm@dyndns.org",
         finalTargetUrl: "https://www.example.com/landing-page",
         flowType: "mobile",
         ipAddress: "10.0.0.1",
-        phoneNumber: "2001001686",
-        ssn: "1234",
+        phoneNumber: "2001001695",
+        ssn: "0596",
     });
 
     // Handle the result
