@@ -4,8 +4,34 @@
     <a href="https://speakeasyapi.dev/"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
 </div>
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Prove APIs: This specification describes the Prove API.
+
+OpenAPI Spec - generated.
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [Requirements](#requirements)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Standalone functions](#standalone-functions)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Custom HTTP Client](#custom-http-client)
+* [Authentication](#authentication)
+* [Debugging](#debugging)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
+
+The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
 
 ### NPM
 
@@ -143,6 +169,10 @@ run();
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+<details open>
+<summary>Available methods</summary>
+
+
 ### [v3](docs/sdks/v3/README.md)
 
 * [v3TokenRequest](docs/sdks/v3/README.md#v3tokenrequest) - Request OAuth token.
@@ -150,6 +180,8 @@ run();
 * [v3CompleteRequest](docs/sdks/v3/README.md#v3completerequest) - Complete flow.
 * [v3StartRequest](docs/sdks/v3/README.md#v3startrequest) - Start flow.
 * [v3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest) - Validate phone number.
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
@@ -159,7 +191,8 @@ All SDK methods return a response object or throw an error. If Error objects are
 
 | Error Object     | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
-| errors.ErrorT    | 400,500          | application/json |
+| errors.Error400  | 400              | application/json |
+| errors.ErrorT    | 500              | application/json |
 | errors.SDKError  | 4xx-5xx          | */*              |
 
 Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging. 
@@ -167,39 +200,49 @@ Validation errors can also occur when either method arguments or data returned f
 
 ```typescript
 import { Proveapi } from "@prove-identity/prove-api";
-import { SDKValidationError } from "@prove-identity/prove-api/models/errors";
+import {
+  Error400,
+  ErrorT,
+  SDKValidationError,
+} from "@prove-identity/prove-api/models/errors";
 
 const proveapi = new Proveapi();
 
 async function run() {
-    let result;
-    try {
-        result = await proveapi.v3.v3TokenRequest({
-            clientId: "customer_id",
-            clientSecret: "secret",
-            grantType: "client_credentials",
-        });
-    } catch (err) {
-        switch (true) {
-            case err instanceof SDKValidationError: {
-                // Validation errors can be pretty-printed
-                console.error(err.pretty());
-                // Raw value may also be inspected
-                console.error(err.rawValue);
-                return;
-            }
-            case err instanceof errors.ErrorT: {
-                console.error(err); // handle exception
-                return;
-            }
-            default: {
-                throw err;
-            }
-        }
-    }
+  let result;
+  try {
+    result = await proveapi.v3.v3TokenRequest({
+      clientId: "customer_id",
+      clientSecret: "secret",
+      grantType: "client_credentials",
+    });
 
     // Handle the result
     console.log(result);
+  } catch (err) {
+    switch (true) {
+      case (err instanceof SDKValidationError): {
+        // Validation errors can be pretty-printed
+        console.error(err.pretty());
+        // Raw value may also be inspected
+        console.error(err.rawValue);
+        return;
+      }
+      case (err instanceof Error400): {
+        // Handle err.data$: Error400Data
+        console.error(err);
+        return;
+      }
+      case (err instanceof ErrorT): {
+        // Handle err.data$: ErrorTData
+        console.error(err);
+        return;
+      }
+      default: {
+        throw err;
+      }
+    }
+  }
 }
 
 run();
@@ -223,18 +266,18 @@ You can override the default server globally by passing a server name to the `se
 import { Proveapi } from "@prove-identity/prove-api";
 
 const proveapi = new Proveapi({
-    server: "prod-us",
+  server: "prod-us",
 });
 
 async function run() {
-    const result = await proveapi.v3.v3TokenRequest({
-        clientId: "customer_id",
-        clientSecret: "secret",
-        grantType: "client_credentials",
-    });
+  const result = await proveapi.v3.v3TokenRequest({
+    clientId: "customer_id",
+    clientSecret: "secret",
+    grantType: "client_credentials",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -250,18 +293,18 @@ The default server can also be overridden globally by passing a URL to the `serv
 import { Proveapi } from "@prove-identity/prove-api";
 
 const proveapi = new Proveapi({
-    serverURL: "https://platform.uat.proveapis.com",
+  serverURL: "https://platform.uat.proveapis.com",
 });
 
 async function run() {
-    const result = await proveapi.v3.v3TokenRequest({
-        clientId: "customer_id",
-        clientSecret: "secret",
-        grantType: "client_credentials",
-    });
+  const result = await proveapi.v3.v3TokenRequest({
+    clientId: "customer_id",
+    clientSecret: "secret",
+    grantType: "client_credentials",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -334,21 +377,21 @@ You can set the security parameters through the `security` optional parameter wh
 import { Proveapi } from "@prove-identity/prove-api";
 
 const proveapi = new Proveapi({
-    security: {
-        clientID: "<YOUR_CLIENT_ID_HERE>",
-        clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
-    },
+  security: {
+    clientID: "<YOUR_CLIENT_ID_HERE>",
+    clientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+  },
 });
 
 async function run() {
-    const result = await proveapi.v3.v3TokenRequest({
-        clientId: "customer_id",
-        clientSecret: "secret",
-        grantType: "client_credentials",
-    });
+  const result = await proveapi.v3.v3TokenRequest({
+    clientId: "customer_id",
+    clientSecret: "secret",
+    grantType: "client_credentials",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -368,28 +411,25 @@ import { Proveapi } from "@prove-identity/prove-api";
 const proveapi = new Proveapi();
 
 async function run() {
-    const result = await proveapi.v3.v3TokenRequest(
-        {
-            clientId: "customer_id",
-            clientSecret: "secret",
-            grantType: "client_credentials",
-        },
-        {
-            retries: {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 1,
-                    maxInterval: 50,
-                    exponent: 1.1,
-                    maxElapsedTime: 100,
-                },
-                retryConnectionErrors: false,
-            },
-        }
-    );
+  const result = await proveapi.v3.v3TokenRequest({
+    clientId: "customer_id",
+    clientSecret: "secret",
+    grantType: "client_credentials",
+  }, {
+    retries: {
+      strategy: "backoff",
+      backoff: {
+        initialInterval: 1,
+        maxInterval: 50,
+        exponent: 1.1,
+        maxElapsedTime: 100,
+      },
+      retryConnectionErrors: false,
+    },
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -401,27 +441,27 @@ If you'd like to override the default retry strategy for all operations that sup
 import { Proveapi } from "@prove-identity/prove-api";
 
 const proveapi = new Proveapi({
-    retryConfig: {
-        strategy: "backoff",
-        backoff: {
-            initialInterval: 1,
-            maxInterval: 50,
-            exponent: 1.1,
-            maxElapsedTime: 100,
-        },
-        retryConnectionErrors: false,
+  retryConfig: {
+    strategy: "backoff",
+    backoff: {
+      initialInterval: 1,
+      maxInterval: 50,
+      exponent: 1.1,
+      maxElapsedTime: 100,
     },
+    retryConnectionErrors: false,
+  },
 });
 
 async function run() {
-    const result = await proveapi.v3.v3TokenRequest({
-        clientId: "customer_id",
-        clientSecret: "secret",
-        grantType: "client_credentials",
-    });
+  const result = await proveapi.v3.v3TokenRequest({
+    clientId: "customer_id",
+    clientSecret: "secret",
+    grantType: "client_credentials",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();

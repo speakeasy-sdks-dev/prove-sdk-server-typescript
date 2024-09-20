@@ -6,11 +6,11 @@
 import { V3ChallengeAddressEntryRequest } from "@prove-identity/prove-api/models/components";
 
 let value: V3ChallengeAddressEntryRequest = {
-    address: "39 South Trail",
-    city: "San Antonio",
-    extendedAddress: "39 South Trail",
-    postalCode: "78285",
-    region: "TX",
+  address: "39 South Trail",
+  city: "San Antonio",
+  extendedAddress: "39 South Trail",
+  postalCode: "78285",
+  region: "TX",
 };
 ```
 

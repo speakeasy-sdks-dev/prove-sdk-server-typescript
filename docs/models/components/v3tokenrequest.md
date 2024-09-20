@@ -6,9 +6,9 @@
 import { V3TokenRequest } from "@prove-identity/prove-api/models/components";
 
 let value: V3TokenRequest = {
-    clientId: "customer_id",
-    clientSecret: "secret",
-    grantType: "client_credentials",
+  clientId: "customer_id",
+  clientSecret: "secret",
+  grantType: "client_credentials",
 };
 ```
 

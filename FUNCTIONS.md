@@ -40,6 +40,7 @@ async function run() {
     flowType: "mobile",
     ipAddress: "10.0.0.1",
     phoneNumber: "2001001695",
+    smsMessage: "\"Your code is: ####.\"",
     ssn: "0596",
   });
 

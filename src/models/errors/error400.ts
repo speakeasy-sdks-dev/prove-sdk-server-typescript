@@ -5,9 +5,9 @@
 import * as z from "zod";
 
 /**
- * Internal Server Error. The server encountered an unexpected condition that prevented it from fulfilling the request.
+ * Bad Request. The server cannot process the request due to a client error.
  */
-export type ErrorTData = {
+export type Error400Data = {
   /**
    * Code is an internal error code that describes the problem category of the request.
    */
@@ -19,18 +19,18 @@ export type ErrorTData = {
 };
 
 /**
- * Internal Server Error. The server encountered an unexpected condition that prevented it from fulfilling the request.
+ * Bad Request. The server cannot process the request due to a client error.
  */
-export class ErrorT extends Error {
+export class Error400 extends Error {
   /**
    * Code is an internal error code that describes the problem category of the request.
    */
   code?: number | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: ErrorTData;
+  data$: Error400Data;
 
-  constructor(err: ErrorTData) {
+  constructor(err: Error400Data) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -39,32 +39,35 @@ export class ErrorT extends Error {
 
     if (err.code != null) this.code = err.code;
 
-    this.name = "ErrorT";
+    this.name = "Error400";
   }
 }
 
 /** @internal */
-export const ErrorT$inboundSchema: z.ZodType<ErrorT, z.ZodTypeDef, unknown> = z
-  .object({
-    code: z.number().int().optional(),
-    message: z.string(),
-  })
+export const Error400$inboundSchema: z.ZodType<
+  Error400,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  code: z.number().int().optional(),
+  message: z.string(),
+})
   .transform((v) => {
-    return new ErrorT(v);
+    return new Error400(v);
   });
 
 /** @internal */
-export type ErrorT$Outbound = {
+export type Error400$Outbound = {
   code?: number | undefined;
   message: string;
 };
 
 /** @internal */
-export const ErrorT$outboundSchema: z.ZodType<
-  ErrorT$Outbound,
+export const Error400$outboundSchema: z.ZodType<
+  Error400$Outbound,
   z.ZodTypeDef,
-  ErrorT
-> = z.instanceof(ErrorT)
+  Error400
+> = z.instanceof(Error400)
   .transform(v => v.data$)
   .pipe(z.object({
     code: z.number().int().optional(),
@@ -75,11 +78,11 @@ export const ErrorT$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ErrorT$ {
-  /** @deprecated use `ErrorT$inboundSchema` instead. */
-  export const inboundSchema = ErrorT$inboundSchema;
-  /** @deprecated use `ErrorT$outboundSchema` instead. */
-  export const outboundSchema = ErrorT$outboundSchema;
-  /** @deprecated use `ErrorT$Outbound` instead. */
-  export type Outbound = ErrorT$Outbound;
+export namespace Error400$ {
+  /** @deprecated use `Error400$inboundSchema` instead. */
+  export const inboundSchema = Error400$inboundSchema;
+  /** @deprecated use `Error400$outboundSchema` instead. */
+  export const outboundSchema = Error400$outboundSchema;
+  /** @deprecated use `Error400$Outbound` instead. */
+  export type Outbound = Error400$Outbound;
 }

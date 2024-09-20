@@ -5,54 +5,54 @@
 import * as z from "zod";
 
 export type V3ValidateResponse = {
-    /**
-     * Challenge missing returns true if a DOB or SSN needs to be passed in on the next step.
-     */
-    challengeMissing: boolean;
-    /**
-     * Next contains the next set of allowed calls in the same flow.
-     */
-    next: { [k: string]: string };
-    /**
-     * PhoneNumber is the number of the mobile phone for which validation was performed.
-     */
-    phoneNumber?: string | undefined;
-    /**
-     * Success returns true if the phone number was validated.
-     */
-    success: boolean;
+  /**
+   * Challenge missing returns true if a DOB or SSN needs to be passed in on the next step.
+   */
+  challengeMissing: boolean;
+  /**
+   * Next contains the next set of allowed calls in the same flow.
+   */
+  next: { [k: string]: string };
+  /**
+   * PhoneNumber is the number of the mobile phone for which validation was performed.
+   */
+  phoneNumber?: string | undefined;
+  /**
+   * Success returns true if the phone number was validated.
+   */
+  success: boolean;
 };
 
 /** @internal */
 export const V3ValidateResponse$inboundSchema: z.ZodType<
-    V3ValidateResponse,
-    z.ZodTypeDef,
-    unknown
+  V3ValidateResponse,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    challengeMissing: z.boolean(),
-    next: z.record(z.string()),
-    phoneNumber: z.string().optional(),
-    success: z.boolean(),
+  challengeMissing: z.boolean(),
+  next: z.record(z.string()),
+  phoneNumber: z.string().optional(),
+  success: z.boolean(),
 });
 
 /** @internal */
 export type V3ValidateResponse$Outbound = {
-    challengeMissing: boolean;
-    next: { [k: string]: string };
-    phoneNumber?: string | undefined;
-    success: boolean;
+  challengeMissing: boolean;
+  next: { [k: string]: string };
+  phoneNumber?: string | undefined;
+  success: boolean;
 };
 
 /** @internal */
 export const V3ValidateResponse$outboundSchema: z.ZodType<
-    V3ValidateResponse$Outbound,
-    z.ZodTypeDef,
-    V3ValidateResponse
+  V3ValidateResponse$Outbound,
+  z.ZodTypeDef,
+  V3ValidateResponse
 > = z.object({
-    challengeMissing: z.boolean(),
-    next: z.record(z.string()),
-    phoneNumber: z.string().optional(),
-    success: z.boolean(),
+  challengeMissing: z.boolean(),
+  next: z.record(z.string()),
+  phoneNumber: z.string().optional(),
+  success: z.boolean(),
 });
 
 /**
@@ -60,10 +60,10 @@ export const V3ValidateResponse$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace V3ValidateResponse$ {
-    /** @deprecated use `V3ValidateResponse$inboundSchema` instead. */
-    export const inboundSchema = V3ValidateResponse$inboundSchema;
-    /** @deprecated use `V3ValidateResponse$outboundSchema` instead. */
-    export const outboundSchema = V3ValidateResponse$outboundSchema;
-    /** @deprecated use `V3ValidateResponse$Outbound` instead. */
-    export type Outbound = V3ValidateResponse$Outbound;
+  /** @deprecated use `V3ValidateResponse$inboundSchema` instead. */
+  export const inboundSchema = V3ValidateResponse$inboundSchema;
+  /** @deprecated use `V3ValidateResponse$outboundSchema` instead. */
+  export const outboundSchema = V3ValidateResponse$outboundSchema;
+  /** @deprecated use `V3ValidateResponse$Outbound` instead. */
+  export type Outbound = V3ValidateResponse$Outbound;
 }

@@ -5,72 +5,89 @@
 import * as z from "zod";
 
 export type V3StartRequest = {
-    /**
-     * DOB, an optional challenge, is the date of birth in one of these formats: YYYY-MM-DD, YYYY-MM, or MM-DD. Acceptable characters are: numeric with symbol '-'.
-     */
-    dob?: string | undefined;
-    /**
-     * Email is the email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
-     */
-    emailAddress?: string | undefined;
-    /**
-     * Final target URL is only required for when flowType=desktop. The final target URL is where the end user will be redirected at the end of Instant Link flow. Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
-     */
-    finalTargetUrl?: string | undefined;
-    /**
-     * Flow type is based on the method used - either 'desktop' if using desktop or 'mobile' for iOS/Android native apps and mobile web. Acceptable options are: 'desktop' or 'mobile'.
-     */
-    flowType: string;
-    /**
-     * IP address is the IP address of the device of the customer. Acceptable characters are: numeric with symbols ':.'.
-     */
-    ipAddress?: string | undefined;
-    /**
-     * Phone number is the number of the mobile phone. The field is required in the Sandbox environment. In Production, you will likely pass the phone number via the Prove Link client SDK instead of within the Start call depending on how your user experience is implemented. Acceptable characters are: alphanumeric with symbols '+'.
-     */
-    phoneNumber?: string | undefined;
-    /**
-     * SSN, an optional challenge, is either the full or last 4 digits of the social security number. Acceptable characters are: numeric.
-     */
-    ssn?: string | undefined;
+  /**
+   * DOB, an optional challenge, is the date of birth in one of these formats: YYYY-MM-DD, YYYY-MM, or MM-DD. Acceptable characters are: numeric with symbol '-'.
+   */
+  dob?: string | undefined;
+  /**
+   * Email is the email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
+   */
+  emailAddress?: string | undefined;
+  /**
+   * Final target URL is only required for when flowType=desktop. The final target URL is where the end user will be redirected at the end of Instant Link flow. Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
+   */
+  finalTargetUrl?: string | undefined;
+  /**
+   * Flow type is based on the method used - either 'desktop' if using desktop or 'mobile' for iOS/Android native apps and mobile web. Acceptable options are: 'desktop' or 'mobile'.
+   */
+  flowType: string;
+  /**
+   * IP address is the IP address of the device of the customer. Acceptable characters are: numeric with symbols ':.'.
+   */
+  ipAddress?: string | undefined;
+  /**
+   * Phone number is the number of the mobile phone. The field is required in the Sandbox environment. In Production, you will likely pass the phone number via the Prove Link client SDK instead of within the Start call depending on how your user experience is implemented. Acceptable characters are: alphanumeric with symbols '+'.
+   */
+  phoneNumber?: string | undefined;
+  /**
+   * SMSMessage is an optional field to customize the message body sent in the Instant Link (flowType=desktop) or OTP (on mobile) SMS message.
+   *
+   * @remarks
+   * If not provided, the following default messages will be used:
+   * For Instant Link: "Complete your verification. If you did not make this request, do not click link. ####"
+   * For OTP: "#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone."
+   * Max length is 160 characters. Only ASCII characters are allowed.
+   * The template must include the '####' placeholder, which will be replaced with the actual URL or OTP.
+   */
+  smsMessage?: string | undefined;
+  /**
+   * SSN, an optional challenge, is either the full or last 4 digits of the social security number. Acceptable characters are: numeric.
+   */
+  ssn?: string | undefined;
 };
 
 /** @internal */
-export const V3StartRequest$inboundSchema: z.ZodType<V3StartRequest, z.ZodTypeDef, unknown> =
-    z.object({
-        dob: z.string().optional(),
-        emailAddress: z.string().optional(),
-        finalTargetUrl: z.string().optional(),
-        flowType: z.string(),
-        ipAddress: z.string().optional(),
-        phoneNumber: z.string().optional(),
-        ssn: z.string().optional(),
-    });
+export const V3StartRequest$inboundSchema: z.ZodType<
+  V3StartRequest,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  dob: z.string().optional(),
+  emailAddress: z.string().optional(),
+  finalTargetUrl: z.string().optional(),
+  flowType: z.string(),
+  ipAddress: z.string().optional(),
+  phoneNumber: z.string().optional(),
+  smsMessage: z.string().optional(),
+  ssn: z.string().optional(),
+});
 
 /** @internal */
 export type V3StartRequest$Outbound = {
-    dob?: string | undefined;
-    emailAddress?: string | undefined;
-    finalTargetUrl?: string | undefined;
-    flowType: string;
-    ipAddress?: string | undefined;
-    phoneNumber?: string | undefined;
-    ssn?: string | undefined;
+  dob?: string | undefined;
+  emailAddress?: string | undefined;
+  finalTargetUrl?: string | undefined;
+  flowType: string;
+  ipAddress?: string | undefined;
+  phoneNumber?: string | undefined;
+  smsMessage?: string | undefined;
+  ssn?: string | undefined;
 };
 
 /** @internal */
 export const V3StartRequest$outboundSchema: z.ZodType<
-    V3StartRequest$Outbound,
-    z.ZodTypeDef,
-    V3StartRequest
+  V3StartRequest$Outbound,
+  z.ZodTypeDef,
+  V3StartRequest
 > = z.object({
-    dob: z.string().optional(),
-    emailAddress: z.string().optional(),
-    finalTargetUrl: z.string().optional(),
-    flowType: z.string(),
-    ipAddress: z.string().optional(),
-    phoneNumber: z.string().optional(),
-    ssn: z.string().optional(),
+  dob: z.string().optional(),
+  emailAddress: z.string().optional(),
+  finalTargetUrl: z.string().optional(),
+  flowType: z.string(),
+  ipAddress: z.string().optional(),
+  phoneNumber: z.string().optional(),
+  smsMessage: z.string().optional(),
+  ssn: z.string().optional(),
 });
 
 /**
@@ -78,10 +95,10 @@ export const V3StartRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace V3StartRequest$ {
-    /** @deprecated use `V3StartRequest$inboundSchema` instead. */
-    export const inboundSchema = V3StartRequest$inboundSchema;
-    /** @deprecated use `V3StartRequest$outboundSchema` instead. */
-    export const outboundSchema = V3StartRequest$outboundSchema;
-    /** @deprecated use `V3StartRequest$Outbound` instead. */
-    export type Outbound = V3StartRequest$Outbound;
+  /** @deprecated use `V3StartRequest$inboundSchema` instead. */
+  export const inboundSchema = V3StartRequest$inboundSchema;
+  /** @deprecated use `V3StartRequest$outboundSchema` instead. */
+  export const outboundSchema = V3StartRequest$outboundSchema;
+  /** @deprecated use `V3StartRequest$Outbound` instead. */
+  export type Outbound = V3StartRequest$Outbound;
 }

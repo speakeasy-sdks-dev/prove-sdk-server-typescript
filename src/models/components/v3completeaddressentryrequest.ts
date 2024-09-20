@@ -5,61 +5,61 @@
 import * as z from "zod";
 
 export type V3CompleteAddressEntryRequest = {
-    /**
-     * Address is the street address of the individual.
-     */
-    address?: string | undefined;
-    /**
-     * City of the individual.
-     */
-    city?: string | undefined;
-    /**
-     * Extended address is the apartment number or other extended address information.
-     */
-    extendedAddress?: string | undefined;
-    /**
-     * Postal code is the zip code of the individual.
-     */
-    postalCode?: string | undefined;
-    /**
-     * Region is the state or locality of the individual.
-     */
-    region?: string | undefined;
+  /**
+   * Address is the street address of the individual.
+   */
+  address?: string | undefined;
+  /**
+   * City of the individual.
+   */
+  city?: string | undefined;
+  /**
+   * Extended address is the apartment number or other extended address information.
+   */
+  extendedAddress?: string | undefined;
+  /**
+   * Postal code is the zip code of the individual.
+   */
+  postalCode?: string | undefined;
+  /**
+   * Region is the state or locality of the individual.
+   */
+  region?: string | undefined;
 };
 
 /** @internal */
 export const V3CompleteAddressEntryRequest$inboundSchema: z.ZodType<
-    V3CompleteAddressEntryRequest,
-    z.ZodTypeDef,
-    unknown
+  V3CompleteAddressEntryRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    address: z.string().optional(),
-    city: z.string().optional(),
-    extendedAddress: z.string().optional(),
-    postalCode: z.string().optional(),
-    region: z.string().optional(),
+  address: z.string().optional(),
+  city: z.string().optional(),
+  extendedAddress: z.string().optional(),
+  postalCode: z.string().optional(),
+  region: z.string().optional(),
 });
 
 /** @internal */
 export type V3CompleteAddressEntryRequest$Outbound = {
-    address?: string | undefined;
-    city?: string | undefined;
-    extendedAddress?: string | undefined;
-    postalCode?: string | undefined;
-    region?: string | undefined;
+  address?: string | undefined;
+  city?: string | undefined;
+  extendedAddress?: string | undefined;
+  postalCode?: string | undefined;
+  region?: string | undefined;
 };
 
 /** @internal */
 export const V3CompleteAddressEntryRequest$outboundSchema: z.ZodType<
-    V3CompleteAddressEntryRequest$Outbound,
-    z.ZodTypeDef,
-    V3CompleteAddressEntryRequest
+  V3CompleteAddressEntryRequest$Outbound,
+  z.ZodTypeDef,
+  V3CompleteAddressEntryRequest
 > = z.object({
-    address: z.string().optional(),
-    city: z.string().optional(),
-    extendedAddress: z.string().optional(),
-    postalCode: z.string().optional(),
-    region: z.string().optional(),
+  address: z.string().optional(),
+  city: z.string().optional(),
+  extendedAddress: z.string().optional(),
+  postalCode: z.string().optional(),
+  region: z.string().optional(),
 });
 
 /**
@@ -67,10 +67,10 @@ export const V3CompleteAddressEntryRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace V3CompleteAddressEntryRequest$ {
-    /** @deprecated use `V3CompleteAddressEntryRequest$inboundSchema` instead. */
-    export const inboundSchema = V3CompleteAddressEntryRequest$inboundSchema;
-    /** @deprecated use `V3CompleteAddressEntryRequest$outboundSchema` instead. */
-    export const outboundSchema = V3CompleteAddressEntryRequest$outboundSchema;
-    /** @deprecated use `V3CompleteAddressEntryRequest$Outbound` instead. */
-    export type Outbound = V3CompleteAddressEntryRequest$Outbound;
+  /** @deprecated use `V3CompleteAddressEntryRequest$inboundSchema` instead. */
+  export const inboundSchema = V3CompleteAddressEntryRequest$inboundSchema;
+  /** @deprecated use `V3CompleteAddressEntryRequest$outboundSchema` instead. */
+  export const outboundSchema = V3CompleteAddressEntryRequest$outboundSchema;
+  /** @deprecated use `V3CompleteAddressEntryRequest$Outbound` instead. */
+  export type Outbound = V3CompleteAddressEntryRequest$Outbound;
 }

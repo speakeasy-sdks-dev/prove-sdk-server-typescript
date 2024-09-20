@@ -6,9 +6,9 @@
 import { KYCFieldTypeResponseInternal } from "@prove-identity/prove-api/models/components";
 
 let value: KYCFieldTypeResponseInternal = {
-    name: "name",
-    source: "source",
-    value: "value",
+  name: "name",
+  source: "source",
+  value: "value",
 };
 ```
 

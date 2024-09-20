@@ -6,9 +6,9 @@
 import { V3ChallengeRequest } from "@prove-identity/prove-api/models/components";
 
 let value: V3ChallengeRequest = {
-    correlationId: "713189b8-5555-4b08-83ba-75d08780aebd",
-    dob: "1981-01",
-    ssn: "0596",
+  correlationId: "713189b8-5555-4b08-83ba-75d08780aebd",
+  dob: "1981-01",
+  ssn: "0596",
 };
 ```
 

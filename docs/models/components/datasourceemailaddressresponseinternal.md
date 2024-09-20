@@ -6,7 +6,7 @@
 import { DataSourceEmailAddressResponseInternal } from "@prove-identity/prove-api/models/components";
 
 let value: DataSourceEmailAddressResponseInternal = {
-    emailAddress: true,
+  emailAddress: true,
 };
 ```
 

@@ -5,38 +5,38 @@
 import * as z from "zod";
 
 export type DataSourceIdentifiersResponseInternal = {
-    dob?: boolean | undefined;
-    last4?: boolean | undefined;
-    ssn?: boolean | undefined;
+  dob?: boolean | undefined;
+  last4?: boolean | undefined;
+  ssn?: boolean | undefined;
 };
 
 /** @internal */
 export const DataSourceIdentifiersResponseInternal$inboundSchema: z.ZodType<
-    DataSourceIdentifiersResponseInternal,
-    z.ZodTypeDef,
-    unknown
+  DataSourceIdentifiersResponseInternal,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    dob: z.boolean().optional(),
-    last4: z.boolean().optional(),
-    ssn: z.boolean().optional(),
+  dob: z.boolean().optional(),
+  last4: z.boolean().optional(),
+  ssn: z.boolean().optional(),
 });
 
 /** @internal */
 export type DataSourceIdentifiersResponseInternal$Outbound = {
-    dob?: boolean | undefined;
-    last4?: boolean | undefined;
-    ssn?: boolean | undefined;
+  dob?: boolean | undefined;
+  last4?: boolean | undefined;
+  ssn?: boolean | undefined;
 };
 
 /** @internal */
 export const DataSourceIdentifiersResponseInternal$outboundSchema: z.ZodType<
-    DataSourceIdentifiersResponseInternal$Outbound,
-    z.ZodTypeDef,
-    DataSourceIdentifiersResponseInternal
+  DataSourceIdentifiersResponseInternal$Outbound,
+  z.ZodTypeDef,
+  DataSourceIdentifiersResponseInternal
 > = z.object({
-    dob: z.boolean().optional(),
-    last4: z.boolean().optional(),
-    ssn: z.boolean().optional(),
+  dob: z.boolean().optional(),
+  last4: z.boolean().optional(),
+  ssn: z.boolean().optional(),
 });
 
 /**
@@ -44,10 +44,12 @@ export const DataSourceIdentifiersResponseInternal$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace DataSourceIdentifiersResponseInternal$ {
-    /** @deprecated use `DataSourceIdentifiersResponseInternal$inboundSchema` instead. */
-    export const inboundSchema = DataSourceIdentifiersResponseInternal$inboundSchema;
-    /** @deprecated use `DataSourceIdentifiersResponseInternal$outboundSchema` instead. */
-    export const outboundSchema = DataSourceIdentifiersResponseInternal$outboundSchema;
-    /** @deprecated use `DataSourceIdentifiersResponseInternal$Outbound` instead. */
-    export type Outbound = DataSourceIdentifiersResponseInternal$Outbound;
+  /** @deprecated use `DataSourceIdentifiersResponseInternal$inboundSchema` instead. */
+  export const inboundSchema =
+    DataSourceIdentifiersResponseInternal$inboundSchema;
+  /** @deprecated use `DataSourceIdentifiersResponseInternal$outboundSchema` instead. */
+  export const outboundSchema =
+    DataSourceIdentifiersResponseInternal$outboundSchema;
+  /** @deprecated use `DataSourceIdentifiersResponseInternal$Outbound` instead. */
+  export type Outbound = DataSourceIdentifiersResponseInternal$Outbound;
 }

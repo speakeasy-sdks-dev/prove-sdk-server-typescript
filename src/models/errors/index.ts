@@ -3,6 +3,7 @@
  */
 
 export * from "./error.js";
+export * from "./error400.js";
 export * from "./httpclienterrors.js";
 export * from "./sdkerror.js";
 export * from "./sdkvalidationerror.js";

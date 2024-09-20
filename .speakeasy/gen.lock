@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a84d4042-f2ee-4a15-a6ed-f9a5bffa02d0
 management:
-  docChecksum: d5085c37725b62fbab7461d9c263a9ed
+  docChecksum: 03492019bf34656d6d3863a59b68936b
   docVersion: 1.0.0
-  speakeasyVersion: 1.381.4
-  generationVersion: 2.404.9
-  releaseVersion: 0.6.0
-  configChecksum: 2f00ce869b65b224c653ceca4ee82dff
+  speakeasyVersion: 1.400.1
+  generationVersion: 2.420.2
+  releaseVersion: 0.7.0
+  configChecksum: d738c5d3750ffb44add66c73b356df8f
   repoURL: https://github.com/prove-identity/prove-sdk-server-typescript.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-typescript
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.14.1
+    core: 3.17.5
     defaultEnabledRetries: 0.1.0
     envVarSecurityUsage: 0.1.1
     examples: 2.81.4
@@ -26,25 +26,66 @@ features:
     sdkHooks: 0.1.0
     serverIDs: 2.81.2
 generatedFiles:
-  - src/funcs/v3V3TokenRequest.ts
-  - src/funcs/v3V3ChallengeRequest.ts
-  - src/funcs/v3V3CompleteRequest.ts
-  - src/funcs/v3V3StartRequest.ts
-  - src/funcs/v3V3ValidateRequest.ts
-  - src/sdk/v3.ts
-  - src/sdk/sdk.ts
   - .eslintrc.cjs
+  - .gitattributes
   - .npmignore
+  - CONTRIBUTING.md
   - FUNCTIONS.md
   - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/components/amltypelistresponseinternal.md
+  - docs/models/components/datasourceaddressresponseinternal.md
+  - docs/models/components/datasourceemailaddressresponseinternal.md
+  - docs/models/components/datasourceidentifiersresponseinternal.md
+  - docs/models/components/datasourceinternal.md
+  - docs/models/components/datasourcenameresponseinternal.md
+  - docs/models/components/httpmetadata.md
+  - docs/models/components/idvdatainternal.md
+  - docs/models/components/kycfieldtyperesponseinternal.md
+  - docs/models/components/kycinternal.md
+  - docs/models/components/security.md
+  - docs/models/components/v3challengeaddressentryrequest.md
+  - docs/models/components/v3challengeindividualrequest.md
+  - docs/models/components/v3challengerequest.md
+  - docs/models/components/v3challengeresponse.md
+  - docs/models/components/v3completeaddressentryrequest.md
+  - docs/models/components/v3completeindividualrequest.md
+  - docs/models/components/v3completerequest.md
+  - docs/models/components/v3completeresponse.md
+  - docs/models/components/v3startrequest.md
+  - docs/models/components/v3startresponse.md
+  - docs/models/components/v3tokenrequest.md
+  - docs/models/components/v3tokenresponse.md
+  - docs/models/components/v3validaterequest.md
+  - docs/models/components/v3validateresponse.md
+  - docs/models/errors/error400.md
+  - docs/models/errors/errort.md
+  - docs/models/operations/v3challengerequestresponse.md
+  - docs/models/operations/v3completerequestresponse.md
+  - docs/models/operations/v3startrequestresponse.md
+  - docs/models/operations/v3tokenrequestresponse.md
+  - docs/models/operations/v3validaterequestresponse.md
+  - docs/sdks/proveapi/README.md
+  - docs/sdks/v3/README.md
   - jsr.json
   - package.json
   - src/core.ts
+  - src/funcs/v3V3ChallengeRequest.ts
+  - src/funcs/v3V3CompleteRequest.ts
+  - src/funcs/v3V3StartRequest.ts
+  - src/funcs/v3V3TokenRequest.ts
+  - src/funcs/v3V3ValidateRequest.ts
+  - src/hooks/clientcredentials.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
   - src/lib/dlv.ts
   - src/lib/encodings.ts
+  - src/lib/files.ts
   - src/lib/http.ts
   - src/lib/is-plain-object.ts
   - src/lib/logger.ts
@@ -55,10 +96,47 @@ generatedFiles:
   - src/lib/sdks.ts
   - src/lib/security.ts
   - src/lib/url.ts
-  - src/sdk/index.ts
+  - src/models/components/amltypelistresponseinternal.ts
+  - src/models/components/datasourceaddressresponseinternal.ts
+  - src/models/components/datasourceemailaddressresponseinternal.ts
+  - src/models/components/datasourceidentifiersresponseinternal.ts
+  - src/models/components/datasourceinternal.ts
+  - src/models/components/datasourcenameresponseinternal.ts
+  - src/models/components/httpmetadata.ts
+  - src/models/components/idvdatainternal.ts
+  - src/models/components/index.ts
+  - src/models/components/kycfieldtyperesponseinternal.ts
+  - src/models/components/kycinternal.ts
+  - src/models/components/security.ts
+  - src/models/components/v3challengeaddressentryrequest.ts
+  - src/models/components/v3challengeindividualrequest.ts
+  - src/models/components/v3challengerequest.ts
+  - src/models/components/v3challengeresponse.ts
+  - src/models/components/v3completeaddressentryrequest.ts
+  - src/models/components/v3completeindividualrequest.ts
+  - src/models/components/v3completerequest.ts
+  - src/models/components/v3completeresponse.ts
+  - src/models/components/v3startrequest.ts
+  - src/models/components/v3startresponse.ts
+  - src/models/components/v3tokenrequest.ts
+  - src/models/components/v3tokenresponse.ts
+  - src/models/components/v3validaterequest.ts
+  - src/models/components/v3validateresponse.ts
+  - src/models/errors/error.ts
+  - src/models/errors/error400.ts
   - src/models/errors/httpclienterrors.ts
+  - src/models/errors/index.ts
   - src/models/errors/sdkerror.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/operations/index.ts
+  - src/models/operations/v3challengerequest.ts
+  - src/models/operations/v3completerequest.ts
+  - src/models/operations/v3startrequest.ts
+  - src/models/operations/v3tokenrequest.ts
+  - src/models/operations/v3validaterequest.ts
+  - src/sdk/index.ts
+  - src/sdk/sdk.ts
+  - src/sdk/v3.ts
   - src/types/blobs.ts
   - src/types/constdatetime.ts
   - src/types/enums.ts
@@ -66,79 +144,81 @@ generatedFiles:
   - src/types/index.ts
   - src/types/operations.ts
   - src/types/rfcdate.ts
+  - src/types/streams.ts
   - tsconfig.json
-  - src/models/operations/v3tokenrequest.ts
-  - src/models/operations/v3challengerequest.ts
-  - src/models/operations/v3completerequest.ts
-  - src/models/operations/v3startrequest.ts
-  - src/models/operations/v3validaterequest.ts
-  - src/models/components/v3tokenresponse.ts
-  - src/models/components/httpmetadata.ts
-  - src/models/components/v3tokenrequest.ts
-  - src/models/components/v3challengeresponse.ts
-  - src/models/components/v3challengeindividualrequest.ts
-  - src/models/components/v3challengeaddressentryrequest.ts
-  - src/models/components/v3challengerequest.ts
-  - src/models/components/v3completeresponse.ts
-  - src/models/components/kycinternal.ts
-  - src/models/components/amltypelistresponseinternal.ts
-  - src/models/components/kycfieldtyperesponseinternal.ts
-  - src/models/components/idvdatainternal.ts
-  - src/models/components/datasourceinternal.ts
-  - src/models/components/datasourcenameresponseinternal.ts
-  - src/models/components/datasourceidentifiersresponseinternal.ts
-  - src/models/components/datasourceemailaddressresponseinternal.ts
-  - src/models/components/datasourceaddressresponseinternal.ts
-  - src/models/components/v3completerequest.ts
-  - src/models/components/v3completeindividualrequest.ts
-  - src/models/components/v3completeaddressentryrequest.ts
-  - src/models/components/v3startresponse.ts
-  - src/models/components/v3startrequest.ts
-  - src/models/components/v3validateresponse.ts
-  - src/models/components/v3validaterequest.ts
-  - src/models/components/security.ts
-  - src/models/errors/error.ts
-  - src/models/errors/index.ts
-  - src/models/operations/index.ts
-  - src/models/components/index.ts
-  - docs/models/operations/v3tokenrequestresponse.md
-  - docs/models/operations/v3challengerequestresponse.md
-  - docs/models/operations/v3completerequestresponse.md
-  - docs/models/operations/v3startrequestresponse.md
-  - docs/models/operations/v3validaterequestresponse.md
-  - docs/models/components/v3tokenresponse.md
-  - docs/models/components/httpmetadata.md
-  - docs/models/components/v3tokenrequest.md
-  - docs/models/components/v3challengeresponse.md
-  - docs/models/components/v3challengeindividualrequest.md
-  - docs/models/components/v3challengeaddressentryrequest.md
-  - docs/models/components/v3challengerequest.md
-  - docs/models/components/v3completeresponse.md
-  - docs/models/components/kycinternal.md
-  - docs/models/components/amltypelistresponseinternal.md
-  - docs/models/components/kycfieldtyperesponseinternal.md
-  - docs/models/components/idvdatainternal.md
-  - docs/models/components/datasourceinternal.md
-  - docs/models/components/datasourcenameresponseinternal.md
-  - docs/models/components/datasourceidentifiersresponseinternal.md
-  - docs/models/components/datasourceemailaddressresponseinternal.md
-  - docs/models/components/datasourceaddressresponseinternal.md
-  - docs/models/components/v3completerequest.md
-  - docs/models/components/v3completeindividualrequest.md
-  - docs/models/components/v3completeaddressentryrequest.md
-  - docs/models/components/v3startresponse.md
-  - docs/models/components/v3startrequest.md
-  - docs/models/components/v3validateresponse.md
-  - docs/models/components/v3validaterequest.md
-  - docs/models/components/security.md
-  - docs/models/errors/errort.md
-  - docs/sdks/proveapi/README.md
-  - docs/lib/utils/retryconfig.md
-  - docs/sdks/v3/README.md
-  - USAGE.md
-  - .gitattributes
-  - src/hooks/hooks.ts
-  - src/hooks/types.ts
-  - src/hooks/index.ts
-  - src/hooks/clientcredentials.ts
-  - CONTRIBUTING.md
+examples:
+  V3TokenRequest:
+    speakeasy-default-v3-token-request:
+      requestBody:
+        application/x-www-form-urlencoded: {"client_id": "customer_id", "client_secret": "secret", "grant_type": "client_credentials"}
+      responses:
+        "200":
+          application/json: {"access_token": "eyJ...", "expires_in": 3600, "refresh_expires_in": 3600, "refresh_token": "eyJ...", "token_type": "Bearer"}
+        "400":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+  V3ChallengeRequest:
+    speakeasy-default-v3-challenge-request:
+      requestBody:
+        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "dob": "1981-01", "ssn": "0596"}
+      responses:
+        "200":
+          application/json: {"individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "39 South Trail", "postalCode": "78285", "region": "TX"}, {"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "39 South Trail", "postalCode": "78285", "region": "TX"}], "dob": "1981-01-17T00:00:00Z", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}, "next": {"v3-complete": "/v3/complete"}, "success": true}
+        "400":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+  V3CompleteRequest:
+    Example1:
+      requestBody:
+        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
+      responses:
+        "200":
+          application/json: {"idv": {"dataSource1": {"address": {"addressScore": 0, "city": true, "distance": 6.027456183070403, "postalCode": true, "region": true, "street": true, "streetNumber": 1}, "cipConfidence": "cipConfidence", "email": {"emailAddress": true}, "identifiers": {"dob": true, "last4": true, "ssn": true}, "name": {"firstName": 5, "lastName": 5, "nameScore": 2}, "reasonCodes": ["reasonCodes", "reasonCodes"]}, "dataSource2": {"address": {"addressScore": 0, "city": true, "distance": 6.027456183070403, "postalCode": true, "region": true, "street": true, "streetNumber": 1}, "cipConfidence": "cipConfidence", "email": {"emailAddress": true}, "identifiers": {"dob": true, "last4": true, "ssn": true}, "name": {"firstName": 5, "lastName": 5, "nameScore": 2}, "reasonCodes": ["reasonCodes", "reasonCodes"]}, "multiCIPConfidence": "multiCIPConfidence"}, "kyc": {"amlTypeLists": [{"amlType": "amlType", "fields": [{"name": "name", "source": "source", "value": "value"}, {"name": "name", "source": "source", "value": "value"}], "listHits": 7}, {"amlType": "amlType", "fields": [{"name": "name", "source": "source", "value": "value"}, {"name": "name", "source": "source", "value": "value"}], "listHits": 7}], "totalHits": 9}, "next": {"done": "done"}, "success": true}
+    Example2:
+      requestBody:
+        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
+      responses:
+        "200":
+          application/json: {"idv": {"dataSource1": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "high", "email": {"emailAddress": true}, "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "dataSource2": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "high", "email": {"emailAddress": true}, "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "multiCIPConfidence": "high"}, "kyc": {"amlTypeLists": [{"amlType": "pep-class-1", "fields": [{"name": "Country", "source": "complyAdvantage", "value": "shire"}, {"name": "Political Position", "source": "complyAdvantage", "value": "President"}, {"name": "Gender", "source": "complyAdvantage", "value": "male"}], "listHits": 1}], "totalHits": 4}, "next": {"done": "done"}, "success": true}
+    Example3:
+      requestBody:
+        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
+      responses:
+        "200":
+          application/json: {"idv": {"dataSource1": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "low", "email": {"emailAddress": true}, "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}, "reasonCodes": ["DI"]}, "dataSource2": {"address": {"addressScore": 33, "city": true, "distance": 0, "postalCode": true, "region": true, "street": false, "streetNumber": 100}, "cipConfidence": "low", "email": {"emailAddress": true}, "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "multiCIPConfidence": "low"}, "kyc": {"amlTypeLists": [{"amlType": "amlType", "fields": [{"name": "name", "source": "source", "value": "value"}, {"name": "name", "source": "source", "value": "value"}], "listHits": 7}], "totalHits": 0}, "next": {"done": "done"}, "success": false}
+    Example4:
+      requestBody:
+        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
+      responses:
+        "200":
+          application/json: {"idv": {"dataSource1": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "low", "email": {"emailAddress": true}, "identifiers": {"dob": true, "ssn": false}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}, "reasonCodes": ["DI"]}, "dataSource2": {"address": {"addressScore": 33, "city": true, "distance": 0, "postalCode": true, "region": true, "street": false, "streetNumber": 100}, "cipConfidence": "low", "email": {"emailAddress": true}, "identifiers": {"dob": true, "ssn": false}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "multiCIPConfidence": "low"}, "kyc": {"amlTypeLists": [{"amlType": "amlType", "fields": [{"name": "name", "source": "source", "value": "value"}, {"name": "name", "source": "source", "value": "value"}], "listHits": 7}], "totalHits": 0}, "next": {"done": "done"}, "success": false}
+    Example5:
+      requestBody:
+        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
+      responses:
+        "200":
+          application/json: {"idv": {"dataSource1": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "high", "email": {"emailAddress": true}, "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "dataSource2": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "high", "email": {"emailAddress": true}, "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "multiCIPConfidence": "high"}, "kyc": {"amlTypeLists": [{"amlType": "amlType", "fields": [{"name": "name", "source": "source", "value": "value"}, {"name": "name", "source": "source", "value": "value"}], "listHits": 7}], "totalHits": 0}, "next": {"done": "done"}, "success": true}
+  V3StartRequest:
+    speakeasy-default-v3-start-request:
+      requestBody:
+        application/json: {"dob": "1981-01", "emailAddress": "mpinsonm@dyndns.org", "finalTargetUrl": "https://www.example.com/landing-page", "flowType": "mobile", "ipAddress": "10.0.0.1", "phoneNumber": "2001001695", "smsMessage": "\"Your code is: ####.\"", "ssn": "0596"}
+      responses:
+        "200":
+          application/json: {"authToken": "eyJhbGciOi...", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "next": {"v3-validate": "/v3/validate"}}
+        "400":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+  V3ValidateRequest:
+    speakeasy-default-v3-validate-request:
+      requestBody:
+        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd"}
+      responses:
+        "200":
+          application/json: {"challengeMissing": true, "next": {"v3-challenge": "/v3/challenge"}, "phoneNumber": "2001001686", "success": true}
+        "400":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
