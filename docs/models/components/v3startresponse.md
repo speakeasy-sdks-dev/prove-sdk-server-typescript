@@ -6,11 +6,11 @@
 import { V3StartResponse } from "@prove-identity/prove-api/models/components";
 
 let value: V3StartResponse = {
-    authToken: "eyJhbGciOi...",
-    correlationId: "713189b8-5555-4b08-83ba-75d08780aebd",
-    next: {
-        "v3-validate": "/v3/validate",
-    },
+  authToken: "eyJhbGciOi...",
+  correlationId: "713189b8-5555-4b08-83ba-75d08780aebd",
+  next: {
+    "v3-validate": "/v3/validate",
+  },
 };
 ```
 

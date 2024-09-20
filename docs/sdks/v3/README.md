@@ -28,7 +28,7 @@ async function run() {
     clientSecret: "secret",
     grantType: "client_credentials",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -85,13 +85,14 @@ run();
 
 | Error Object     | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
-| errors.ErrorT    | 400,500          | application/json |
+| errors.Error400  | 400              | application/json |
+| errors.ErrorT    | 500              | application/json |
 | errors.SDKError  | 4xx-5xx          | */*              |
 
 
 ## v3ChallengeRequest
 
-Send this request to submit challenge information. Either a DOB or last 4 of SSN needs to be submitted if neither was submitted to the /start endpoint (challenge fields submitted to this endpoint will overwrite the /start endpoint fields submitted). It will return a correlation ID, user information, and the next step to call in the flow. This capability is only available in Prove Pre-Fill®, it's not available in Prove Identity®. You'll notice that when using Prove Identity®, if /validate is successful, it will then return `v3-complete` as one of the keys in the `Next` field map instead of `v3-challenge`.
+Send this request to submit challenge information. Either a DOB or last 4 of SSN needs to be submitted if neither was submitted to the /start endpoint (challenge fields submitted to this endpoint will overwrite the /start endpoint fields submitted). It will return a correlation ID, user information, and the next step to call in the flow. This capability is only available in Pre-Fill®, it's not available in Prove Identity®. You'll notice that when using Prove Identity®, if /validate is successful, it will then return `v3-complete` as one of the keys in the `Next` field map instead of `v3-challenge`.
 
 ### Example Usage
 
@@ -111,7 +112,7 @@ async function run() {
     dob: "1981-01",
     ssn: "0596",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -173,13 +174,14 @@ run();
 
 | Error Object     | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
-| errors.ErrorT    | 400,500          | application/json |
+| errors.Error400  | 400              | application/json |
+| errors.ErrorT    | 500              | application/json |
 | errors.SDKError  | 4xx-5xx          | */*              |
 
 
 ## v3CompleteRequest
 
-Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow. At least a first name, last name, or SSN is required to verify ownership.
+Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow. There is a validation check that requires at least first + last name or SSN passed in, else an HTTP 400 is returned. Additionally, specific to the Pre-Fill® or Prove Identity® with KYC use case, you need to pass in first name, last name, DOB and SSN (or address) to ensure you receive back the KYC elements and correct CIP values.
 
 ### Example Usage
 
@@ -213,18 +215,17 @@ async function run() {
           region: "MS",
         },
       ],
-      dob: "2024-05-02T00:00:00Z",
+      dob: "1981-01",
       emailAddresses: [
         "jdoe@example.com",
         "dsmith@example.com",
       ],
       firstName: "Tod",
-      last4SSN: "1234",
       lastName: "Weedall",
       ssn: "265228370",
     },
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -269,13 +270,12 @@ async function run() {
           region: "MS",
         },
       ],
-      dob: "2024-05-02T00:00:00Z",
+      dob: "1981-01",
       emailAddresses: [
         "jdoe@example.com",
         "dsmith@example.com",
       ],
       firstName: "Tod",
-      last4SSN: "1234",
       lastName: "Weedall",
       ssn: "265228370",
     },
@@ -311,7 +311,8 @@ run();
 
 | Error Object     | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
-| errors.ErrorT    | 400,500          | application/json |
+| errors.Error400  | 400              | application/json |
+| errors.ErrorT    | 500              | application/json |
 | errors.SDKError  | 4xx-5xx          | */*              |
 
 
@@ -339,9 +340,10 @@ async function run() {
     flowType: "mobile",
     ipAddress: "10.0.0.1",
     phoneNumber: "2001001695",
+    smsMessage: "\"Your code is: ####.\"",
     ssn: "0596",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -374,6 +376,7 @@ async function run() {
     flowType: "mobile",
     ipAddress: "10.0.0.1",
     phoneNumber: "2001001695",
+    smsMessage: "\"Your code is: ####.\"",
     ssn: "0596",
   });
 
@@ -407,7 +410,8 @@ run();
 
 | Error Object     | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
-| errors.ErrorT    | 400,500          | application/json |
+| errors.Error400  | 400              | application/json |
+| errors.ErrorT    | 500              | application/json |
 | errors.SDKError  | 4xx-5xx          | */*              |
 
 
@@ -431,7 +435,7 @@ async function run() {
   const result = await proveapi.v3.v3ValidateRequest({
     correlationId: "713189b8-5555-4b08-83ba-75d08780aebd",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -491,5 +495,6 @@ run();
 
 | Error Object     | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
-| errors.ErrorT    | 400,500          | application/json |
+| errors.Error400  | 400              | application/json |
+| errors.ErrorT    | 500              | application/json |
 | errors.SDKError  | 4xx-5xx          | */*              |

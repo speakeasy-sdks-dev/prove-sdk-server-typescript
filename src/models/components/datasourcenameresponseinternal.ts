@@ -5,38 +5,38 @@
 import * as z from "zod";
 
 export type DataSourceNameResponseInternal = {
-    firstName?: number | undefined;
-    lastName?: number | undefined;
-    nameScore?: number | undefined;
+  firstName?: number | undefined;
+  lastName?: number | undefined;
+  nameScore?: number | undefined;
 };
 
 /** @internal */
 export const DataSourceNameResponseInternal$inboundSchema: z.ZodType<
-    DataSourceNameResponseInternal,
-    z.ZodTypeDef,
-    unknown
+  DataSourceNameResponseInternal,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    firstName: z.number().int().optional(),
-    lastName: z.number().int().optional(),
-    nameScore: z.number().int().optional(),
+  firstName: z.number().int().optional(),
+  lastName: z.number().int().optional(),
+  nameScore: z.number().int().optional(),
 });
 
 /** @internal */
 export type DataSourceNameResponseInternal$Outbound = {
-    firstName?: number | undefined;
-    lastName?: number | undefined;
-    nameScore?: number | undefined;
+  firstName?: number | undefined;
+  lastName?: number | undefined;
+  nameScore?: number | undefined;
 };
 
 /** @internal */
 export const DataSourceNameResponseInternal$outboundSchema: z.ZodType<
-    DataSourceNameResponseInternal$Outbound,
-    z.ZodTypeDef,
-    DataSourceNameResponseInternal
+  DataSourceNameResponseInternal$Outbound,
+  z.ZodTypeDef,
+  DataSourceNameResponseInternal
 > = z.object({
-    firstName: z.number().int().optional(),
-    lastName: z.number().int().optional(),
-    nameScore: z.number().int().optional(),
+  firstName: z.number().int().optional(),
+  lastName: z.number().int().optional(),
+  nameScore: z.number().int().optional(),
 });
 
 /**
@@ -44,10 +44,10 @@ export const DataSourceNameResponseInternal$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace DataSourceNameResponseInternal$ {
-    /** @deprecated use `DataSourceNameResponseInternal$inboundSchema` instead. */
-    export const inboundSchema = DataSourceNameResponseInternal$inboundSchema;
-    /** @deprecated use `DataSourceNameResponseInternal$outboundSchema` instead. */
-    export const outboundSchema = DataSourceNameResponseInternal$outboundSchema;
-    /** @deprecated use `DataSourceNameResponseInternal$Outbound` instead. */
-    export type Outbound = DataSourceNameResponseInternal$Outbound;
+  /** @deprecated use `DataSourceNameResponseInternal$inboundSchema` instead. */
+  export const inboundSchema = DataSourceNameResponseInternal$inboundSchema;
+  /** @deprecated use `DataSourceNameResponseInternal$outboundSchema` instead. */
+  export const outboundSchema = DataSourceNameResponseInternal$outboundSchema;
+  /** @deprecated use `DataSourceNameResponseInternal$Outbound` instead. */
+  export type Outbound = DataSourceNameResponseInternal$Outbound;
 }

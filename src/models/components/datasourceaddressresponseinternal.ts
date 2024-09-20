@@ -5,54 +5,54 @@
 import * as z from "zod";
 
 export type DataSourceAddressResponseInternal = {
-    addressScore?: number | undefined;
-    city?: boolean | undefined;
-    distance?: number | undefined;
-    postalCode?: boolean | undefined;
-    region?: boolean | undefined;
-    street?: boolean | undefined;
-    streetNumber?: number | undefined;
+  addressScore?: number | undefined;
+  city?: boolean | undefined;
+  distance?: number | undefined;
+  postalCode?: boolean | undefined;
+  region?: boolean | undefined;
+  street?: boolean | undefined;
+  streetNumber?: number | undefined;
 };
 
 /** @internal */
 export const DataSourceAddressResponseInternal$inboundSchema: z.ZodType<
-    DataSourceAddressResponseInternal,
-    z.ZodTypeDef,
-    unknown
+  DataSourceAddressResponseInternal,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    addressScore: z.number().int().optional(),
-    city: z.boolean().optional(),
-    distance: z.number().optional(),
-    postalCode: z.boolean().optional(),
-    region: z.boolean().optional(),
-    street: z.boolean().optional(),
-    streetNumber: z.number().int().optional(),
+  addressScore: z.number().int().optional(),
+  city: z.boolean().optional(),
+  distance: z.number().optional(),
+  postalCode: z.boolean().optional(),
+  region: z.boolean().optional(),
+  street: z.boolean().optional(),
+  streetNumber: z.number().int().optional(),
 });
 
 /** @internal */
 export type DataSourceAddressResponseInternal$Outbound = {
-    addressScore?: number | undefined;
-    city?: boolean | undefined;
-    distance?: number | undefined;
-    postalCode?: boolean | undefined;
-    region?: boolean | undefined;
-    street?: boolean | undefined;
-    streetNumber?: number | undefined;
+  addressScore?: number | undefined;
+  city?: boolean | undefined;
+  distance?: number | undefined;
+  postalCode?: boolean | undefined;
+  region?: boolean | undefined;
+  street?: boolean | undefined;
+  streetNumber?: number | undefined;
 };
 
 /** @internal */
 export const DataSourceAddressResponseInternal$outboundSchema: z.ZodType<
-    DataSourceAddressResponseInternal$Outbound,
-    z.ZodTypeDef,
-    DataSourceAddressResponseInternal
+  DataSourceAddressResponseInternal$Outbound,
+  z.ZodTypeDef,
+  DataSourceAddressResponseInternal
 > = z.object({
-    addressScore: z.number().int().optional(),
-    city: z.boolean().optional(),
-    distance: z.number().optional(),
-    postalCode: z.boolean().optional(),
-    region: z.boolean().optional(),
-    street: z.boolean().optional(),
-    streetNumber: z.number().int().optional(),
+  addressScore: z.number().int().optional(),
+  city: z.boolean().optional(),
+  distance: z.number().optional(),
+  postalCode: z.boolean().optional(),
+  region: z.boolean().optional(),
+  street: z.boolean().optional(),
+  streetNumber: z.number().int().optional(),
 });
 
 /**
@@ -60,10 +60,11 @@ export const DataSourceAddressResponseInternal$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace DataSourceAddressResponseInternal$ {
-    /** @deprecated use `DataSourceAddressResponseInternal$inboundSchema` instead. */
-    export const inboundSchema = DataSourceAddressResponseInternal$inboundSchema;
-    /** @deprecated use `DataSourceAddressResponseInternal$outboundSchema` instead. */
-    export const outboundSchema = DataSourceAddressResponseInternal$outboundSchema;
-    /** @deprecated use `DataSourceAddressResponseInternal$Outbound` instead. */
-    export type Outbound = DataSourceAddressResponseInternal$Outbound;
+  /** @deprecated use `DataSourceAddressResponseInternal$inboundSchema` instead. */
+  export const inboundSchema = DataSourceAddressResponseInternal$inboundSchema;
+  /** @deprecated use `DataSourceAddressResponseInternal$outboundSchema` instead. */
+  export const outboundSchema =
+    DataSourceAddressResponseInternal$outboundSchema;
+  /** @deprecated use `DataSourceAddressResponseInternal$Outbound` instead. */
+  export type Outbound = DataSourceAddressResponseInternal$Outbound;
 }

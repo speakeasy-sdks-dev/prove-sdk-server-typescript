@@ -6,59 +6,65 @@
 import { IDVDataInternal } from "@prove-identity/prove-api/models/components";
 
 let value: IDVDataInternal = {
-    dataSource1: {
-        address: {
-            addressScore: 0,
-            city: true,
-            distance: 6.027456183070403,
-            postalCode: true,
-            region: true,
-            street: true,
-            streetNumber: 1,
-        },
-        cipConfidence: "cipConfidence",
-        email: {
-            emailAddress: true,
-        },
-        identifiers: {
-            dob: true,
-            last4: true,
-            ssn: true,
-        },
-        name: {
-            firstName: 5,
-            lastName: 5,
-            nameScore: 2,
-        },
-        reasonCodes: ["reasonCodes", "reasonCodes"],
+  dataSource1: {
+    address: {
+      addressScore: 0,
+      city: true,
+      distance: 6.027456183070403,
+      postalCode: true,
+      region: true,
+      street: true,
+      streetNumber: 1,
     },
-    dataSource2: {
-        address: {
-            addressScore: 0,
-            city: true,
-            distance: 6.027456183070403,
-            postalCode: true,
-            region: true,
-            street: true,
-            streetNumber: 1,
-        },
-        cipConfidence: "cipConfidence",
-        email: {
-            emailAddress: true,
-        },
-        identifiers: {
-            dob: true,
-            last4: true,
-            ssn: true,
-        },
-        name: {
-            firstName: 5,
-            lastName: 5,
-            nameScore: 2,
-        },
-        reasonCodes: ["reasonCodes", "reasonCodes"],
+    cipConfidence: "cipConfidence",
+    email: {
+      emailAddress: true,
     },
-    multiCIPConfidence: "multiCIPConfidence",
+    identifiers: {
+      dob: true,
+      last4: true,
+      ssn: true,
+    },
+    name: {
+      firstName: 5,
+      lastName: 5,
+      nameScore: 2,
+    },
+    reasonCodes: [
+      "reasonCodes",
+      "reasonCodes",
+    ],
+  },
+  dataSource2: {
+    address: {
+      addressScore: 0,
+      city: true,
+      distance: 6.027456183070403,
+      postalCode: true,
+      region: true,
+      street: true,
+      streetNumber: 1,
+    },
+    cipConfidence: "cipConfidence",
+    email: {
+      emailAddress: true,
+    },
+    identifiers: {
+      dob: true,
+      last4: true,
+      ssn: true,
+    },
+    name: {
+      firstName: 5,
+      lastName: 5,
+      nameScore: 2,
+    },
+    reasonCodes: [
+      "reasonCodes",
+      "reasonCodes",
+    ],
+  },
+  multiCIPConfidence: "multiCIPConfidence",
 };
 ```
 

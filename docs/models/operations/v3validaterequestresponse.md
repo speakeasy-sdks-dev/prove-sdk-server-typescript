@@ -6,20 +6,20 @@
 import { V3ValidateRequestResponse } from "@prove-identity/prove-api/models/operations";
 
 let value: V3ValidateRequestResponse = {
-    httpMeta: {
-        response: new Response('{"message": "hello world"}', {
-            headers: { "Content-Type": "application/json" },
-        }),
-        request: new Request("https://example.com"),
+  httpMeta: {
+    response: new Response("{\"message\": \"hello world\"}", {
+      headers: { "Content-Type": "application/json" },
+    }),
+    request: new Request("https://example.com"),
+  },
+  v3ValidateResponse: {
+    challengeMissing: true,
+    next: {
+      "v3-challenge": "/v3/challenge",
     },
-    v3ValidateResponse: {
-        challengeMissing: true,
-        next: {
-            "v3-challenge": "/v3/challenge",
-        },
-        phoneNumber: "2001001686",
-        success: true,
-    },
+    phoneNumber: "2001001686",
+    success: true,
+  },
 };
 ```
 

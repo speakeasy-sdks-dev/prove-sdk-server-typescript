@@ -6,11 +6,11 @@
 import { V3TokenResponse } from "@prove-identity/prove-api/models/components";
 
 let value: V3TokenResponse = {
-    accessToken: "eyJ...",
-    expiresIn: 3600,
-    refreshExpiresIn: 3600,
-    refreshToken: "eyJ...",
-    tokenType: "Bearer",
+  accessToken: "eyJ...",
+  expiresIn: 3600,
+  refreshExpiresIn: 3600,
+  refreshToken: "eyJ...",
+  tokenType: "Bearer",
 };
 ```
 

@@ -6,110 +6,116 @@
 import { V3CompleteRequestResponse } from "@prove-identity/prove-api/models/operations";
 
 let value: V3CompleteRequestResponse = {
-    httpMeta: {
-        response: new Response('{"message": "hello world"}', {
-            headers: { "Content-Type": "application/json" },
-        }),
-        request: new Request("https://example.com"),
+  httpMeta: {
+    response: new Response("{\"message\": \"hello world\"}", {
+      headers: { "Content-Type": "application/json" },
+    }),
+    request: new Request("https://example.com"),
+  },
+  v3CompleteResponse: {
+    idv: {
+      dataSource1: {
+        address: {
+          addressScore: 0,
+          city: true,
+          distance: 6.027456183070403,
+          postalCode: true,
+          region: true,
+          street: true,
+          streetNumber: 1,
+        },
+        cipConfidence: "cipConfidence",
+        email: {
+          emailAddress: true,
+        },
+        identifiers: {
+          dob: true,
+          last4: true,
+          ssn: true,
+        },
+        name: {
+          firstName: 5,
+          lastName: 5,
+          nameScore: 2,
+        },
+        reasonCodes: [
+          "reasonCodes",
+          "reasonCodes",
+        ],
+      },
+      dataSource2: {
+        address: {
+          addressScore: 0,
+          city: true,
+          distance: 6.027456183070403,
+          postalCode: true,
+          region: true,
+          street: true,
+          streetNumber: 1,
+        },
+        cipConfidence: "cipConfidence",
+        email: {
+          emailAddress: true,
+        },
+        identifiers: {
+          dob: true,
+          last4: true,
+          ssn: true,
+        },
+        name: {
+          firstName: 5,
+          lastName: 5,
+          nameScore: 2,
+        },
+        reasonCodes: [
+          "reasonCodes",
+          "reasonCodes",
+        ],
+      },
+      multiCIPConfidence: "multiCIPConfidence",
     },
-    v3CompleteResponse: {
-        idv: {
-            dataSource1: {
-                address: {
-                    addressScore: 0,
-                    city: true,
-                    distance: 6.027456183070403,
-                    postalCode: true,
-                    region: true,
-                    street: true,
-                    streetNumber: 1,
-                },
-                cipConfidence: "cipConfidence",
-                email: {
-                    emailAddress: true,
-                },
-                identifiers: {
-                    dob: true,
-                    last4: true,
-                    ssn: true,
-                },
-                name: {
-                    firstName: 5,
-                    lastName: 5,
-                    nameScore: 2,
-                },
-                reasonCodes: ["reasonCodes", "reasonCodes"],
+    kyc: {
+      amlTypeLists: [
+        {
+          amlType: "amlType",
+          fields: [
+            {
+              name: "name",
+              source: "source",
+              value: "value",
             },
-            dataSource2: {
-                address: {
-                    addressScore: 0,
-                    city: true,
-                    distance: 6.027456183070403,
-                    postalCode: true,
-                    region: true,
-                    street: true,
-                    streetNumber: 1,
-                },
-                cipConfidence: "cipConfidence",
-                email: {
-                    emailAddress: true,
-                },
-                identifiers: {
-                    dob: true,
-                    last4: true,
-                    ssn: true,
-                },
-                name: {
-                    firstName: 5,
-                    lastName: 5,
-                    nameScore: 2,
-                },
-                reasonCodes: ["reasonCodes", "reasonCodes"],
+            {
+              name: "name",
+              source: "source",
+              value: "value",
             },
-            multiCIPConfidence: "multiCIPConfidence",
+          ],
+          listHits: 7,
         },
-        kyc: {
-            amlTypeLists: [
-                {
-                    amlType: "amlType",
-                    fields: [
-                        {
-                            name: "name",
-                            source: "source",
-                            value: "value",
-                        },
-                        {
-                            name: "name",
-                            source: "source",
-                            value: "value",
-                        },
-                    ],
-                    listHits: 7,
-                },
-                {
-                    amlType: "amlType",
-                    fields: [
-                        {
-                            name: "name",
-                            source: "source",
-                            value: "value",
-                        },
-                        {
-                            name: "name",
-                            source: "source",
-                            value: "value",
-                        },
-                    ],
-                    listHits: 7,
-                },
-            ],
-            totalHits: 9,
+        {
+          amlType: "amlType",
+          fields: [
+            {
+              name: "name",
+              source: "source",
+              value: "value",
+            },
+            {
+              name: "name",
+              source: "source",
+              value: "value",
+            },
+          ],
+          listHits: 7,
         },
-        next: {
-            done: "done",
-        },
-        success: true,
+      ],
+      totalHits: 9,
     },
+    next: {
+      "done": "done",
+    },
+    success: true,
+  },
 };
 ```
 

@@ -6,9 +6,9 @@
 import { DataSourceIdentifiersResponseInternal } from "@prove-identity/prove-api/models/components";
 
 let value: DataSourceIdentifiersResponseInternal = {
-    dob: true,
-    last4: true,
-    ssn: true,
+  dob: true,
+  last4: true,
+  ssn: true,
 };
 ```
 

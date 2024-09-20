@@ -6,41 +6,41 @@
 import { KYCInternal } from "@prove-identity/prove-api/models/components";
 
 let value: KYCInternal = {
-    amlTypeLists: [
+  amlTypeLists: [
+    {
+      amlType: "amlType",
+      fields: [
         {
-            amlType: "amlType",
-            fields: [
-                {
-                    name: "name",
-                    source: "source",
-                    value: "value",
-                },
-                {
-                    name: "name",
-                    source: "source",
-                    value: "value",
-                },
-            ],
-            listHits: 7,
+          name: "name",
+          source: "source",
+          value: "value",
         },
         {
-            amlType: "amlType",
-            fields: [
-                {
-                    name: "name",
-                    source: "source",
-                    value: "value",
-                },
-                {
-                    name: "name",
-                    source: "source",
-                    value: "value",
-                },
-            ],
-            listHits: 7,
+          name: "name",
+          source: "source",
+          value: "value",
         },
-    ],
-    totalHits: 9,
+      ],
+      listHits: 7,
+    },
+    {
+      amlType: "amlType",
+      fields: [
+        {
+          name: "name",
+          source: "source",
+          value: "value",
+        },
+        {
+          name: "name",
+          source: "source",
+          value: "value",
+        },
+      ],
+      listHits: 7,
+    },
+  ],
+  totalHits: 9,
 };
 ```
 

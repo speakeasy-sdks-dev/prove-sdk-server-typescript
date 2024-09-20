@@ -5,38 +5,38 @@
 import * as z from "zod";
 
 export type KYCFieldTypeResponseInternal = {
-    name?: string | undefined;
-    source?: string | undefined;
-    value?: string | undefined;
+  name?: string | undefined;
+  source?: string | undefined;
+  value?: string | undefined;
 };
 
 /** @internal */
 export const KYCFieldTypeResponseInternal$inboundSchema: z.ZodType<
-    KYCFieldTypeResponseInternal,
-    z.ZodTypeDef,
-    unknown
+  KYCFieldTypeResponseInternal,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    name: z.string().optional(),
-    source: z.string().optional(),
-    value: z.string().optional(),
+  name: z.string().optional(),
+  source: z.string().optional(),
+  value: z.string().optional(),
 });
 
 /** @internal */
 export type KYCFieldTypeResponseInternal$Outbound = {
-    name?: string | undefined;
-    source?: string | undefined;
-    value?: string | undefined;
+  name?: string | undefined;
+  source?: string | undefined;
+  value?: string | undefined;
 };
 
 /** @internal */
 export const KYCFieldTypeResponseInternal$outboundSchema: z.ZodType<
-    KYCFieldTypeResponseInternal$Outbound,
-    z.ZodTypeDef,
-    KYCFieldTypeResponseInternal
+  KYCFieldTypeResponseInternal$Outbound,
+  z.ZodTypeDef,
+  KYCFieldTypeResponseInternal
 > = z.object({
-    name: z.string().optional(),
-    source: z.string().optional(),
-    value: z.string().optional(),
+  name: z.string().optional(),
+  source: z.string().optional(),
+  value: z.string().optional(),
 });
 
 /**
@@ -44,10 +44,10 @@ export const KYCFieldTypeResponseInternal$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace KYCFieldTypeResponseInternal$ {
-    /** @deprecated use `KYCFieldTypeResponseInternal$inboundSchema` instead. */
-    export const inboundSchema = KYCFieldTypeResponseInternal$inboundSchema;
-    /** @deprecated use `KYCFieldTypeResponseInternal$outboundSchema` instead. */
-    export const outboundSchema = KYCFieldTypeResponseInternal$outboundSchema;
-    /** @deprecated use `KYCFieldTypeResponseInternal$Outbound` instead. */
-    export type Outbound = KYCFieldTypeResponseInternal$Outbound;
+  /** @deprecated use `KYCFieldTypeResponseInternal$inboundSchema` instead. */
+  export const inboundSchema = KYCFieldTypeResponseInternal$inboundSchema;
+  /** @deprecated use `KYCFieldTypeResponseInternal$outboundSchema` instead. */
+  export const outboundSchema = KYCFieldTypeResponseInternal$outboundSchema;
+  /** @deprecated use `KYCFieldTypeResponseInternal$Outbound` instead. */
+  export type Outbound = KYCFieldTypeResponseInternal$Outbound;
 }

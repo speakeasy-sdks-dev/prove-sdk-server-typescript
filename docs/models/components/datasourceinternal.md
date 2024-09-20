@@ -6,30 +6,33 @@
 import { DataSourceInternal } from "@prove-identity/prove-api/models/components";
 
 let value: DataSourceInternal = {
-    address: {
-        addressScore: 0,
-        city: true,
-        distance: 6.027456183070403,
-        postalCode: true,
-        region: true,
-        street: true,
-        streetNumber: 1,
-    },
-    cipConfidence: "cipConfidence",
-    email: {
-        emailAddress: true,
-    },
-    identifiers: {
-        dob: true,
-        last4: true,
-        ssn: true,
-    },
-    name: {
-        firstName: 5,
-        lastName: 5,
-        nameScore: 2,
-    },
-    reasonCodes: ["reasonCodes", "reasonCodes"],
+  address: {
+    addressScore: 0,
+    city: true,
+    distance: 6.027456183070403,
+    postalCode: true,
+    region: true,
+    street: true,
+    streetNumber: 1,
+  },
+  cipConfidence: "cipConfidence",
+  email: {
+    emailAddress: true,
+  },
+  identifiers: {
+    dob: true,
+    last4: true,
+    ssn: true,
+  },
+  name: {
+    firstName: 5,
+    lastName: 5,
+    nameScore: 2,
+  },
+  reasonCodes: [
+    "reasonCodes",
+    "reasonCodes",
+  ],
 };
 ```
 

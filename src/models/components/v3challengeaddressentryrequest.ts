@@ -5,61 +5,61 @@
 import * as z from "zod";
 
 export type V3ChallengeAddressEntryRequest = {
-    /**
-     * Address is the street address of the individual.
-     */
-    address?: string | undefined;
-    /**
-     * City of the individual.
-     */
-    city?: string | undefined;
-    /**
-     * Extended address is the apartment number or other extended address information.
-     */
-    extendedAddress?: string | undefined;
-    /**
-     * Postal code is the zip code of the individual. It can be either 5 digits (XXXXX) or ZIP+4 (XXXXX-XXXX).
-     */
-    postalCode?: string | undefined;
-    /**
-     * Region is the state or locality of the individual.
-     */
-    region?: string | undefined;
+  /**
+   * Address is the street address of the individual.
+   */
+  address?: string | undefined;
+  /**
+   * City of the individual.
+   */
+  city?: string | undefined;
+  /**
+   * Extended address is the apartment number or other extended address information.
+   */
+  extendedAddress?: string | undefined;
+  /**
+   * Postal code is the zip code of the individual. It can be either 5 digits (XXXXX) or ZIP+4 (XXXXX-XXXX).
+   */
+  postalCode?: string | undefined;
+  /**
+   * Region is the state or locality of the individual.
+   */
+  region?: string | undefined;
 };
 
 /** @internal */
 export const V3ChallengeAddressEntryRequest$inboundSchema: z.ZodType<
-    V3ChallengeAddressEntryRequest,
-    z.ZodTypeDef,
-    unknown
+  V3ChallengeAddressEntryRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    address: z.string().optional(),
-    city: z.string().optional(),
-    extendedAddress: z.string().optional(),
-    postalCode: z.string().optional(),
-    region: z.string().optional(),
+  address: z.string().optional(),
+  city: z.string().optional(),
+  extendedAddress: z.string().optional(),
+  postalCode: z.string().optional(),
+  region: z.string().optional(),
 });
 
 /** @internal */
 export type V3ChallengeAddressEntryRequest$Outbound = {
-    address?: string | undefined;
-    city?: string | undefined;
-    extendedAddress?: string | undefined;
-    postalCode?: string | undefined;
-    region?: string | undefined;
+  address?: string | undefined;
+  city?: string | undefined;
+  extendedAddress?: string | undefined;
+  postalCode?: string | undefined;
+  region?: string | undefined;
 };
 
 /** @internal */
 export const V3ChallengeAddressEntryRequest$outboundSchema: z.ZodType<
-    V3ChallengeAddressEntryRequest$Outbound,
-    z.ZodTypeDef,
-    V3ChallengeAddressEntryRequest
+  V3ChallengeAddressEntryRequest$Outbound,
+  z.ZodTypeDef,
+  V3ChallengeAddressEntryRequest
 > = z.object({
-    address: z.string().optional(),
-    city: z.string().optional(),
-    extendedAddress: z.string().optional(),
-    postalCode: z.string().optional(),
-    region: z.string().optional(),
+  address: z.string().optional(),
+  city: z.string().optional(),
+  extendedAddress: z.string().optional(),
+  postalCode: z.string().optional(),
+  region: z.string().optional(),
 });
 
 /**
@@ -67,10 +67,10 @@ export const V3ChallengeAddressEntryRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace V3ChallengeAddressEntryRequest$ {
-    /** @deprecated use `V3ChallengeAddressEntryRequest$inboundSchema` instead. */
-    export const inboundSchema = V3ChallengeAddressEntryRequest$inboundSchema;
-    /** @deprecated use `V3ChallengeAddressEntryRequest$outboundSchema` instead. */
-    export const outboundSchema = V3ChallengeAddressEntryRequest$outboundSchema;
-    /** @deprecated use `V3ChallengeAddressEntryRequest$Outbound` instead. */
-    export type Outbound = V3ChallengeAddressEntryRequest$Outbound;
+  /** @deprecated use `V3ChallengeAddressEntryRequest$inboundSchema` instead. */
+  export const inboundSchema = V3ChallengeAddressEntryRequest$inboundSchema;
+  /** @deprecated use `V3ChallengeAddressEntryRequest$outboundSchema` instead. */
+  export const outboundSchema = V3ChallengeAddressEntryRequest$outboundSchema;
+  /** @deprecated use `V3ChallengeAddressEntryRequest$Outbound` instead. */
+  export type Outbound = V3ChallengeAddressEntryRequest$Outbound;
 }

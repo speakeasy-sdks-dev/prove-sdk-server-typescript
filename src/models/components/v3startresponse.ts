@@ -5,44 +5,47 @@
 import * as z from "zod";
 
 export type V3StartResponse = {
-    /**
-     * AuthToken is a bearer token for use by the Prove Client SDK.
-     */
-    authToken: string;
-    /**
-     * Correlation ID is the unique ID that Prove generates for the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow - it cannot be reused outside of a single flow.
-     */
-    correlationId: string;
-    /**
-     * Next contains the next set of allowed calls in the same flow.
-     */
-    next: { [k: string]: string };
+  /**
+   * AuthToken is a bearer token for use by the Prove Client SDK.
+   */
+  authToken: string;
+  /**
+   * Correlation ID is the unique ID that Prove generates for the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow - it cannot be reused outside of a single flow.
+   */
+  correlationId: string;
+  /**
+   * Next contains the next set of allowed calls in the same flow.
+   */
+  next: { [k: string]: string };
 };
 
 /** @internal */
-export const V3StartResponse$inboundSchema: z.ZodType<V3StartResponse, z.ZodTypeDef, unknown> =
-    z.object({
-        authToken: z.string(),
-        correlationId: z.string(),
-        next: z.record(z.string()),
-    });
+export const V3StartResponse$inboundSchema: z.ZodType<
+  V3StartResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  authToken: z.string(),
+  correlationId: z.string(),
+  next: z.record(z.string()),
+});
 
 /** @internal */
 export type V3StartResponse$Outbound = {
-    authToken: string;
-    correlationId: string;
-    next: { [k: string]: string };
+  authToken: string;
+  correlationId: string;
+  next: { [k: string]: string };
 };
 
 /** @internal */
 export const V3StartResponse$outboundSchema: z.ZodType<
-    V3StartResponse$Outbound,
-    z.ZodTypeDef,
-    V3StartResponse
+  V3StartResponse$Outbound,
+  z.ZodTypeDef,
+  V3StartResponse
 > = z.object({
-    authToken: z.string(),
-    correlationId: z.string(),
-    next: z.record(z.string()),
+  authToken: z.string(),
+  correlationId: z.string(),
+  next: z.record(z.string()),
 });
 
 /**
@@ -50,10 +53,10 @@ export const V3StartResponse$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace V3StartResponse$ {
-    /** @deprecated use `V3StartResponse$inboundSchema` instead. */
-    export const inboundSchema = V3StartResponse$inboundSchema;
-    /** @deprecated use `V3StartResponse$outboundSchema` instead. */
-    export const outboundSchema = V3StartResponse$outboundSchema;
-    /** @deprecated use `V3StartResponse$Outbound` instead. */
-    export type Outbound = V3StartResponse$Outbound;
+  /** @deprecated use `V3StartResponse$inboundSchema` instead. */
+  export const inboundSchema = V3StartResponse$inboundSchema;
+  /** @deprecated use `V3StartResponse$outboundSchema` instead. */
+  export const outboundSchema = V3StartResponse$outboundSchema;
+  /** @deprecated use `V3StartResponse$Outbound` instead. */
+  export type Outbound = V3StartResponse$Outbound;
 }

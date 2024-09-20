@@ -6,12 +6,12 @@
 import { V3ValidateResponse } from "@prove-identity/prove-api/models/components";
 
 let value: V3ValidateResponse = {
-    challengeMissing: true,
-    next: {
-        "v3-challenge": "/v3/challenge",
-    },
-    phoneNumber: "2001001686",
-    success: true,
+  challengeMissing: true,
+  next: {
+    "v3-challenge": "/v3/challenge",
+  },
+  phoneNumber: "2001001686",
+  success: true,
 };
 ```
 

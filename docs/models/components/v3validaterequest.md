@@ -6,7 +6,7 @@
 import { V3ValidateRequest } from "@prove-identity/prove-api/models/components";
 
 let value: V3ValidateRequest = {
-    correlationId: "713189b8-5555-4b08-83ba-75d08780aebd",
+  correlationId: "713189b8-5555-4b08-83ba-75d08780aebd",
 };
 ```
 

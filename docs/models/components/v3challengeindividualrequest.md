@@ -6,27 +6,30 @@
 import { V3ChallengeIndividualRequest } from "@prove-identity/prove-api/models/components";
 
 let value: V3ChallengeIndividualRequest = {
-    addresses: [
-        {
-            address: "39 South Trail",
-            city: "San Antonio",
-            extendedAddress: "Apt 23",
-            postalCode: "78285",
-            region: "TX",
-        },
-        {
-            address: "4861 Jay Junction",
-            city: "Boston",
-            extendedAddress: "Apt 78",
-            postalCode: "02208",
-            region: "MS",
-        },
-    ],
-    dob: "2024-05-02T00:00:00Z",
-    emailAddresses: ["jdoe@example.com", "dsmith@example.com"],
-    firstName: "Tod",
-    lastName: "Weedall",
-    ssn: "265228370",
+  addresses: [
+    {
+      address: "39 South Trail",
+      city: "San Antonio",
+      extendedAddress: "Apt 23",
+      postalCode: "78285",
+      region: "TX",
+    },
+    {
+      address: "4861 Jay Junction",
+      city: "Boston",
+      extendedAddress: "Apt 78",
+      postalCode: "02208",
+      region: "MS",
+    },
+  ],
+  dob: "1981-01-17T00:00:00Z",
+  emailAddresses: [
+    "jdoe@example.com",
+    "dsmith@example.com",
+  ],
+  firstName: "Tod",
+  lastName: "Weedall",
+  ssn: "265228370",
 };
 ```
 
@@ -35,7 +38,7 @@ let value: V3ChallengeIndividualRequest = {
 | Field                                                                                                                                                                                                                                                    | Type                                                                                                                                                                                                                                                     | Required                                                                                                                                                                                                                                                 | Description                                                                                                                                                                                                                                              | Example                                                                                                                                                                                                                                                  |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `addresses`                                                                                                                                                                                                                                              | [components.V3ChallengeAddressEntryRequest](../../models/components/v3challengeaddressentryrequest.md)[]                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                                                                                                       | Addresses that belong to the individual.                                                                                                                                                                                                                 | [<br/>{<br/>"address": "39 South Trail",<br/>"city": "San Antonio",<br/>"extendedAddress": "Apt 23",<br/>"postalCode": "78285",<br/>"region": "TX"<br/>},<br/>{<br/>"address": "4861 Jay Junction",<br/>"city": "Boston",<br/>"extendedAddress": "Apt 78",<br/>"postalCode": "02208",<br/>"region": "MS"<br/>}<br/>] |
-| `dob`                                                                                                                                                                                                                                                    | *string*                                                                                                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                                                                                                       | DOB is the date of birth of the individual.                                                                                                                                                                                                              | 2024-05-02 00:00:00 +0000 UTC                                                                                                                                                                                                                            |
+| `dob`                                                                                                                                                                                                                                                    | *string*                                                                                                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                                                                                                       | DOB is the date of birth of the individual.                                                                                                                                                                                                              | 1981-01-17 00:00:00 +0000 UTC                                                                                                                                                                                                                            |
 | `emailAddresses`                                                                                                                                                                                                                                         | *string*[]                                                                                                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                                                                                                       | Email addresses that belong to the individual.                                                                                                                                                                                                           | [<br/>"jdoe@example.com",<br/>"dsmith@example.com"<br/>]                                                                                                                                                                                                 |
 | `firstName`                                                                                                                                                                                                                                              | *string*                                                                                                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                                                                                                       | First name of the individual.                                                                                                                                                                                                                            | Tod                                                                                                                                                                                                                                                      |
 | `lastName`                                                                                                                                                                                                                                               | *string*                                                                                                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                                                                                                       | Last name of the individual.                                                                                                                                                                                                                             | Weedall                                                                                                                                                                                                                                                  |

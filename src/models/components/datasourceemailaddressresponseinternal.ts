@@ -5,30 +5,30 @@
 import * as z from "zod";
 
 export type DataSourceEmailAddressResponseInternal = {
-    emailAddress?: boolean | undefined;
+  emailAddress?: boolean | undefined;
 };
 
 /** @internal */
 export const DataSourceEmailAddressResponseInternal$inboundSchema: z.ZodType<
-    DataSourceEmailAddressResponseInternal,
-    z.ZodTypeDef,
-    unknown
+  DataSourceEmailAddressResponseInternal,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    emailAddress: z.boolean().optional(),
+  emailAddress: z.boolean().optional(),
 });
 
 /** @internal */
 export type DataSourceEmailAddressResponseInternal$Outbound = {
-    emailAddress?: boolean | undefined;
+  emailAddress?: boolean | undefined;
 };
 
 /** @internal */
 export const DataSourceEmailAddressResponseInternal$outboundSchema: z.ZodType<
-    DataSourceEmailAddressResponseInternal$Outbound,
-    z.ZodTypeDef,
-    DataSourceEmailAddressResponseInternal
+  DataSourceEmailAddressResponseInternal$Outbound,
+  z.ZodTypeDef,
+  DataSourceEmailAddressResponseInternal
 > = z.object({
-    emailAddress: z.boolean().optional(),
+  emailAddress: z.boolean().optional(),
 });
 
 /**
@@ -36,10 +36,12 @@ export const DataSourceEmailAddressResponseInternal$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace DataSourceEmailAddressResponseInternal$ {
-    /** @deprecated use `DataSourceEmailAddressResponseInternal$inboundSchema` instead. */
-    export const inboundSchema = DataSourceEmailAddressResponseInternal$inboundSchema;
-    /** @deprecated use `DataSourceEmailAddressResponseInternal$outboundSchema` instead. */
-    export const outboundSchema = DataSourceEmailAddressResponseInternal$outboundSchema;
-    /** @deprecated use `DataSourceEmailAddressResponseInternal$Outbound` instead. */
-    export type Outbound = DataSourceEmailAddressResponseInternal$Outbound;
+  /** @deprecated use `DataSourceEmailAddressResponseInternal$inboundSchema` instead. */
+  export const inboundSchema =
+    DataSourceEmailAddressResponseInternal$inboundSchema;
+  /** @deprecated use `DataSourceEmailAddressResponseInternal$outboundSchema` instead. */
+  export const outboundSchema =
+    DataSourceEmailAddressResponseInternal$outboundSchema;
+  /** @deprecated use `DataSourceEmailAddressResponseInternal$Outbound` instead. */
+  export type Outbound = DataSourceEmailAddressResponseInternal$Outbound;
 }
