@@ -6,14 +6,14 @@ management:
   speakeasyVersion: internal
   generationVersion: 2.428.2
   releaseVersion: 0.7.0
-  configChecksum: d738c5d3750ffb44add66c73b356df8f
+  configChecksum: a2f8cc1551dfcfe181620ecddf42e361
   repoURL: https://github.com/prove-identity/prove-sdk-server-typescript.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-typescript
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.18.1
+    core: 3.18.2
     defaultEnabledRetries: 0.1.0
     envVarSecurityUsage: 0.1.1
     examples: 2.81.4

@@ -47,10 +47,8 @@ export async function v3V3StartRequest(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => components.V3StartRequest$outboundSchema.optional().parse(value),
     "Input validation failed",
   );
