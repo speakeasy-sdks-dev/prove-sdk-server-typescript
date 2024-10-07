@@ -187,16 +187,25 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-All SDK methods return a response object or throw an error. If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+All SDK methods return a response object or throw an error. By default, an API error will throw a `errors.SDKError`.
 
-| Error Object     | Status Code      | Content Type     |
+If a HTTP request fails, an operation my also throw an error from the `models/errors/httpclienterrors.ts` module:
+
+| HTTP Client Error                                    | Description                                          |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| RequestAbortedError                                  | HTTP request was aborted by the client               |
+| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
+| ConnectionError                                      | HTTP client was unable to make a request to a server |
+| InvalidRequestError                                  | Any input used to create a request is invalid        |
+| UnexpectedClientError                                | Unrecognised or unexpected error                     |
+
+In addition, when custom error responses are specified for an operation, the SDK may throw their associated Error type. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation. For example, the `v3TokenRequest` method may throw the following errors:
+
+| Error Type       | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
 | errors.Error400  | 400              | application/json |
 | errors.ErrorT    | 500              | application/json |
-| errors.SDKError  | 4xx-5xx          | */*              |
-
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging. 
-
+| errors.SDKError  | 4XX, 5XX         | \*/\*            |
 
 ```typescript
 import { Proveapi } from "@prove-identity/prove-api";
@@ -248,6 +257,8 @@ async function run() {
 run();
 
 ```
+
+Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -484,12 +495,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [v3V3ChallengeRequest](docs/sdks/v3/README.md#v3challengerequest)
-- [v3V3CompleteRequest](docs/sdks/v3/README.md#v3completerequest)
-- [v3V3StartRequest](docs/sdks/v3/README.md#v3startrequest)
-- [v3V3TokenRequest](docs/sdks/v3/README.md#v3tokenrequest)
-- [v3V3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest)
-
+- [`v3V3ChallengeRequest`](docs/sdks/v3/README.md#v3challengerequest) - Submit challenge.
+- [`v3V3CompleteRequest`](docs/sdks/v3/README.md#v3completerequest) - Complete flow.
+- [`v3V3StartRequest`](docs/sdks/v3/README.md#v3startrequest) - Start flow.
+- [`v3V3TokenRequest`](docs/sdks/v3/README.md#v3tokenrequest) - Request OAuth token.
+- [`v3V3ValidateRequest`](docs/sdks/v3/README.md#v3validaterequest) - Validate phone number.
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
