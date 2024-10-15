@@ -69,12 +69,13 @@ export async function v3V3ChallengeRequest(
   });
 
   const securityInput = await extractSecurity(client._options.security);
+  const requestSecurity = resolveGlobalSecurity(securityInput);
   const context = {
     operationID: "V3ChallengeRequest",
     oAuth2Scopes: [],
-    securitySource: client._options.security,
+    securitySource: securityInput,
+    resolvedSecurity: requestSecurity,
   };
-  const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,

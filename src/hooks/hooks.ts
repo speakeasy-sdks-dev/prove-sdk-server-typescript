@@ -28,10 +28,13 @@ export class SDKHooks implements Hooks {
   afterErrorHooks: AfterErrorHook[] = [];
 
   constructor() {
-    const cc = new ClientCredentialsHook();
-    this.registerSDKInitHook(cc);
-    this.registerBeforeRequestHook(cc);
-    this.registerAfterErrorHook(cc);
+    [
+      new ClientCredentialsHook(),
+    ].forEach(hook => {
+      this.registerSDKInitHook(hook);
+      this.registerBeforeRequestHook(hook);
+      this.registerAfterErrorHook(hook);
+    });
 
     initHooks(this);
   }

@@ -71,6 +71,7 @@ export async function v3V3TokenRequest(
     operationID: "V3TokenRequest",
     oAuth2Scopes: [],
     securitySource: null,
+    resolvedSecurity: null,
   };
 
   const requestRes = client._createRequest(context, {
