@@ -28,9 +28,9 @@ async function run() {
     clientSecret: "secret",
     grantType: "client_credentials",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -62,7 +62,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -83,12 +83,11 @@ run();
 
 ### Errors
 
-| Error Object     | Status Code      | Content Type     |
+| Error Type       | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
 | errors.Error400  | 400              | application/json |
 | errors.ErrorT    | 500              | application/json |
-| errors.SDKError  | 4xx-5xx          | */*              |
-
+| errors.SDKError  | 4XX, 5XX         | \*/\*            |
 
 ## v3ChallengeRequest
 
@@ -112,9 +111,9 @@ async function run() {
     dob: "1981-01",
     ssn: "0596",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -151,7 +150,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -172,12 +171,11 @@ run();
 
 ### Errors
 
-| Error Object     | Status Code      | Content Type     |
+| Error Type       | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
 | errors.Error400  | 400              | application/json |
 | errors.ErrorT    | 500              | application/json |
-| errors.SDKError  | 4xx-5xx          | */*              |
-
+| errors.SDKError  | 4XX, 5XX         | \*/\*            |
 
 ## v3CompleteRequest
 
@@ -225,9 +223,9 @@ async function run() {
       ssn: "265228370",
     },
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -288,7 +286,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -309,12 +307,11 @@ run();
 
 ### Errors
 
-| Error Object     | Status Code      | Content Type     |
+| Error Type       | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
 | errors.Error400  | 400              | application/json |
 | errors.ErrorT    | 500              | application/json |
-| errors.SDKError  | 4xx-5xx          | */*              |
-
+| errors.SDKError  | 4XX, 5XX         | \*/\*            |
 
 ## v3StartRequest
 
@@ -343,9 +340,9 @@ async function run() {
     smsMessage: "\"Your code is: ####.\"",
     ssn: "0596",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -387,7 +384,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -408,12 +405,11 @@ run();
 
 ### Errors
 
-| Error Object     | Status Code      | Content Type     |
+| Error Type       | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
 | errors.Error400  | 400              | application/json |
 | errors.ErrorT    | 500              | application/json |
-| errors.SDKError  | 4xx-5xx          | */*              |
-
+| errors.SDKError  | 4XX, 5XX         | \*/\*            |
 
 ## v3ValidateRequest
 
@@ -435,9 +431,9 @@ async function run() {
   const result = await proveapi.v3.v3ValidateRequest({
     correlationId: "713189b8-5555-4b08-83ba-75d08780aebd",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -472,7 +468,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -493,8 +489,8 @@ run();
 
 ### Errors
 
-| Error Object     | Status Code      | Content Type     |
+| Error Type       | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
 | errors.Error400  | 400              | application/json |
 | errors.ErrorT    | 500              | application/json |
-| errors.SDKError  | 4xx-5xx          | */*              |
+| errors.SDKError  | 4XX, 5XX         | \*/\*            |
