@@ -268,10 +268,10 @@ Validation errors can also occur when either method arguments or data returned f
 
 You can override the default server globally by passing a server name to the `server` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| Name | Server | Variables |
-| ----- | ------ | --------- |
-| `uat-us` | `https://platform.uat.proveapis.com` | None |
-| `prod-us` | `https://platform.proveapis.com` | None |
+| Name                                 | Server                               |
+| ------------------------------------ | ------------------------------------ |
+| `uat-us`                             | `https://platform.uat.proveapis.com` |
+| `prod-us`                            | `https://platform.proveapis.com`     |
 
 ```typescript
 import { Proveapi } from "@prove-identity/prove-api";
@@ -294,7 +294,6 @@ async function run() {
 run();
 
 ```
-
 
 ### Override Server URL Per-Client
 
